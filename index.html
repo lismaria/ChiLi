@@ -29,8 +29,7 @@
                 <a href="#"><span class="iconify" data-inline="false" data-icon="fe:home"></span></a>
                 <a href="#"><span class="iconify" data-inline="false" data-icon="carbon:information-square"></span></a>
                 <a href="#"><span class="iconify" data-inline="false" data-icon="ic:outline-perm-contact-calendar"></span></a>
-                <span onclick="myfunc()" class="iconify" id="switch" data-inline="false" data-icon="carbon:moon"></span>
-
+                <span onclick="myfunc()" class="iconify" id="switch" data-inline="false" data-icon="carbon:moon"></span>                
                 <div style="display:flex;align-items: center;">
                     <button id="sign" style="background: #F8F7F7;color: #3FB3C3;">SignUp</button>
                     <button id="sign" style="background: #E83A5A;color: #ffffff;">Login</button>
@@ -57,7 +56,10 @@
             {
                 const element = document.getElementById('switch');
                 element.classList.toggle('dark-theme'); 
-            }    
+                if (foo.hasAttribute("data-icon")){
+                    element.setAttribute("data-icon","carbon:sun"); 
+                } 
+            }
         </script>
     </div>
 
