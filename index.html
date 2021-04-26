@@ -11,10 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Righteous&family=Saira&display=swap" rel="stylesheet">   
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="lib/angular.js"></script>
+    
     <title>ChiLi</title>
 </head>
 
-<body>
+<body class="light-theme" id="switch">
 
     <div class="container">
 
@@ -28,19 +29,14 @@
                 <a href="#"><span class="iconify" data-inline="false" data-icon="fe:home"></span></a>
                 <a href="#"><span class="iconify" data-inline="false" data-icon="carbon:information-square"></span></a>
                 <a href="#"><span class="iconify" data-inline="false" data-icon="ic:outline-perm-contact-calendar"></span></a>
-                <span class="iconify" data-inline="false" data-icon="carbon:moon"></span>
+                <button onclick="myfunc()"><span class="iconify" id="switch" data-inline="false" data-icon="carbon:moon"></span></button>
 
                 <div style="display:flex;align-items: center;">
-                    <button style="background: #F8F7F7;color: #3FB3C3;">SignUp</button>
-                    <button style="background: #E83A5A;color: #ffffff;">Login</button>
+                    <button id="sign" style="background: #F8F7F7;color: #3FB3C3;">SignUp</button>
+                    <button id="sign" style="background: #E83A5A;color: #ffffff;">Login</button>
                 </div>
             </div>
         </div>
-
-        
-        <!-- <div class="spacer">
-            &nbsp;
-        </div> -->
 
 
         <div class="home-content">
@@ -56,7 +52,13 @@
 
         <img src="img/blob2.png" class="blob2">
 
-
+        <script>
+            function myfunc()
+            {
+                const element = document.getElementById('switch');
+                element.classList.toggle('dark-theme'); 
+            }    
+        </script>
     </div>
 
 </body>

@@ -4,6 +4,26 @@
     padding: 0;
 }
 
+:root
+{
+    --primary:#3FB3C3;
+    --secondary:#D8E9F3;
+    --blob1light:invert(63%) sepia(59%) saturate(464%) hue-rotate(140deg) brightness(88%) contrast(83%);
+    --blob1dark:invert(30%) sepia(58%) saturate(716%) hue-rotate(175deg) brightness(100%);
+}
+
+.light-theme 
+{
+    --color:var(--primary);
+    --blob1:var(--blob1light);
+}
+
+.dark-theme 
+{
+    --color:var(--secondary);
+    --blob1:var(--blob1dark);
+}
+
 .header
 {
     width: 100%;
@@ -43,7 +63,7 @@
     margin-left:25px;
 }
 
-button
+#sign
 {
     width: 112px;
     height: 40px;
@@ -53,8 +73,7 @@ button
     margin-right: 10px;
     font-family: Saira;
     font-size: 18px;
-    font-weight: 900;
-    
+    font-weight: 900; 
 }
 
 .blob1
@@ -62,7 +81,7 @@ button
     position: absolute;
     top: 0;
     right: 0; 
-    filter: invert(63%) sepia(59%) saturate(464%) hue-rotate(140deg) brightness(88%) contrast(83%);
+    filter: var(--blob1);
     z-index: -1;    
 }
 
@@ -88,7 +107,7 @@ button
     font-family: Righteous;
     width: 547px;
     font-size: 50px;
-    color: #3FB3C3;
+    color: var(--color);
 }
 
 .welcometextfoot
