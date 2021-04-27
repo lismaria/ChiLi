@@ -2,7 +2,8 @@
 {
     margin: 0;
     padding: 0;
-    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
 }
 
 .container {
@@ -24,11 +25,14 @@
     --bgdark: #000000;
     --bgtxtlight:#000000;
     --bgtxtdark: #ffffff;
-    --blob1light:invert(63%) sepia(59%) saturate(464%) hue-rotate(140deg) brightness(88%) contrast(83%);
-    --blob1dark:invert(30%) sepia(58%) saturate(716%) hue-rotate(175deg) brightness(100%);
-    --blob2light:invert(93%) sepia(12%) saturate(653%) hue-rotate(176deg) brightness(101%) contrast(91%);
-    --blob2dark:invert(57%) sepia(13%) saturate(1543%) hue-rotate(183deg) brightness(89%) contrast(90%);
-
+    --blob12light:invert(63%) sepia(59%) saturate(464%) hue-rotate(140deg) brightness(88%) contrast(83%);
+    /* --blob1dark:invert(30%) sepia(58%) saturate(716%) hue-rotate(175deg) brightness(100%);
+    --blob2light:invert(93%) sepia(12%) saturate(653%) hue-rotate(176deg) brightness(101%) contrast(91%); */
+    --blob12dark:invert(57%) sepia(13%) saturate(1543%) hue-rotate(183deg) brightness(89%) contrast(90%);
+    --blob34light:invert(100%) sepia(0%) saturate(7500%) hue-rotate(27deg) brightness(120%) contrast(114%);
+    --blob34dark:invert(0%) sepia(0%) saturate(0%) hue-rotate(80deg) brightness(89%) contrast(105%);
+    --bghome2light:#3FB3C3;
+    --bghome2dark:#6786C7;
 }
 
 .light-theme 
@@ -36,8 +40,12 @@
     --color:var(--primary);
     --bg:var(--bglight);
     --bgtxt:var(--bgtxtlight);
-    --blob1:var(--blob1light);
-    --blob2:var(--blob2light);
+    --blob12:var(--blob12light);
+    /* --blob2:var(--blob2light); */
+    --bghome2:var(--bghome2light);
+    --blob34:var(--blob34light);
+    --sblob14:var(--bglight);
+    --sblob23:var(--bghome2light);
 }
 
 .dark-theme 
@@ -45,13 +53,22 @@
     --color:var(--secondary);
     --bg:var(--bgdark);
     --bgtxt:var(--bgtxtdark);
-    --blob1:var(--blob1dark);
-    --blob2:var(--blob2dark);
+    --blob12:var(--blob12dark);
+    /* --blob2:var(--blob2dark); */
+    --bghome2:var(--bghome2dark);
+    --blob34:var(--blob34dark);
+    --sblob14:var(--bgdark);
+    --sblob23:var(--bghome2dark);
 }
 body{
     background-color:var(--bg);
     color:var(--bgtxt)
 }
+
+.container{
+    height: 100vh;
+}
+
 .header
 {
     width: 100%;
@@ -113,8 +130,9 @@ body{
     position: absolute;
     top: 0;
     right: 0; 
-    filter: var(--blob1);
-    z-index: -1;    
+    filter: var(--blob12);
+    z-index: -1;  
+    flex-shrink: 3;  
 }
 
 .home-content
@@ -153,8 +171,8 @@ body{
 
 .get-started
 {
-    background: var(--color);
-    color: var(--bg);
+    background: #D8E9F3;
+    color: #000000;
     font-family: 'Saira', sans-serif;
     font-size: 40px;
     width: 305px;
@@ -177,10 +195,115 @@ body{
     position: absolute;
     left: 0;
     bottom: 0;
-    filter: var(--blob2);
+    filter: var(--blob12);
     z-index:-1;
 }
 
+.container2{
+    height:100vh;
+    background-color: var(--bghome2);
+    position: relative;
+}
+ 
+.blob3{
+    filter: var(--blob34);
+    position: absolute;
+    top: 0;
+    right: 0; 
+    flex-shrink: 3; 
+}
+.blob4{
+    filter: var(--blob34);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.homeservice{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: centre;
+    align-items:center;
+}
+.wrapper{
+    max-height:100vh;
+    width:90%;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.panels{
+    position:relative;
+    margin-left:225px;
+}
+
+.panels div:nth-child(2),.panels div:nth-child(3){
+    background-color: blue;
+    color: black;
+}
+
+
+.panels div{
+    width:250px;
+    height:250px;
+    margin-left:100px;
+    margin-top:100px;    
+    cursor: pointer;
+}
+
+
+.panels div.front{
+    position: absolute;
+    border-radius: 39% 57% 52% 45% / 55% 39% 60% 46%;
+}
+
+.panels div.back{
+    transform: rotateX(90deg);
+    border-radius: 39% 57% 52% 45% / 55% 39% 60% 46%;
+}
+
+.panels:hover div.front{
+    animation: twirl 0.2s ease-in forwards;
+}
+.panels:hover div.back{
+    animation: twirl 0.2s 0.2s ease-in forwards reverse;
+}
+
+@keyframes twirl{
+    0% {transform: rotateY(0deg)}
+    100%{ transform: rotateY(90deg);}
+}
+
+svg#servicon.iconify{
+  
+    color: var(--bgtxt);
+    margin-top: 70px;
+    margin-left: 80px;
+    width: 80px;
+    height: 80px;
+}
+
+div.back{
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;    
+    letter-spacing: 2px;
+}
+
+
+.panels:nth-child(1) .front,.panels:nth-child(4) .front{
+    background: var(--sblob14);
+}
+.panels:nth-child(1) .back,.panels:nth-child(4) .back{
+    background: var(--sblob14);
+}
+.panels:nth-child(2) .front,.panels:nth-child(3) .front{
+    background: var(--sblob23);
+}
+.panels:nth-child(2) .back,.panels:nth-child(3) .back{
+    background: var(--sblob23);
+}
 
 .homepage3
 {

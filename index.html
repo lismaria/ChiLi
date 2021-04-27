@@ -19,9 +19,15 @@
         }    
     </script>
     <script>
-        var obj=angular.module("mod",[]);
-        obj.controller("cont",function($scope)
-        {
+        var app= angular.module('mod',[])
+        app.controller("ctrl",function($scope){
+            $scope.home=[
+                {icon:  "fluent:people-audience-20-filled", descr: "forums"},
+                {icon: "emojione-monotone:newspaper",descr: 'news'},
+                {icon: "bx:bxs-share-alt",descr:'resource'},
+                {icon:  "clarity:chat-bubble-solid-badged", descr:'sastawhatsapp'}
+            ];
+
             $scope.moon=true
             $scope.darktheme=function()
             {
@@ -33,13 +39,13 @@
                 $scope.moon=true;
                 $scope.sun=false;
             }
-        })
+        });
     </script>
     
     <title>ChiLi</title>
 </head>
 
-<body class="light-theme" id="switch" ng-app="mod" ng-controller="cont">
+<body class="light-theme" id="switch" ng-app="mod" ng-controller="ctrl">
 
     <div class="container">
 
@@ -76,58 +82,74 @@
 
         <img src="img/blob2.png" class="blob2">
 
-    
     </div>
+
+
+    
+    <div class="container2">
+        <img src="img/blob3.png" class="blob3">
+        <img src="img/blob4.png" class="blob4">
+        
+        <div class="home-service">
+            <div class="wrapper">
+                <div class="panels" ng-repeat="x in home">
+                    <div class="front" ><span id="servicon" class="iconify" data-inline="false" data-icon={{x.icon}} ></span></div>
+                    <div class="back" style="color: var(--bgtxt);" >{{x.descr}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <div class="container3">
 
-        <img src="img/footer-wave.png" class="footer-wave">
+        
+       <img src="img/footer-wave.png" class="footer-wave">
 
-        <div class="homepage3">
-            <div class="homepage3-img">
-                <img src="img/get started.png">
-            </div>
+       <div class="homepage3">
+           <div class="homepage3-img">
+               <img src="img/get started.png">
+           </div>
 
-            <div class="homepage3-middle">
-                <p>You've scrolled this far !! What are you waiting for?</p>
-                <div>
-                    <button style="background: #E73A5A;color:#ffffff">Get in Touch</button>
-                    <button class="homepage3-middle-button2">SignUp</button>
-                </div>
-            </div>
+           <div class="homepage3-middle">
+               <p>You've scrolled this far !! What are you waiting for?</p>
+               <div>
+                   <button style="background: #E73A5A;color:#ffffff">Get in Touch</button>
+                   <button class="homepage3-middle-button2">SignUp</button>
+               </div>
+           </div>
 
-            <div class="laptop">
-                <img src="img/laptop.png">
-            </div>
-        </div>
+           <div class="laptop">
+               <img src="img/laptop.png">
+           </div>
+       </div>
 
 
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="img/logo.png">
-                <p>ChiLi</p>
-            </div>
-            
-            <div class="footer-links">
-                <a href="#">Home</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact Us</a>
-            </div>
+       <div class="footer-content">
+           <div class="footer-logo">
+               <img src="img/logo.png">
+               <p>ChiLi</p>
+           </div>
+           
+           <div class="footer-links">
+               <a href="#">Home</a>
+               <a href="#">About Us</a>
+               <a href="#">Contact Us</a>
+           </div>
 
-            <div class="footer-media">
-                <span class="iconify" data-inline="false" data-icon="akar-icons:facebook-fill" style="font-size: 47.040000915527344px;"></span>
-                <span class="iconify" data-inline="false" data-icon="akar-icons:instagram-fill" style="font-size: 47.040000915527344px;"></span>
-                <span class="iconify" data-inline="false" data-icon="akar-icons:twitter-fill" style="font-size: 47.040000915527344px;"></span>
-            </div>
-        </div>
+           <div class="footer-media">
+               <span class="iconify" data-inline="false" data-icon="akar-icons:facebook-fill" style="font-size: 47.040000915527344px;"></span>
+               <span class="iconify" data-inline="false" data-icon="akar-icons:instagram-fill" style="font-size: 47.040000915527344px;"></span>
+               <span class="iconify" data-inline="false" data-icon="akar-icons:twitter-fill" style="font-size: 47.040000915527344px;"></span>
+           </div>
+       </div>
 
-        <div class="footer">
-            <center><p>© 2021 ChiLi. All rights reserved</p></center>
-        </div>
+       <div class="footer">
+           <center><p>© 2021 ChiLi. All rights reserved</p></center>
+       </div>
 
 
     </div>
-
 </body>
 </html>
