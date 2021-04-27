@@ -22,10 +22,10 @@
         var app= angular.module('mod',[])
         app.controller("ctrl",function($scope){
             $scope.home=[
-                {icon:  "fluent:people-audience-20-filled", descr: "forums"},
-                {icon: "emojione-monotone:newspaper",descr: 'news'},
-                {icon: "bx:bxs-share-alt",descr:'resource'},
-                {icon:  "clarity:chat-bubble-solid-badged", descr:'sastawhatsapp'}
+                {icon:  "fluent:people-audience-20-filled", descr: "Forums"},
+                {icon: "emojione-monotone:newspaper",descr: 'News'},
+                {icon: "bx:bxs-share-alt",descr:'Resources'},
+                {icon:  "clarity:chat-bubble-solid-badged", descr:'Messaging'}
             ];
 
             $scope.moon=true
@@ -62,7 +62,7 @@
                 <span onclick="changetheme()" ng-click="darktheme()" ng-if="moon" class="iconify" data-inline="false" data-icon="carbon:moon"></span>   
                 <span onclick="changetheme()" ng-click="lighttheme()" ng-if="sun" class="iconify" data-inline="false" data-icon="ic:outline-light-mode"></span>             
                 <div style="display:flex;align-items: center;">
-                    <button class="sign" style="background: #F8F7F7;color: #3FB3C3;">SignUp</button>
+                    <button class="sign" style="background: #F8F7F7;color: var(--bghome2);">SignUp</button>
                     <button class="sign" style="background: #E83A5A;color: #ffffff;">Login</button>
                 </div>
             </div>
@@ -72,8 +72,10 @@
         <div class="home-content">
             <div class="home-text">
                 <h1 class="welcometext">Go beyond and make education FUN !!</h1>
-                <p class="welcometextfoot">Join groups, explore your knowledge and share thoughts with people from all over the world !!</p>
-                <button class="get-started">Get Started</button>
+                <div class="welcometextfoot">
+                    <p>Join groups, explore your knowledge and share thoughts with people from all over the world !!</p>
+                    <button>Get Started</button>
+                </div>
             </div>
             <div>
                 <img src="img/Illustration.png" class="illustration1">
@@ -104,7 +106,8 @@
 
     <div class="container3">
 
-        
+
+        <img src="img/blob5.png" class="blob5">
        <img src="img/footer-wave.png" class="footer-wave">
 
        <div class="homepage3">

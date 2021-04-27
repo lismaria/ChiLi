@@ -15,6 +15,7 @@
     position: relative;
     width:100%;
     height:100vh;
+    overflow: hidden;
 }
 
 :root
@@ -26,13 +27,11 @@
     --bgtxtlight:#000000;
     --bgtxtdark: #ffffff;
     --blob12light:invert(63%) sepia(59%) saturate(464%) hue-rotate(140deg) brightness(88%) contrast(83%);
-    /* --blob1dark:invert(30%) sepia(58%) saturate(716%) hue-rotate(175deg) brightness(100%);
-    --blob2light:invert(93%) sepia(12%) saturate(653%) hue-rotate(176deg) brightness(101%) contrast(91%); */
-    --blob12dark:invert(57%) sepia(13%) saturate(1543%) hue-rotate(183deg) brightness(89%) contrast(90%);
+    --blob12dark:invert(15%) sepia(99%) saturate(2704%) hue-rotate(205deg) brightness(91%) contrast(101%);
     --blob34light:invert(100%) sepia(0%) saturate(7500%) hue-rotate(27deg) brightness(120%) contrast(114%);
     --blob34dark:invert(0%) sepia(0%) saturate(0%) hue-rotate(80deg) brightness(89%) contrast(105%);
-    --bghome2light:#3FB3C3;
-    --bghome2dark:#6786C7;
+    --bghome2dark:#0047A1;
+    --bghome2darksecondary:#6786C7;
 }
 
 .light-theme 
@@ -41,11 +40,11 @@
     --bg:var(--bglight);
     --bgtxt:var(--bgtxtlight);
     --blob12:var(--blob12light);
-    /* --blob2:var(--blob2light); */
-    --bghome2:var(--bghome2light);
+    --bghome2:var(--primary);
     --blob34:var(--blob34light);
     --sblob14:var(--bglight);
-    --sblob23:var(--bghome2light);
+    --sblob23:var(--primary);
+    --footertext:var(--secondary);
 }
 
 .dark-theme 
@@ -54,11 +53,11 @@
     --bg:var(--bgdark);
     --bgtxt:var(--bgtxtdark);
     --blob12:var(--blob12dark);
-    /* --blob2:var(--blob2dark); */
     --bghome2:var(--bghome2dark);
     --blob34:var(--blob34dark);
     --sblob14:var(--bgdark);
     --sblob23:var(--bghome2dark);
+    --footertext:var(--bghome2darksecondary);
 }
 body{
     background-color:var(--bg);
@@ -149,7 +148,7 @@ body{
     justify-content: space-evenly;
     flex-wrap:wrap;
     margin-top:60px;
-    margin-bottom:100px;
+    margin-bottom:60px;
 }
 
 .welcometext
@@ -162,14 +161,21 @@ body{
 
 .welcometextfoot
 {
-    width: 512px;
+    display: flex;
+    flex-direction:column;
+    justify-content:space-around;
+    height:200px;
+}
+
+.welcometextfoot p
+{
+    width: 400px;
     font-family: 'Montserrat', sans-serif;
-    margin-top:-30px;
     font-size: 20px;
     color: var(--bgtxt);
 }
 
-.get-started
+.welcometextfoot button
 {
     background: #D8E9F3;
     color: #000000;
@@ -179,6 +185,7 @@ body{
     height: 85px;   
     border-radius: 23px;
     border: none;
+    align-self: center;
 }
 
 .illustration1
@@ -222,7 +229,6 @@ body{
 .homeservice{
     display: flex;
     flex-wrap: wrap;
-    justify-content: centre;
     align-items:center;
 }
 .wrapper{
@@ -286,6 +292,7 @@ svg#servicon.iconify{
 div.back{
     padding: 20px;
     text-align: center;
+    font-weight: bold;
     color: #fff;
     font-size: 20px;    
     letter-spacing: 2px;
@@ -303,6 +310,16 @@ div.back{
 }
 .panels:nth-child(2) .back,.panels:nth-child(3) .back{
     background: var(--sblob23);
+}
+
+.blob5
+{
+    position: absolute;
+    z-index:-1;
+    top: 0;
+    right:0;
+    filter:var(--blob12);
+    margin-right:-17px;
 }
 
 .homepage3
@@ -374,7 +391,7 @@ div.back{
     position:absolute;
     margin-top:320px;
     width:100%;
-    filter:var(--blob1);
+    filter:var(--blob12);
 }
 
 .footer-logo
@@ -397,7 +414,7 @@ div.back{
 {
     display: flex;
     flex-direction: column;
-    flex-grow: 2;
+    /* flex-grow: 2; */
     font-family: Saira;
     font-size: 30px;
     line-height: 70px;
@@ -423,7 +440,8 @@ div.back{
     height: 61px;
     width:100%;
     margin-top:36px;
-    background-color: #D8E9F3;
+    background-color: var(--footertext);
+    color:#000000;
     font-family:Saira;
     font-size: 25px;
     line-height: 60px;
