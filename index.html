@@ -8,21 +8,38 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="./img/logo.png" type="image/icon type">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Righteous&family=Saira&display=swap" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&family=Righteous&family=Saira&display=swap" rel="stylesheet">   
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="lib/angular.js"></script>
     <script>
-        function myfunc()
+        function changetheme()
         {
             const element = document.getElementById('switch');
             element.classList.toggle('dark-theme'); 
         }    
     </script>
+    <script>
+        var obj=angular.module("mod",[]);
+        obj.controller("cont",function($scope)
+        {
+            $scope.moon=true
+            $scope.darktheme=function()
+            {
+                $scope.moon=false;
+                $scope.sun=true;
+            }
+            $scope.lighttheme=function()
+            {
+                $scope.moon=true;
+                $scope.sun=false;
+            }
+        })
+    </script>
     
     <title>ChiLi</title>
 </head>
 
-<body class="light-theme" id="switch">
+<body class="light-theme" id="switch" ng-app="mod" ng-controller="cont">
 
     <div class="container">
 
@@ -36,10 +53,11 @@
                 <a href="#"><span class="iconify" data-inline="false" data-icon="fe:home"></span></a>
                 <a href="#"><span class="iconify" data-inline="false" data-icon="carbon:information-square"></span></a>
                 <a href="#"><span class="iconify" data-inline="false" data-icon="ic:outline-perm-contact-calendar"></span></a>
-                <span onclick="myfunc()" class="iconify" id="switch" data-inline="false" data-icon="carbon:moon"></span>                
+                <span onclick="changetheme()" ng-click="darktheme()" ng-if="moon" class="iconify" data-inline="false" data-icon="carbon:moon"></span>   
+                <span onclick="changetheme()" ng-click="lighttheme()" ng-if="sun" class="iconify" data-inline="false" data-icon="ic:outline-light-mode"></span>             
                 <div style="display:flex;align-items: center;">
-                    <button id="sign" style="background: #F8F7F7;color: #3FB3C3;">SignUp</button>
-                    <button id="sign" style="background: #E83A5A;color: #ffffff;">Login</button>
+                    <button class="sign" style="background: #F8F7F7;color: #3FB3C3;">SignUp</button>
+                    <button class="sign" style="background: #E83A5A;color: #ffffff;">Login</button>
                 </div>
             </div>
         </div>
@@ -59,6 +77,56 @@
         <img src="img/blob2.png" class="blob2">
 
     
+    </div>
+
+
+    <div class="container3">
+
+        <img src="img/footer-wave.png" class="footer-wave">
+
+        <div class="homepage3">
+            <div class="homepage3-img">
+                <img src="img/get started.png">
+            </div>
+
+            <div class="homepage3-middle">
+                <p>You've scrolled this far !! What are you waiting for?</p>
+                <div>
+                    <button style="background: #E73A5A;color:#ffffff">Get in Touch</button>
+                    <button class="homepage3-middle-button2">SignUp</button>
+                </div>
+            </div>
+
+            <div class="laptop">
+                <img src="img/laptop.png">
+            </div>
+        </div>
+
+
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="img/logo.png">
+                <p>ChiLi</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+            </div>
+
+            <div class="footer-media">
+                <span class="iconify" data-inline="false" data-icon="akar-icons:facebook-fill" style="font-size: 47.040000915527344px;"></span>
+                <span class="iconify" data-inline="false" data-icon="akar-icons:instagram-fill" style="font-size: 47.040000915527344px;"></span>
+                <span class="iconify" data-inline="false" data-icon="akar-icons:twitter-fill" style="font-size: 47.040000915527344px;"></span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <center><p>© 2021 ChiLi. All rights reserved</p></center>
+        </div>
+
+
     </div>
 
 </body>

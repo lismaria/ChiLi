@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <style>
+            *
+            {
+                margin: 0;padding: 0;
+            }
+            .container {
+                height: 100vh;
+                display:flex;
+                align-items: center;
+                justify-content:center;
+            }
+            .homepage2{
+                display:flex;
+                /* background-color:blueviolet; */
+                align-items:center;
+                flex-wrap: wrap;
+                justify-content:space-evenly;
+                height:700px;
+                width:1300px;
+            }
+            .blobs
+            {
+                width:250px;
+                height:250px;
+                margin-left:100px;
+                margin-right:100px;
+                background-color:blue;
+                border-radius:50% 50%;
+            }
+            .blob1
+            {
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index:-1;
+            }
+            .blob2
+            {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                z-index:-1;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="../img/blob1.png" class="blob1">
+        <img src="../img/blob2.png" class="blob2">
+        <div class="container">
+            <div class="homepage2">
+                <div class="blobs">
+
+                </div>
+                <div class="blobs">
+
+                </div>
+                <div class="blobs">
+
+                </div>
+                <div class="blobs">
+
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
