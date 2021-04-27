@@ -11,11 +11,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Righteous&family=Saira&display=swap" rel="stylesheet">   
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="lib/angular.js"></script>
-    
+    <script>
+        var app= angular.module('mod',[])
+        app.controller("ctrl",function($scope){
+            $scope.home=[
+                {icon:  "fluent:people-audience-20-filled", descr: "forums"},
+                {icon: "emojione-monotone:newspaper",descr: 'news'},
+                {icon: "bx:bxs-share-alt",descr:'resource'},
+                {icon:  "clarity:chat-bubble-solid-badged", descr:'sastawhatsapp'}
+            ]
+        });
+    </script>
     <title>ChiLi</title>
 </head>
 
-<body class="light-theme" id="switch">
+<body class="light-theme" id="switch" ng-app="mod" ng-controller="ctrl">
 
     <div class="container">
 
@@ -51,17 +61,32 @@
 
         <img src="img/blob2.png" class="blob2">
 
+    </div>
+    
+    <div class="container2">
+        <img src="img/blob3.png" class="blob3">
+        <img src="img/blob4.png" class="blob4">
+        
+        <div class="home-service">
+            <div class="wrapper">
+                  <div class="panels" ng-repeat="x in home">
+                    <div class="front" style="background: #9126f4"><span class="iconify" data-inline="false" data-icon={{x.icon}} style="font-size: 97px;"></span></div>
+                    <div class="back" style="background: #e74853">{{x.descr}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
         <script>
             function myfunc()
             {
                 const element = document.getElementById('switch');
                 element.classList.toggle('dark-theme'); 
-                if (foo.hasAttribute("data-icon")){
-                    element.setAttribute("data-icon","carbon:sun"); 
-                } 
             }
         </script>
-    </div>
+    
+
+    
 
 </body>
 </html>
