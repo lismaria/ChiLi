@@ -37,7 +37,7 @@
         
         <div class="home-service">
             <div class="wrapper">
-                <div class="panels" ng-repeat="x in home" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-anchor-placement="top-center">
+                <div class="panels" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-anchor-placement="top-center" id="#triggerdown" ng-repeat="x in home">
                     <div class="front" ><span id="servicon" class="iconify" data-inline="false" data-icon={{x.icon}} ></span></div>
                     <div class="back" style="color: var(--bgtxt);" >{{x.descr}}</div>
                 </div>
@@ -53,13 +53,13 @@
         <img src="../img/blob5.png" class="blob5">
        <img src="../img/footer-wave.png" class="footer-wave">
 
-       <div class="homepage3">
+       <div class="homepage3" data-aos-easing="ease-out-cubic">
            <div class="homepage3-img">
                <img src="../img/get started.png">
            </div>
 
-           <div class="homepage3-middle" data-aos="zoom-in" data-aos-anchor-placement="top-center">
-               <p>You've scrolled this far !! What are you waiting for?</p>
+           <div class="homepage3-middle"  data-aos="zoom-in"  >
+               <p >You've scrolled this far !! What are you waiting for?</p>
                <div>
                    <button style="background: #E73A5A;color:#ffffff">Get in Touch</button>
                    <button class="homepage3-middle-button2">SignUp</button>
