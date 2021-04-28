@@ -2,54 +2,11 @@
 <html lang="en">
     
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/home.css">
-    <link rel="icon" href="../img/logo.png" type="image/icon type">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&family=Righteous&family=Saira&display=swap" rel="stylesheet">   
-    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
-    <script src="../lib/angular.js"></script>
-    <script>
-        function changetheme()
-        {
-            const element = document.getElementById('switch');
-            element.classList.toggle('dark-theme'); 
-        }    
-    </script>
-    <script>
-        var app= angular.module('mod',[])
-        app.controller("ctrl",function($scope){
-            $scope.home=[
-                {icon:  "fluent:people-audience-20-filled", descr: "Forums"},
-                {icon: "emojione-monotone:newspaper",descr: 'News'},
-                {icon: "bx:bxs-share-alt",descr:'Resources'},
-                {icon:  "clarity:chat-bubble-solid-badged", descr:'Messaging'}
-            ];
-
-            $scope.moon=true
-            $scope.darktheme=function()
-            {
-                $scope.moon=false;
-                $scope.sun=true;
-            }
-            $scope.lighttheme=function()
-            {
-                $scope.moon=true;
-                $scope.sun=false;
-            }
-        });
-    </script>
-    
     <title>ChiLi</title>
 </head>
 
-<body class="light-theme" id="switch" ng-app="mod" ng-controller="ctrl">
-
-    <div>
-        
-    </div>
+<body class="light-theme" id="switch">
 
     <div class="container">
 
