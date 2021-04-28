@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/img/logo.png" type="image/icon type">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&family=Righteous&family=Saira&display=swap" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&family=Righteous&family=Saira&display=swap" rel="stylesheet">  
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="lib/angular.js"></script>
     <script src="/lib/angular-route.js"></script>
@@ -50,4 +52,10 @@
     </div>
 
     <div ng-view></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
+</html>
