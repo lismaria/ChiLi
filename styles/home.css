@@ -137,12 +137,6 @@
     margin-left:225px;
 }
 
-.panels div:nth-child(2),.panels div:nth-child(3){
-    background-color: blue;
-    color: black;
-}
-
-
 .panels div{
     width:250px;
     height:250px;
@@ -168,10 +162,21 @@
 .panels:hover div.back{
     animation: twirl 0.2s 0.2s ease-in forwards reverse;
 }
+.panels:not(:hover) div.back{
+    /* transform: rotateX(270deg); */
+    /* border-radius: 39% 57% 52% 45% / 55% 39% 60% 46%; */
+    /* position: absolute; */
+    /* animation: twirl 0.2s ease-in-out forwards ; */
+    animation: revtwirl 0.2s 0.2s ease-in backwards reverse;
+}
 
 @keyframes twirl{
     0% {transform: rotateY(0deg)}
-    100%{ transform: rotateY(90deg);}
+    100%{ transform: rotateY(90deg)}
+}
+@keyframes revtwirl{
+    0%{ transform: rotateY(90deg)}
+    100% {transform: rotateY(0deg)}
 }
 
 svg#servicon.iconify{
