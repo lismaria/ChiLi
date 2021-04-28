@@ -148,7 +148,6 @@ body{
     justify-content: space-evenly;
     flex-wrap:wrap;
     margin-top:60px;
-    margin-bottom:60px;
 }
 
 .welcometext
@@ -164,7 +163,7 @@ body{
     display: flex;
     flex-direction:column;
     justify-content:space-around;
-    height:200px;
+    height:250px;
 }
 
 .welcometextfoot p
@@ -172,6 +171,7 @@ body{
     width: 400px;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
+    margin-bottom: 50px;
     color: var(--bgtxt);
 }
 
