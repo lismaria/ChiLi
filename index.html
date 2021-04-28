@@ -36,17 +36,34 @@
                 {icon:  "clarity:chat-bubble-solid-badged", descr:'Messaging'}
             ];
 
-            $scope.moon=true
-            $scope.darktheme=function()
-            {
-                $scope.moon=false;
-                $scope.sun=true;
-            }
-            $scope.lighttheme=function()
-            {
-                $scope.moon=true;
-                $scope.sun=false;
-            }
+            $scope.custom = true;
+            $scope.ic="carbon:moon";
+            $scope.toggleCustom = function() {
+                $scope.ic="ic:outline-light-mode";
+
+           // $scope.custom = $scope.custom === false ? true: false;
+           if($scope.custom===true){
+                    $scope.custom=false;
+                    $scope.ic="ic:outline-light-mode";
+                }
+                else{
+                    $scope.custom=true;
+                    $scope.ic="ic:outline-light-mode";
+                }
+            };
+            // $scope.moon=true
+            // $scope.darktheme=function()
+            // {
+            //     $scope.moon=false;
+            //     $scope.sun=true;
+            // }
+            // $scope.lighttheme=function()
+            // {
+            //     $scope.moon=true;
+            //     $scope.sun=false;
+            // }
+
+
         });
     </script>
     
@@ -65,8 +82,9 @@
             <a href="#"><span class="iconify" data-inline="false" data-icon="fe:home"></span></a>
             <a href="#"><span class="iconify" data-inline="false" data-icon="carbon:information-square"></span></a>
             <a href="#"><span class="iconify" data-inline="false" data-icon="ic:outline-perm-contact-calendar"></span></a>
-            <span onclick="changetheme()" ng-click="darktheme()" ng-if="moon" class="iconify" data-inline="false" data-icon="carbon:moon"></span>   
-            <span onclick="changetheme()" ng-click="lighttheme()" ng-if="sun" class="iconify" data-inline="false" data-icon="ic:outline-light-mode"></span>             
+            <div  ng-click="toggleCustom()" ><span onclick="changetheme()" class="iconify" data-inline="false" data-icon="{{ic}}"></span>   {{custom}}{{ic}}</div>
+            <!-- <span onclick="changetheme()" ng-click="darktheme()" ng-if="moon" class="iconify" data-inline="false" data-icon="carbon:moon"></span>   
+            <span onclick="changetheme()" ng-click="lighttheme()" ng-if="sun" class="iconify" data-inline="false" data-icon="ic:outline-light-mode"></span>              -->
             <!-- <span onclick="changetheme()" ng-click="moon='true';sun='false'" ng-show="moon" class="iconify" data-inline="false" data-icon="carbon:moon"></span>   
             <span onclick="changetheme()" ng-click="sun='true';moon='false'" ng-hide="sun" class="iconify" data-inline="false" data-icon="ic:outline-light-mode"></span>              -->
             <div style="display:flex;align-items: center;">
