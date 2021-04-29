@@ -29,7 +29,7 @@ app.controller("ctrl",function($scope)
 app.controller("homectrl",function($scope)
 {
     $scope.home=[
-        {icon:  "fluent:people-audience-20-filled", descr: "Forums anda kunda thanda pani anda kunda thanda panianda kunda thanda panianda kunda thanda panianda kunda thanda pani"},
+        {icon:  "fluent:people-audience-20-filled", descr: "Forums"},
         {icon: "emojione-monotone:newspaper",descr: 'News'},
         {icon: "bx:bxs-share-alt",descr:'Resources'},
         {icon:  "clarity:chat-bubble-solid-badged", descr:'Messaging'}
