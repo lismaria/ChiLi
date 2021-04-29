@@ -7,6 +7,11 @@ app.config(function($routeProvider)
         templateUrl:"/views/home.html",
         controller:"homectrl"
     })
+
+    .when('/aboutus',{
+        templateUrl:"/views/aboutus.html",
+        controller:"aboutusctrl"
+    });
 });
 
 app.controller("ctrl",function($scope)

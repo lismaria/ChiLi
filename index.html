@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/img/logo.png" type="image/icon type">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&family=Righteous&family=Saira&display=swap" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&family=Teko&family=Righteous&family=Saira&display=swap" rel="stylesheet">   
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="lib/angular.js"></script>
-    <script src="/lib/angular-route.js"></script>
+    <script src="lib/angular-route.js"></script>
     <script src="controllers/angularcontroller.js"></script>
     <script>
         function changetheme()
@@ -22,7 +22,6 @@
             element.classList.toggle('dark-theme'); 
         }    
     </script>
-    <title>ChiLi</title>
 </head>
 
 <body class="light-theme" id="switch" ng-app="mod" ng-controller="ctrl">
@@ -34,7 +33,7 @@
         </div>
         <div class="nav">
             <a href="#"><span class="iconify" data-inline="false" data-icon="fe:home"></span></a>
-            <a href="#"><span class="iconify" data-inline="false" data-icon="carbon:information-square"></span></a>
+            <a href="#!aboutus"><span class="iconify" data-inline="false" data-icon="carbon:information-square"></span></a>
             <a href="#"><span class="iconify" data-inline="false" data-icon="ic:outline-perm-contact-calendar"></span></a>
 
             <div ng-show="theme" ng-click="toggletheme()">

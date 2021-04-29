@@ -84,9 +84,10 @@
 
 .illustration1
 {
-    border: none;
+    background: url(../img/Illustration.png);
     width:700px;
     height:700px;
+    background-size: 700px 700px;
     margin-top:-80px;
     z-index:-1;
 }

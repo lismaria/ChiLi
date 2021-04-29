@@ -33,6 +33,7 @@
     --sblob14:var(--bglight);
     --sblob23:var(--primary);
     --footertext:var(--secondary);
+    transition: 0.5s ease-in-out;
 }
 
 .dark-theme 
