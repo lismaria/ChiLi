@@ -14,12 +14,20 @@
     --bgdark: #000000;
     --bgtxtlight:#000000;
     --bgtxtdark: #ffffff;
+    --shadowlight:0px 0px 50px rgba(0, 0, 0, 0.26);
+    --shadowdark:0px 0px 50px rgba(255, 255, 255, 0.26);
     --blob12light:invert(63%) sepia(59%) saturate(464%) hue-rotate(140deg) brightness(88%) contrast(83%);
     --blob12dark:invert(15%) sepia(99%) saturate(2704%) hue-rotate(205deg) brightness(91%) contrast(101%);
     --blob34light:invert(100%) sepia(0%) saturate(7500%) hue-rotate(27deg) brightness(120%) contrast(114%);
     --blob34dark:invert(0%) sepia(0%) saturate(0%) hue-rotate(80deg) brightness(89%) contrast(105%);
     --bghome2dark:#0047A1;
     --bghome2darksecondary:#6786C7;
+    --bgcontactuslight: linear-gradient(360deg, #FFFFFF 0%, #3FB3C3 65.5%);
+    --bgcontactusdark: linear-gradient(360deg, #000000 0%, #0047A1 65.5%);
+    --leftblobdark:invert(90%) sepia(0%) saturate(311%) hue-rotate(126deg) brightness(94%) contrast(76%);
+    --rightblobdark:invert(11%) sepia(8%) saturate(3308%) hue-rotate(168deg) brightness(94%) contrast(91%);
+    --contactlight:#182735;
+    --contactdark:#BDBDBD;
 }
 
 .light-theme 
@@ -27,12 +35,18 @@
     --color:var(--primary);
     --bg:var(--bglight);
     --bgtxt:var(--bgtxtlight);
+    --shadow:var(--shadowlight);
     --blob12:var(--blob12light);
     --bghome2:var(--primary);
     --blob34:var(--blob34light);
     --sblob14:var(--bglight);
     --sblob23:var(--primary);
     --footertext:var(--secondary);
+    --bgcontacus:var(--bgcontactuslight);
+    --leftblob:var(--rightblobdark);
+    --rightblob:var(--blob34light);
+    --formWrapper:var(--bglight);
+    --msgWrapper:var(--contactlight);
 }
 
 .dark-theme 
@@ -40,12 +54,18 @@
     --color:var(--secondary);
     --bg:var(--bgdark);
     --bgtxt:var(--bgtxtdark);
+    --shadow:var(--shadowdark);
     --blob12:var(--blob12dark);
     --bghome2:var(--bghome2dark);
     --blob34:var(--blob34dark);
     --sblob14:var(--bgdark);
     --sblob23:var(--bghome2dark);
     --footertext:var(--bghome2darksecondary);
+    --bgcontacus:var(--bgcontactusdark);
+    --leftblob:var(--leftblobdark);
+    --rightblob:var(--rightblobdark);
+    --formWrapper:var(--contactlight);
+    --msgWrapper:var(--contactdark);
 }
 body{
     background-color:var(--bg);
