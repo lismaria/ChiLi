@@ -1,0 +1,161 @@
+body{
+    background: var(--bgcontacus);
+    position: relative;
+    height: 100vh;
+}
+
+.leftBlob1{
+    filter: var(--leftblob);
+    position: absolute;
+    width: 210px;
+    height: 126px;
+    left: 426px;
+    top: 67px;
+}
+
+.leftBlob2{
+    filter: var(--leftblob);
+    position: absolute;
+    width: 427px;
+    height: 256px;
+    left: -73px;
+    top: 371px;
+}
+
+.rightBlob1{
+    filter: var(--rightblob);
+    position: absolute;
+    width: 391px;
+    height: 235px;
+    left: 1039px;
+    top: 80px;
+}
+.rightBlob2{
+    filter: var(--rightblob);
+    position: absolute;
+    width: 210px;
+    height: 126px;
+    left: 1258px;
+    top: 511px;
+}
+
+.formWrapper{
+    position: absolute;
+    width: 765px;
+    height: 444px;
+    left: 266px;
+    top: 155px;    
+    background: var(--formWrapper);
+    box-shadow: var(--shadow);
+    border-radius: 30px;    
+}
+
+.form p{
+    position: absolute;
+    left: 270px;
+    top: 13px;
+    font-family: Righteous;
+    font-size: 40px;
+}
+
+.nameRow{
+    position: absolute;
+    width: 221px;
+    height: 63px;
+    left: 24px;
+    top: 93px;
+} 
+
+.emailRow{
+    position: absolute;
+    width: 277px;
+    height: 63.38px;
+    left: 298px;
+    top: 93px;
+}
+
+.msgRow{
+    position: absolute;
+    width: 551px;
+    height: 162px;
+    left: 24px;
+    top: 194px;
+}
+
+.submitBtn{
+    position: absolute;
+    width: 277px;
+    height: 56px;
+    left: 178px;
+    top: 372px;
+    background: #178FFF;
+    border-radius: 6px;
+    color: var(--bg);
+}
+
+label,.submitBtn{
+    font-weight:bold;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+input{
+    width:221px;
+    height:41px;
+}
+
+textarea{
+    width:551px;
+    height:132px;
+    resize: none;
+}
+
+input,textarea{
+    border: 1px solid #8692A6;
+    border-radius: 6px;
+    padding: 18px;
+    background: var(--formWrapper);
+}
+
+.msgWrapper{
+    position: absolute;
+    width: 363px;
+    height: 431px;
+    left: 905px;
+    top: 227px;
+    
+    background: var(--msgWrapper);
+    box-shadow:  var(--shadow);
+    border-radius: 30px;
+}
+.msg{
+    position: absolute;
+    width: 306px;
+    height: 345px;
+    font-size: 20px;
+    font-weight:bold;
+    line-height: 30px;
+    margin: 50px 26px 36px 34px;
+    color: var(--bg);
+}
+.msg :nth-child(1){
+    font-size: 25px;
+    margin-bottom: 40px;
+}
+.msg :nth-child(2){
+    margin-bottom: 20px;
+}
+.msg div{
+    margin-left: 88px;
+    margin-right: 88px;
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.msg div>svg.iconify{
+    height: 24px;
+    width: 24px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
