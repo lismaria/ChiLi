@@ -1,0 +1,25 @@
+{
+  "name": "chili",
+  "version": "1.0.0",
+  "description": "Educational Communication Platform",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lismaria/ECP.git"
+  },
+  "author": "lis,chirag",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lismaria/ECP/issues"
+  },
+  "homepage": "https://github.com/lismaria/ECP#readme",
+  "dependencies": {
+    "aos": "^3.0.0-beta.6"
+  }
+}
