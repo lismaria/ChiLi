@@ -105,6 +105,7 @@ input,textarea{
     border-radius: 6px;
     padding: 18px;
     background: var(--formWrapper);
+    color: var(--bgtxt);
 }
 
 .submitBtn{

@@ -1,0 +1,94 @@
+*{
+    font-weight:bold;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+/* Outer Blobs */
+.blob1
+{
+    position: absolute;
+    top: 0;
+    right: 0; 
+    filter: var(--blob12);
+    z-index: -1;  
+    flex-shrink: 3;  
+}
+
+.blob4
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    filter: var(--blob12);
+    z-index:-1;
+}
+
+/* Login Content */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginWrapper{
+    width: 895px;
+    height: 543px;       
+    background: var(--bg);
+    box-shadow: var(--shadow);
+    border-radius: 20px;     
+    display: flex;
+}
+
+/* Image Contents */
+.imgWrapper, .formWrapper{
+    width: 450px;
+    height: 544px;
+} 
+
+.loginImg{
+    margin-top: 103px;
+    margin-left: 24px;
+}
+
+
+/* Form Contents */
+.formWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+div.salutation{
+    margin: 56px 20px 20px 20px;
+}
+
+form div, form button{
+    margin: 20px;
+}
+
+p:nth-child(2){
+    font-size: 30px;
+    line-height: 36px;
+}
+
+input[type=email],input[type=password]{
+    height: 50px;
+    width: 350px;
+    border: 1px solid #8692A6;
+    border-radius: 6px;
+    padding: 18px;
+    background: var(--bg);
+    color: var(--bgtxt);
+    font-weight: normal;
+}
+
+.loginBtn{
+    width: 277px;
+    height: 56px;
+    background: #04C35C;
+    border-radius: 6px;
+    color: var(--bg);
+}
+
+
+

@@ -15,6 +15,10 @@ app.config(function($routeProvider)
         templateUrl:"/views/contactus.html",
         controller:"contactusctrl"
     })
+    .when('/login',{
+        templateUrl:"/views/login.html",
+        controller:"loginctrl"
+    })
 });
 
 app.controller("ctrl",function($scope)
