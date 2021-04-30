@@ -13,14 +13,7 @@
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="lib/angular.js"></script>
     <script src="lib/angular-route.js"></script>
-    <script src="controllers/angularcontroller.js"></script>
-    <script>
-        function changetheme()
-        {
-            const element = document.getElementById('switch');
-            element.classList.toggle('dark-theme'); 
-        }    
-    </script>
+    <script src="controllers/app.js"></script>
 </head>
 
 <body class="light-theme" id="switch" ng-app="mod" ng-controller="ctrl">
@@ -50,5 +43,14 @@
     </div>
 
     <div ng-view></div>
+
+
+    <script>
+        function changetheme()
+        {
+            const element = document.getElementById('switch');
+            element.classList.toggle('dark-theme'); 
+        }    
+    </script>
 </body>
 </html>

@@ -4,6 +4,7 @@ body{
     height: 100vh;
 }
 
+/* Star Blobs */
 .leftBlob1{
     filter: var(--leftblob);
     position: absolute;
@@ -39,6 +40,7 @@ body{
     top: 511px;
 }
 
+/* Form Block*/
 .formWrapper{
     position: absolute;
     width: 765px;
@@ -82,6 +84,29 @@ body{
     top: 194px;
 }
 
+.nameRow input{
+    width:221px;
+    height:41px;
+}
+
+.emailRow input{
+    width:277px;
+    height:41px;
+}
+
+textarea{
+    width:551px;
+    height:132px;
+    resize: none;
+}
+
+input,textarea{
+    border: 1px solid #8692A6;
+    border-radius: 6px;
+    padding: 18px;
+    background: var(--formWrapper);
+}
+
 .submitBtn{
     position: absolute;
     width: 277px;
@@ -99,24 +124,8 @@ label,.submitBtn{
     line-height: 19px;
 }
 
-input{
-    width:221px;
-    height:41px;
-}
 
-textarea{
-    width:551px;
-    height:132px;
-    resize: none;
-}
-
-input,textarea{
-    border: 1px solid #8692A6;
-    border-radius: 6px;
-    padding: 18px;
-    background: var(--formWrapper);
-}
-
+/* Message Block */
 .msgWrapper{
     position: absolute;
     width: 363px;
