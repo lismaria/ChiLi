@@ -65,9 +65,8 @@
 .signup-left p
 {
     width: 280px;
-    font-family: Inter;
     font-weight:bold;
-    font-size: 36px;
+    font-size: 35px;
     color:var(--bgtxt);   
     text-align: center; 
 }
