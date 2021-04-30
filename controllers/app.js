@@ -19,6 +19,10 @@ app.config(function($routeProvider)
         templateUrl:"/views/login.html",
         controller:"loginctrl"
     })
+    .when('/signup',{
+        templateUrl:"/views/signup.html",
+        controller:"signupctrl"
+    })
 });
 
 app.controller("ctrl",function($scope)
