@@ -29,6 +29,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
 }
 
 .loginWrapper{
@@ -38,12 +39,21 @@
     box-shadow: var(--shadow);
     border-radius: 20px;     
     display: flex;
+    overflow:hidden;
+    position: relative;
+}
+.blob4in{
+    position: absolute;
+    left:-320.5px;
+    bottom: -79.5px;
+    filter: var(--blob12);
 }
 
 /* Image Contents */
 .imgWrapper, .formWrapper{
     width: 450px;
     height: 544px;
+    z-index: 2;
 } 
 
 .loginImg{
@@ -66,7 +76,7 @@ form div, form button{
     margin: 20px;
 }
 
-p:nth-child(2){
+.salutation p:nth-child(2){
     font-size: 30px;
     line-height: 36px;
 }
@@ -81,14 +91,21 @@ input[type=email],input[type=password]{
     color: var(--bgtxt);
     font-weight: normal;
 }
-
 .loginBtn{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    align-items: center;
+}
+.loginBtn button{
     width: 277px;
     height: 56px;
     background: #04C35C;
     border-radius: 6px;
     color: var(--bg);
 }
-
+/* .loginBtn p{
+    font-size: 16px;
+} */
 
 
