@@ -19,7 +19,6 @@
     right: 0; 
     filter: var(--blob12);
     z-index: -1;  
-    flex-shrink: 3;  
 }
 
 .blob2
@@ -109,7 +108,7 @@
     position: absolute;
     top: 0;
     right: 0; 
-    flex-shrink: 3; 
+    width:898px;
 }
 .blob4{
     filter: var(--blob34);
@@ -226,7 +225,6 @@ div.back{
     top: 0;
     right:0;
     filter:var(--blob12);
-    margin-right:-17px;
 }
 
 /* Home Page 3 Section 1 starts here */
