@@ -72,6 +72,12 @@
     margin-bottom:50px;
 }
 
+.welcometextfoot div
+{
+    display:flex;
+    justify-content: center;
+}
+
 .welcometextfoot button
 {
     background: #D8E9F3;
@@ -81,7 +87,6 @@
     width: 305px;
     height: 85px;   
     border-radius: 23px;
-    align-self: center;
 }
 /* Home Page 1 LHS ends here */
 
