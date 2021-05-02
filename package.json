@@ -21,7 +21,9 @@
     "url": "https://github.com/lismaria/ECP/issues"
   },
   "homepage": "https://github.com/lismaria/ECP#readme",
-  "dependencies": {},
+  "dependencies": {
+    "aos": "^3.0.0-beta.6"
+  },
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
   }
