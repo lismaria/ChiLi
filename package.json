@@ -7,9 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -27,8 +25,11 @@
     "express": "^4.17.1",
     "mongoose": "^5.12.7",
     "path": "^0.12.7"
+<<<<<<< HEAD
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
+=======
+>>>>>>> master
   }
 }
