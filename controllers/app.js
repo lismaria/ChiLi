@@ -4,23 +4,23 @@ app.config(function($routeProvider)
 {
     $routeProvider
     .when('/',{
-        templateUrl:"/views/home.html",
+        templateUrl:"./views/home.html",
         controller:"homectrl"
     })
     .when('/aboutus',{
-        templateUrl:"/views/aboutus.html",
+        templateUrl:"./views/aboutus.html",
         controller:"aboutusctrl"
     })
     .when('/contactus',{
-        templateUrl:"/views/contactus.html",
+        templateUrl:"./views/contactus.html",
         controller:"contactusctrl"
     })
     .when('/login',{
-        templateUrl:"/views/login.html",
+        templateUrl:"./views/login.html",
         controller:"loginctrl"
     })
     .when('/signup',{
-        templateUrl:"/views/signup.html",
+        templateUrl:"./views/signup.html",
         controller:"signupctrl"
     })
 });
