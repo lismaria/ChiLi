@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/lismaria/ECP#readme",
   "dependencies": {
-    "aos": "^3.0.0-beta.6"
+    "aos": "^3.0.0-beta.6",
+    "mongoose": "^5.12.7"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
