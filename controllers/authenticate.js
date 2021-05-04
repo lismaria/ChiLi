@@ -3,15 +3,18 @@ module.exports=function(app,bodyParser)
     var urlencodedParser=bodyParser.urlencoded({extended:false});
     const user=require("../models/user")
     const alert=require("alert");
+    const bcrypt = require("bcrypt");
 
-    app.post("/signup",urlencodedParser,function(req,res)
+    app.post("/signup",urlencodedParser,async function(req,res)
     {
+        const hashpswd=await bcrypt.hash(req.body.user_pswd,10);
         var newuser=new user({
             user_name:req.body.user_name,
             full_name:req.body.full_name,
             user_email:req.body.user_email,
-            user_pswd:req.body.user_pswd
+            user_pswd:hashpswd
         });
+        
         user.findOne({$or:[{user_name:req.body.user_name},{user_email:req.body.user_email}]}).then(function(result)
         {
             if(result==null)
@@ -37,17 +40,25 @@ module.exports=function(app,bodyParser)
         
     })
     app.post("/login",urlencodedParser,function(req,res){
-        user.findOne({$and:[{user_name:req.body.user_name},{user_pswd:req.body.user_pswd}]})
-            .then(function(result){
-                console.log(result)
+        user.findOne({user_name:req.body.user_name})
+            .then(async function(result){
                 if(result==null){
                     alert("no user found");
                     res.redirect("/#!login")
                 }
-                else{
-                    alert("login successful")
-                    res.status(200).send("Welcome "+result.user_name)
-                    // res.send("Welcome",result.user_name);
+                else
+                {
+                    const check=await bcrypt.compare(req.body.user_pswd,result.user_pswd);
+                    if(check)
+                    {
+                        alert("login successful");
+                        res.status(200).send("Welcome "+result.user_name);
+                    }
+                    else
+                    {
+                        alert("incorrect password");
+                        res.redirect("/#!login");
+                    }
                 }
             })
     })
