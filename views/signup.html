@@ -24,25 +24,25 @@
 
             <div class="signup-right">
 
-                <form name="signupForm" novalidate>
+                <form name="signupForm" method="POST" action="/signup" novalidate>
                     <div class="userRow">
                         <label for="username">Username</label><br>
-                        <input type="text" name="username" placeholder="Enter username">
+                        <input type="text" name="user_name" placeholder="Enter username">
                     </div>
 
                     <div class="nameRow">
                         <label for="fullname">Name</label><br>
-                        <input type="text" name="fullname" placeholder="Eg. Chris Evans">
+                        <input type="text" name="full_name" placeholder="Eg. Chris Evans">
                     </div>
 
                     <div class="emailRow">
                         <label for="email">Email</label><br>
-                        <input type="text" name="email" placeholder="yourname@domain.com">
+                        <input type="text" name="user_email" placeholder="yourname@domain.com">
                     </div>
 
                     <div class="pswdRow">
                         <label for="pswd">Choose a Password</label><br>
-                        <input type="password" name="pswd" placeholder="***********">
+                        <input type="password" name="user_pswd" placeholder="***********">
                     </div>
 
                     <div><center><button class="signupbtn" value="submit">Lets Go</button></center></div>
