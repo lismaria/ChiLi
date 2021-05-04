@@ -1,6 +1,5 @@
-module.exports=function(app)
+module.exports=function(app,bodyParser)
 {
-    const bodyParser = require('body-parser');
     var urlencodedParser=bodyParser.urlencoded({extended:false});
     const user=require("../models/user")
     const alert=require("alert");
@@ -19,7 +18,7 @@ module.exports=function(app)
             {
                 newuser.save((err, doc) => {
                     if (!err)
-                        res.send(doc);
+                        res.redirect("/#!login");
                     else {
                         res.send(err);
                     }})
@@ -32,6 +31,7 @@ module.exports=function(app)
                     alert("email id already registered");
                 else
                     alert("User exists");
+                res.redirect("/#!signup")
             }
         })
         

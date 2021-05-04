@@ -6,7 +6,7 @@ const signup = require("./controllers/signup");
 
 
 var app=express();
-app.listen(3000);
+app.listen(5500);
 
 app.use(express.static(path.resolve(__dirname)));
 app.use(bodyParser.urlencoded({extended:false}));
@@ -30,4 +30,4 @@ app.get("/",function(req,res)
 {
     app.render("index.html");
 });
-signup(app);
+signup(app,bodyParser);
