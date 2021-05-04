@@ -9,7 +9,10 @@ var app=express();
 app.listen(5501);
 
 app.use(express.static(path.resolve(__dirname)));
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
 // var urlencodedParser=bodyParser.urlencoded({extended:false});
 // app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
@@ -30,4 +33,4 @@ app.get("/",function(req,res)
 {
     app.render("index.html");
 });
-authenticate(app,bodyParser);
+authenticate(app,express);
