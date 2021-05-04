@@ -1,17 +1,14 @@
 const mongoose = require('mongoose');
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('path');
 const authenticate = require("./controllers/authenticate");     //importing the authentication file
+const app=express();
 
-
-var app=express();
-app.listen(5501);
+app.listen(5501,()=>console.log("Port active :5501"));
 
 app.use(express.static(path.resolve(__dirname)));               //to load static files
-app.use(bodyParser.urlencoded({extended:false}));               //to extract queries from html form 
-// var urlencodedParser=bodyParser.urlencoded({extended:false});
-// app.set('view engine', 'ejs');
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));               //to extract queries from html form 
 app.engine('html', require('ejs').renderFile);                  //sets the templating engine to ejs of html files
 
 
@@ -30,4 +27,4 @@ app.get("/",function(req,res)                                   //initially load
 {
     app.render("index.html");
 });
-authenticate(app,bodyParser);                                   //passing args to authenticate file
+authenticate(app,express);                                   //passing args to authenticate file

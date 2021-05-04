@@ -1,6 +1,6 @@
-module.exports=function(app,bodyParser)
+module.exports=function(app,express)
 {
-    var urlencodedParser=bodyParser.urlencoded({extended:false});
+    var urlencodedParser=express.urlencoded({extended:false});
     const user=require("../models/user")            //importing the user model
     const alert=require("alert");
     const bcrypt = require("bcrypt");               //for encryption
