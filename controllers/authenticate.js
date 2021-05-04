@@ -36,4 +36,19 @@ module.exports=function(app)
         })
         
     })
+    app.post("/login",urlencodedParser,function(req,res){
+        user.findOne({$and:[{user_name:req.body.user_name},{user_pswd:req.body.user_pswd}]})
+            .then(function(result){
+                console.log(result)
+                if(result==null){
+                    alert("no user found");
+                    res.redirect("/#!login")
+                }
+                else{
+                    alert("login successful")
+                    res.status(200).send("Welcome "+result.user_name)
+                    // res.send("Welcome",result.user_name);
+                }
+            })
+    })
 }
