@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const signup = require("./controllers/signup");
+const authenticate = require("./controllers/authenticate");
 
 
 var app=express();
-app.listen(5500);
+app.listen(5501);
 
 app.use(express.static(path.resolve(__dirname)));
 app.use(bodyParser.urlencoded({extended:false}));
@@ -30,4 +30,4 @@ app.get("/",function(req,res)
 {
     app.render("index.html");
 });
-signup(app,bodyParser);
+authenticate(app,bodyParser);

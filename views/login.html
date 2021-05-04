@@ -22,14 +22,14 @@
                     <p>Login to your account</p>
                 </div>
                 <div class="form">
-                    <form name="loginForm" novalidate>
-                        <div class="emailRow">
-                            <label>Email</label><br>
-                            <input type="email" name="" id="" placeholder="yourname@domain.com">
+                    <form name="loginForm" method="POST" action="/login" novalidate>
+                        <div class="unameRow">
+                            <label>Username</label><br>
+                            <input type="text" name="user_name" id="" placeholder="Your username">
                         </div>
                         <div class="pswdRow">
-                            <label for="pswd">Name</label><br>
-                            <input type="password" id="pswd" name="" placeholder="*********">
+                            <label for="pswd">Password</label><br>
+                            <input type="password" name="user_pswd" id="" placeholder="*********">
                         </div>
                         <div class="remRow">
                             <input type="checkbox" name="chbox" id="chbox">
