@@ -30,4 +30,4 @@ app.get("/",function(req,res)
 {
     app.render("index.html");
 });
-authenticate(app);
+authenticate(app,bodyParser);
