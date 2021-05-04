@@ -6,7 +6,7 @@ const authenticate = require("./controllers/authenticate");
 
 
 var app=express();
-app.listen(8080);
+app.listen(5501);
 
 app.use(express.static(path.resolve(__dirname)));
 app.use(bodyParser.urlencoded({extended:false}));
