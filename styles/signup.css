@@ -99,3 +99,9 @@ input
     font-weight:bold;
     font-size:16px;
 }
+
+span
+{
+    color:red;
+    font-size:12px;
+}

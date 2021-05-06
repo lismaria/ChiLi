@@ -8,20 +8,16 @@ app.config(function($routeProvider)
         controller:"homectrl"
     })
     .when('/aboutus',{
-        templateUrl:"./views/aboutus.html",
-        controller:"aboutusctrl"
+        templateUrl:"./views/aboutus.html"
     })
     .when('/contactus',{
-        templateUrl:"./views/contactus.html",
-        controller:"contactusctrl"
+        templateUrl:"./views/contactus.html"
     })
     .when('/login',{
-        templateUrl:"./views/login.html",
-        controller:"loginctrl"
+        templateUrl:"./views/login.html"
     })
     .when('/signup',{
-        templateUrl:"./views/signup.html",
-        controller:"signupctrl"
+        templateUrl:"./views/signup.html"
     })
 });
 

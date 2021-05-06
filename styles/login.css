@@ -109,3 +109,8 @@ input[type=text],input[type=password]{
 } */
 
 
+span
+{
+    color:red;
+    font-size: 12px;
+}
