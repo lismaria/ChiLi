@@ -27,8 +27,4 @@ app.get("/",function(req,res)                                   //initially load
 {
     app.render("index.html");
 });
-<<<<<<< HEAD
-authenticate(app,express);
-=======
 authenticate(app,express);                                   //passing args to authenticate file
->>>>>>> 1ea3f0bdfa0b17ab02fb30a11ccbbc261fd865b7
