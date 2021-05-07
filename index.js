@@ -29,8 +29,8 @@ mongoose.connection.once("open",function()                                      
 });
 
 
-app.get("/",function(req,res)                                   //initially loading index file
-{
-    app.render("index.html");
-});
+// app.get("/",function(req,res)                                   //initially loading index file
+// {
+//     app.render("index.html");
+// });
 authenticate(app,express);                                   //passing args to authenticate file
