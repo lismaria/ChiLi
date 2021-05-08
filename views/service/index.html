@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./img/logo.jpg" type="image/icon type">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&family=Inter&family=Teko&family=Righteous&family=Saira&display=swap" rel="stylesheet">   
@@ -17,13 +17,18 @@
 </head>
 
 <body class="light-theme" id="switch" ng-app="mod2" ng-controller="ctrl2">
+
+
     <div class="header">
+
+
         <div class="logo">
             <a href="#"><img src="./img/logo.jpg"></a>
             <p>ChiLi</p>
         </div>
+
         <div class="nav">
-            
+
             <div ng-show="theme" ng-click="toggletheme()">
                 <span onclick="changetheme()" class="iconify" data-inline="false" data-icon="carbon:moon"></span>
             </div>
@@ -31,12 +36,18 @@
                 <span onclick="changetheme()" class="iconify" data-inline="false" data-icon="ic:outline-light-mode"></span>
             </div>
             <div class="userimg">
+                <!-- User Profile Image -->
             </div>
+
         </div>
+
+        
     </div>
 
     <div class="container">
-        <div >
+
+
+        <div>
             <div ng-show="navicon" id="mySidenav" ng-click="togglenavicon()">
                 <span class="iconify" data-inline="false" data-icon="cil:hamburger-menu" style="font-size: 47px;"></span></a>
             </div>
@@ -51,10 +62,15 @@
                 <a href="#">blah</a>
             </div>
         </div>
+
+
         <div class="container2">
-        <div class="maincontent">
-            <div ng-view class="slide"></div>
-        </div></div>
+            <div class="maincontent">
+                <div ng-view class="slide"></div>
+            </div>
+        </div>
+
+
     </div>
 
     <script>
@@ -62,18 +78,7 @@
         {
             const element = document.getElementById('switch');
             element.classList.toggle('dark-theme'); 
-        }  
-        
-        // function openNav() {
-        //     document.getElementById("mySidenav").style.width = "250px";
-        //     document.getElementById("main").style.marginLeft = "250px";
-        //     }
-
-        // function closeNav() {
-        //     document.getElementById("mySidenav").style.width = "0";
-        //     document.getElementById("main").style.marginLeft= "0";
-        //     }
-        
+        }
     </script>
 </body>
 </html>

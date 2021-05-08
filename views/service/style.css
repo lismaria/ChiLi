@@ -9,8 +9,11 @@
 html::-webkit-scrollbar {
     display: none;
 }
+
 body{
-    background: linear-gradient(360deg,#FFFFFF 0%, #3FB3C3 65.5%);
+    background: var(--bgwelcome);
+    background-color:var(--bg);
+    color:var(--bgtxt);
     height: 100vh;
 }
 
@@ -24,9 +27,15 @@ body{
     --bgtxtlight:#000000;
     --bgtxtdark: #ffffff;
     --shadowlight:2px 10px 20px rgba(0, 0, 0, 0.26);
-    --shadowdark:2px 10px 20px rgba(255, 255, 255, 0.26);
+    --shadowdark:10px 10px 10px rgba(255, 255, 255, 0.26);
     --blob12light:invert(63%) sepia(59%) saturate(464%) hue-rotate(140deg) brightness(88%) contrast(83%);
     --blob12dark:invert(15%) sepia(99%) saturate(2704%) hue-rotate(205deg) brightness(91%) contrast(101%);
+    --bgwelcomelight: linear-gradient(360deg, #FFFFFF 0%, #3FB3C3 65.5%);
+    --bgwelcomedark: linear-gradient(360deg, #000000 0%, #0047A1 65.5%);
+    --glass:linear-gradient(to bottom,
+    rgba(255,255,255, 0.7),
+    rgba(255,255,255, 0.4)
+    );
 }
 
 .light-theme 
@@ -36,6 +45,7 @@ body{
     --bgtxt:var(--bgtxtlight);
     --shadow:var(--shadowlight);
     --blob12:var(--blob12light);
+    --bgwelcome:var(--bgwelcomelight);
     transition: 0.5s ease-in-out;
 }
 
@@ -44,16 +54,10 @@ body{
     --color:var(--secondary);
     --bg:var(--bgdark);
     --bgtxt:var(--bgtxtdark);
-    --shadow:var(--shadowdark);
+    --shadow:var(--shadowlight);
     --blob12:var(--blob12dark);
+    --bgwelcome:var(--bgwelcomedark)
 }
-
-
-body{
-    background-color:var(--bg);
-    color:var(--bgtxt)
-}
-
 
 /* NAV BAR */
 .header
@@ -94,7 +98,6 @@ body{
     margin-right:25px;
     margin-left:25px;
     color: var(--bgtxt);
-    /* color:rgba(0, 0, 0, 0.26); */
 }
 
 .userimg{
@@ -142,19 +145,23 @@ button
 .sidemenu{
     height:625px;
     width:300px;
-    background-color: #F9F9F9;
+    background:var(--glass);
+    box-shadow: var(--shadow);
     border-radius:0px 10px 10px 0px;
+    
 }
 
-.maincontent{
-    background-color:#C24058;
-    width: 1100px;
-    height:525px;
-    border-radius:20px;
-}
 .container2{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 90vw;
+}
+
+.maincontent{
+    background:var(--glass);
+    box-shadow: var(--shadow);
+    width: 1100px;
+    height:525px;
+    border-radius:20px;
 }
