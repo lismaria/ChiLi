@@ -8632,7 +8632,7 @@ function $TemplateCacheProvider() {
  *       <hr>
  *
  *       For the `error` and `load` event on images no built-in AngularJS directives exist:<br>
- *       <img src="thisimagedoesnotexist.png" ng-on-error="$ctrl.loadingState = -1" ng-on-load="$ctrl.loadingState = 1"><br>
+ *       <img src="thisimagedoesnotexist.jpg" ng-on-error="$ctrl.loadingState = -1" ng-on-load="$ctrl.loadingState = 1"><br>
  *       <div ng-switch="$ctrl.loadingState">
  *         <span ng-switch-when="0">Image is loading</span>
  *         <span ng-switch-when="-1">Image load error</span>
