@@ -1,0 +1,151 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+/* Defining ROOT variables */
+:root
+{
+    --primary:#3FB3C3;
+    --secondary:#D8E9F3;
+    --bglight: #ffffff;
+    --bgdark: #000000;
+    --bgtxtlight:#000000;
+    --bgtxtdark: #ffffff;
+    --shadowlight:2px 10px 20px rgba(0, 0, 0, 0.26);
+    --shadowdark:2px 10px 20px rgba(255, 255, 255, 0.26);
+    --blob12light:invert(63%) sepia(59%) saturate(464%) hue-rotate(140deg) brightness(88%) contrast(83%);
+    --blob12dark:invert(15%) sepia(99%) saturate(2704%) hue-rotate(205deg) brightness(91%) contrast(101%);
+}
+
+.light-theme 
+{
+    --color:var(--primary);
+    --bg:var(--bglight);
+    --bgtxt:var(--bgtxtlight);
+    --shadow:var(--shadowlight);
+    --blob12:var(--blob12light);
+    transition: 0.5s ease-in-out;
+}
+
+.dark-theme 
+{
+    --color:var(--secondary);
+    --bg:var(--bgdark);
+    --bgtxt:var(--bgtxtdark);
+    --shadow:var(--shadowdark);
+    --blob12:var(--blob12dark);
+}
+
+
+body{
+    background-color:var(--bg);
+    color:var(--bgtxt)
+}
+
+
+/* NAV BAR */
+.header
+{
+    width: 100%;
+    /* position: fixed; */
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.logo
+{
+    display: flex;
+    align-items: center;
+}
+
+.logo p
+{
+    margin-left:15px;
+    margin-top:20px;
+    font-family: Righteous;
+    font-size: 50px;
+}
+
+.nav
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    z-index:2;
+}
+
+.iconify{
+    height:50px;
+    width: 50px;
+    margin-right:25px;
+    margin-left:25px;
+    /* color: var(--bg); */
+    color:rgba(0, 0, 0, 0.26);
+}
+
+.userimg{
+    border-radius: 50%;
+    background-color: blueviolet;
+    margin-right: 20px;
+    height: 70px;
+    width: 70px;
+}
+
+/* Button Styles */
+.iconify,button:hover
+{
+    cursor: pointer;
+}
+
+button
+{
+    border: none;
+    box-shadow: 0px 12px 10px -10px rgb(0 0 0 / 50%);
+}
+
+.slide
+{
+    animation:slide 1s ease-in-out;
+}
+
+@keyframes slide
+{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+/* Container Styles */
+.container{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content:center; */
+    /* align-items:center; */
+}
+
+.sidemenu{
+    margin-left: -20px;
+    height:80vh;
+    background-color:skyblue;
+}
+
+.maincontent{
+    background-color:#C24058;
+    width: 70%;
+    height:85vh;
+    margin-left: 10px;
+}

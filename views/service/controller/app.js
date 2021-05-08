@@ -30,4 +30,10 @@ obj.controller("ctrl2",function($scope)
     {
         $scope.theme = $scope.theme == false ? true: false;
     }
+    
+    $scope.navicon=true
+    $scope.togglenavicon=function()
+    {
+        $scope.navicon = $scope.navicon == false ? true: false;
+    }
 });

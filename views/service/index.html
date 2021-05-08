@@ -13,44 +13,60 @@
     <script defer src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="../lib/angular.js"></script>
     <script src="../lib/angular-route.js"></script>
-    <script defer src="./controllers/app.js"></script>
+    <script defer src="./controller/app.js"></script>
 </head>
 
-<body class="light-theme" id="switch" ng-app="mod" ng-controller="ctrl">
-
+<body class="light-theme" id="switch" ng-app="mod2" ng-controller="ctrl2">
     <div class="header">
         <div class="logo">
             <a href="#"><img src="./img/logo.jpg"></a>
             <p>ChiLi</p>
         </div>
         <div class="nav">
-            <a href="#"><span class="iconify" data-inline="false" data-icon="fe:home"></span></a>
-            <a href="#!aboutus"><span class="iconify" data-inline="false" data-icon="carbon:information-square"></span></a>
-            <a href="#!contactus"><span class="iconify" data-inline="false" data-icon="ic:outline-perm-contact-calendar"></span></a>
-
+            
             <div ng-show="theme" ng-click="toggletheme()">
                 <span onclick="changetheme()" class="iconify" data-inline="false" data-icon="carbon:moon"></span>
             </div>
             <div ng-hide="theme" ng-click="toggletheme()">
                 <span onclick="changetheme()" class="iconify" data-inline="false" data-icon="ic:outline-light-mode"></span>
             </div>
-            
-            <div style="display:flex;align-items: center;">
-                <a href="#!signup"><button class="sign" style="background: #F8F7F7;color: var(--bghome2);">SignUp</button></a>
-                <a href="#!login"><button class="sign" style="background: #E83A5A;color: #ffffff;">Login</button></a>
+            <div class="userimg">
             </div>
         </div>
     </div>
 
-    <div ng-view class="slide"></div>
+    <div class="container">
+        <div class="sidemenu">
+            <div ng-show="navicon"  ng-click="togglenavicon()">
+                <span class="iconify" data-inline="false" data-icon="cil:hamburger-menu" style="font-size: 47px;"></span></a>
+            </div>
+            <div ng-hide="navicon"  ng-click="togglenavicon()">
+                <span class="iconify" data-inline="false" data-icon="maki:cross-15"></span>
+            </div>
+        </div>
+        <div class="maincontent">
 
+        </div>
+    </div>
+    <div ng-view class="slide"></div>
 
     <script>
         function changetheme()
         {
             const element = document.getElementById('switch');
             element.classList.toggle('dark-theme'); 
-        }    
+        }  
+        
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+            }
+        
     </script>
 </body>
 </html>
