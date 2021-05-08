@@ -4,7 +4,7 @@ obj.config(function($routeProvider)
 {
     $routeProvider
     .when('/',{
-        templateUrl:"./partials/welcome.html"
+        templateUrl:"./partials/welcome.ejs"
     })
     .when('/chat',{
         templateUrl:"./partials/chat.ejs"
