@@ -36,19 +36,26 @@
     </div>
 
     <div class="container">
-        <div class="sidemenu">
-            <div ng-show="navicon"  ng-click="togglenavicon()">
+        <div >
+            <div ng-show="navicon" id="mySidenav" ng-click="togglenavicon()">
                 <span class="iconify" data-inline="false" data-icon="cil:hamburger-menu" style="font-size: 47px;"></span></a>
             </div>
-            <div ng-hide="navicon"  ng-click="togglenavicon()">
-                <span class="iconify" data-inline="false" data-icon="maki:cross-15"></span>
+
+            <div class="sidemenu" ng-hide="navicon" id="main" >
+                <div ng-hide="navicon" ng-click="togglenavicon()">
+                    <span class="iconify" data-inline="false" data-icon="akar-icons:cross"></span>
+                </div>
+                <a href="#!chat">blah</a>
+                <a href="#">blah</a>
+                <a href="#">blah</a>
+                <a href="#">blah</a>
             </div>
         </div>
+        <div class="container2">
         <div class="maincontent">
-
-        </div>
+            <div ng-view class="slide"></div>
+        </div></div>
     </div>
-    <div ng-view class="slide"></div>
 
     <script>
         function changetheme()
@@ -57,15 +64,15 @@
             element.classList.toggle('dark-theme'); 
         }  
         
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-            }
+        // function openNav() {
+        //     document.getElementById("mySidenav").style.width = "250px";
+        //     document.getElementById("main").style.marginLeft = "250px";
+        //     }
 
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft= "0";
-            }
+        // function closeNav() {
+        //     document.getElementById("mySidenav").style.width = "0";
+        //     document.getElementById("main").style.marginLeft= "0";
+        //     }
         
     </script>
 </body>
