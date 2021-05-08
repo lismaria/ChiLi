@@ -40,29 +40,6 @@ module.exports=function(app,express)
     })
         
     })
-<<<<<<< HEAD
-    app.post("/login",urlencodedParser,function(req,res){
-        user.findOne({user_name:req.body.user_name})
-            .then(async function(result){
-                // console.log(result)
-                if(result==null){
-                    alert("no user found");
-                    res.redirect("/#!login")
-                }
-                else{
-                    
-                    const comp=await bcrypt.compare(req.body.user_pswd,result.user_pswd)
-                    if(comp){
-                        alert("login successful")
-                        res.status(200).send("Welcome "+result.user_name)
-                    // res.send("Welcome",result.user_name);
-                    }
-                    else{
-                        alert("Incorrect Password");
-                        res.redirect("/#!login")
-                    }
-                      
-=======
     app.post("/login",urlencodedParser,function(req,res){               //user authentication
         user.findOne({user_name:req.body.user_name})                    //finding record through username
             .then(async function(result){
@@ -83,7 +60,6 @@ module.exports=function(app,express)
                         alert("incorrect password");
                         res.redirect("/#!login");
                     }
->>>>>>> 1ea3f0bdfa0b17ab02fb30a11ccbbc261fd865b7
                 }
             })
     })

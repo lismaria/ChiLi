@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/signup.css">
-    <title>ChiLi | 📒 SignUp</title>
+    <title>ChiLi | 📝 SignUp</title>
 </head>
 <body>
 
@@ -24,25 +24,31 @@
 
             <div class="signup-right">
 
-                <form name="signupForm" method="POST" action="/signup" novalidate>
+                <form name="signupForm" method="POST" action="/signup">
                     <div class="userRow">
-                        <label for="username">Username</label><br>
-                        <input type="text" name="user_name" placeholder="Enter username">
+                        <label for="user_name">Username</label><span> *</span><br>
+                        <input type="text" name="user_name" placeholder="Enter username" ng-model="user_name" ng-minlength="6" required><br>
+                        <span ng-show="signupForm.$submitted || signupForm.user_name.$touched && signupForm.user_name.$error.required">This field is required.</span>
+                        <span ng-show="signupForm.user_name.$touched && signupForm.user_name.$error.minlength">Username must be atleast 6 characters.</span>
                     </div>
 
                     <div class="nameRow">
-                        <label for="fullname">Name</label><br>
-                        <input type="text" name="full_name" placeholder="Eg. Chris Evans">
+                        <label for="full_name">Name</label><span> *</span><br>
+                        <input type="text" name="full_name" placeholder="Eg. Chris Evans" ng-model="full_name" required><br>
+                        <span ng-show="signupForm.$submitted || signupForm.full_name.$touched && signupForm.full_name.$error.required">This field is required.</span>
                     </div>
 
                     <div class="emailRow">
-                        <label for="email">Email</label><br>
-                        <input type="text" name="user_email" placeholder="yourname@domain.com">
+                        <label for="user_email">Email</label><span> *</span><br>
+                        <input type="text" name="user_email" placeholder="yourname@domain.com" ng-model="user_email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]+$/" required><br>
+                        <span ng-show="signupForm.$submitted || signupForm.user_email.$touched && signupForm.user_email.$error.required">This field is required.</span>
+                        <span ng-show="signupForm.user_email.$touched && signupForm.user_email.$error.pattern">Please enter email in correct format.</span>
                     </div>
 
                     <div class="pswdRow">
-                        <label for="pswd">Choose a Password</label><br>
-                        <input type="password" name="user_pswd" placeholder="***********">
+                        <label for="user_pswd">Choose a Password</label><span> *</span><br>
+                        <input type="password" name="user_pswd" placeholder="***********" ng-model="user_pswd" required><br>
+                        <span ng-show="signupForm.$submitted || signupForm.user_pswd.$touched && signupForm.user_pswd.$error.required">This field is required.</span>
                     </div>
 
                     <div><center><button class="signupbtn" value="submit">Lets Go</button></center></div>

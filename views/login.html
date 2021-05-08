@@ -22,14 +22,16 @@
                     <p>Login to your account</p>
                 </div>
                 <div class="form">
-                    <form name="loginForm" method="POST" action="/login" novalidate>
+                    <form name="loginForm" method="POST" action="/login">
                         <div class="unameRow">
-                            <label>Username</label><br>
-                            <input type="text" name="user_name" id="" placeholder="Your username">
+                            <label for="user_name">Username</label><span> *</span><br>
+                            <input type="text" name="user_name" placeholder="Your username" ng-model="user_name" required><br>
+                            <span ng-show="loginForm.$submitted || loginForm.user_name.$touched && loginForm.user_name.$error.required">This field is required.</span>
                         </div>
                         <div class="pswdRow">
-                            <label for="pswd">Password</label><br>
-                            <input type="password" name="user_pswd" id="" placeholder="*********">
+                            <label for="user_pswd">Password</label><span> *</span><br>
+                            <input type="password" name="user_pswd" placeholder="*********" ng-model="user_pswd" required><br>
+                            <span ng-show="loginForm.$submitted || loginForm.user_pswd.$touched && loginForm.user_pswd.$error.required">This field is required.</span>
                         </div>
                         <div class="remRow">
                             <input type="checkbox" name="chbox" id="chbox">
