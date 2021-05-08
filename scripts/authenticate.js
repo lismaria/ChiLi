@@ -1,9 +1,10 @@
+const user=require("../models/user")            //importing the user model
+const alert=require("alert");
+const bcrypt=require("bcrypt");               //for encryption
+
 module.exports=function(app,express)
 {
     var urlencodedParser=express.urlencoded({extended:false});
-    const user=require("../models/user")            //importing the user model
-    const alert=require("alert");
-    const bcrypt = require("bcrypt");               //for encryption
 
     app.post("/signup",urlencodedParser,async function(req,res)            //registering the user
     {
@@ -52,8 +53,9 @@ module.exports=function(app,express)
                     const check=await bcrypt.compare(req.body.user_pswd,result.user_pswd);      //comparing the encrypted password
                     if(check)
                     {
+                        req.session.user=result;
                         alert("login successful");
-                        res.status(200).send("Welcome "+result.user_name);
+                        res.redirect('/');
                     }
                     else
                     {
