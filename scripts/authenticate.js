@@ -53,7 +53,7 @@ module.exports=function(app,express)
                     const check=await bcrypt.compare(req.body.user_pswd,result.user_pswd);      //comparing the encrypted password
                     if(check)
                     {
-                        req.session.user=result;
+                        req.session.user=result;                        //storing the user in session
                         alert("login successful");
                         res.redirect('/');
                     }

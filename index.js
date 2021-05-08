@@ -33,7 +33,7 @@ mongoose.connection.once("open",function()                                      
 
 app.get("/",function(req,res)                                   //initially loading index file
 {
-    if(!req.session.user)
+    if(!req.session.user)                                       //if the user is not logged in
     {
         app.use(express.static(path.resolve(__dirname+'/views/landing')));
         res.render("./landing/index.html");

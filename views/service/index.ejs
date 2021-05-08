@@ -5,22 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="icon" href="./img/logo.png" type="image/icon type">
+    <!-- <link rel="stylesheet" href="./styles.css"> -->
+    <!-- <link rel="icon" href="./img/logo.png" type="image/icon type"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&family=Inter&family=Teko&family=Righteous&family=Saira&display=swap" rel="stylesheet">   
 
     <script defer src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <script src="../lib/angular.js"></script>
     <script src="../lib/angular-route.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.2/angular-route.js" integrity="sha512-C92rntF0G0YH9kHzQlpux7ADvyKgyUwBqusewsHs/0ibOTNuHxFyVqDkI0BIcLGyP76fxgLOpMOLO6kmHCS/xA==" crossorigin="anonymous"></script> -->
-    <script defer src="./controllers/app.js"></script>
-    <!-- <script src="../index.js"></script> -->
+    <script defer src="./controller/app.js"></script>
 </head>
 
 <body class="light-theme" id="switch" ng-app="mod2" ng-controller="ctrl2">
 <h1>Welcome <%= user.user_name%></h1>
+<a href="#!chat">Chat</a>
 <div ng-view></div>
 </body>
 </html>
