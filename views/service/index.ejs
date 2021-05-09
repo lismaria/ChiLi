@@ -53,13 +53,48 @@
             </div>
 
             <div class="sidemenu" ng-hide="navicon" id="main" >
-                <div ng-hide="navicon" ng-click="togglenavicon()">
-                    <span class="iconify" data-inline="false" data-icon="akar-icons:cross"></span>
+                <div class="sidemenu-welcome">
+
+                    <div>
+                        Welcome <br><%=user.full_name%>
+                    </div>
+
+                    <div ng-hide="navicon" ng-click="togglenavicon()" style="width:50px;height:50px;padding-right:20px;">
+                        <span class="iconify" data-inline="false" data-icon="akar-icons:cross" style="font-size: 40px;"></span>
+                    </div>
+
                 </div>
-                <a href="#!chat">blah</a>
-                <a href="#">blah</a>
-                <a href="#">blah</a>
-                <a href="#">blah</a>
+
+                <div class="dashboard">
+                    <p>Dashboard</p>
+                    <center><button style="background: #178FFF;">Create</button></center>
+                    <center><button style="background: #182735;color:#fff">Join</button></center>
+                </div>
+
+                <div class="sidemenu-groups">
+                    <p>Groups</p>
+                    <div class="group1">
+                        <span class="iconify" data-inline="false" data-icon="el:group" style="font-size: 45px;"></span>
+                        <span>Group 1</span>
+                    </div>
+                    <div class="group1">
+                        <span class="iconify" data-inline="false" data-icon="el:group" style="font-size: 45px;"></span>
+                        <span>Group 1</span>
+                    </div>
+                    <div class="group1">
+                        <span class="iconify" data-inline="false" data-icon="el:group" style="font-size: 45px;"></span>
+                        <span>Group 1</span>
+                    </div>
+                    <div class="group1">
+                        <span class="iconify" data-inline="false" data-icon="el:group" style="font-size: 45px;"></span>
+                        <span>Group 1</span>
+                    </div>
+                    <div class="group1">
+                        <span class="iconify" data-inline="false" data-icon="el:group" style="font-size: 45px;"></span>
+                        <span>Group 1</span>
+                    </div>
+                </div>
+                
             </div>
         </div>
 

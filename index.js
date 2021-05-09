@@ -40,7 +40,7 @@ app.get("/",function(req,res)                                   //initially load
     }
     else{
         app.use(express.static(path.resolve(__dirname+'/views/service')));
-        res.render("./service/index.html",{user:req.session.user})
+        res.render("./service/index.ejs",{user:req.session.user});
     }
 });
 authenticate(app,express);                                   //passing args to authenticate file
