@@ -16,6 +16,10 @@ app.use(session({
     resave:false,
     saveUninitialized:true,
 }));
+app.use(function(req, res, next) {
+    res.locals.user = req.session.user;
+    next();
+});
 
 app.engine('html', require('ejs').renderFile);                  //sets the templating engine to ejs of html files
 app.set('view engine', 'html');
@@ -33,14 +37,14 @@ mongoose.connection.once("open",function()                                      
 
 app.get("/",function(req,res)                                   //initially loading index file
 {
-    if(!req.session.user)                                       //if the user is not logged in
+    if(!res.locals.user)                                       //if the user is not logged in
     {
         app.use(express.static(path.resolve(__dirname+'/views/landing')));
         res.render("./landing/index.html");
     }
     else{
         app.use(express.static(path.resolve(__dirname+'/views/service')));
-        res.render("./service/index.ejs",{user:req.session.user});
+        res.render("./service/index.ejs");
     }
 });
 authenticate(app,express);                                   //passing args to authenticate file

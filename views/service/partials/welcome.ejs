@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/welcome.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome <%=user.user_name%></h1>
+    
+
+    <div class="welcome-container">
+
+        <img src="../img/welcome.jpg" width= 500px height= 300px>
+
+        <div class="rhs">
+            <div class="welcome-text">
+                Welcome <%=user.full_name%>
+            </div>
+            <div class="create-join">
+                <center>
+                <button style="background: #178FFF;">Create</button>
+                <button style="background: #182735;color:#fff">Join</button>
+                </center>
+            </div>
+        </div>
+
+    </div>
+
+    
 </body>
 </html>

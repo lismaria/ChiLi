@@ -11,9 +11,6 @@
 }
 
 body{
-    background: var(--bgwelcome);
-    background-color:var(--bg);
-    /* color:var(--bgtxt); */
     height: 100vh;
 }
 
