@@ -41,11 +41,11 @@
 
 
         <div>
-            <div ng-show="navicon" id="mySidenav" ng-click="togglenavicon()">
+            <div ng-show="navicon" ng-click="togglenavicon()">
                 <span class="iconify" data-inline="false" data-icon="cil:hamburger-menu" style="font-size: 47px;"></span></a>
             </div>
 
-            <div class="sidemenu" ng-hide="navicon" id="main" >
+            <div class="sidemenu" ng-hide="navicon">
                 <div class="sidemenu-welcome">
 
                     <div>
@@ -60,9 +60,11 @@
 
                 <div class="dashboard">
                     <p>Dashboard</p>
-                    <center><button style="background: #178FFF;">Create</button></center>
-                    <center><button style="background: #182735;color:#fff">Join</button></center>
+                    <center><button style="background: #178FFF;" ng-click="createGrp()">Create</button></center>
+                    <center><button style="background: #182735;color:#fff" ng-click="joinGrp()">Join</button></center>
                 </div>
+                
+                <%- include('./grpjoin') %>
 
                 <div class="sidemenu-groups">
                     <p>Groups</p>

@@ -42,4 +42,16 @@ obj.controller("ctrl2",function($scope)
     {
         $scope.popupcard = $scope.popupcard == false ? true: false;
     }
+
+    $scope.createModal=false
+    $scope.createGrp=function()
+    {
+        $scope.createModal = $scope.createModal == false ? true: false;
+    }
+
+    $scope.joinModal=false
+    $scope.joinGrp=function()
+    {
+        $scope.joinModal = $scope.joinModal == false ? true: false;
+    }
 });
