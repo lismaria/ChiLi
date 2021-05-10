@@ -1,13 +1,46 @@
-<div id="myModal" class="modal" ng-show="createModal">
+<div class="modal" ng-show="createModal">
+
+
     <div class="modal-content">
-        <div ng-click="createGrp()"><span class="iconify" data-inline="false" data-icon="akar-icons:cross" style="font-size: 40px;" ></span></div>
-        <p>Create Code</p>
+
+        <div ng-click="createGrp()" class="closebtn"><span class="iconify" data-inline="false" data-icon="akar-icons:cross" style="font-size: 30px; height:30px;width:30px;" ></span></div>
+        <form name="createGroup" method="post" action="/creategroup" class="creategrpForm">
+        
+        <div class="modal-group-name">
+            <label for="group_name">Group Name</label><br>
+            <input type="text" name="group_name" placeholder="Enter group name" ng-model="group_name" required>
+        </div>
+        
+        <div class="modal-group-descr">
+            <label for="group_name">Group Description</label><br>
+            <textarea name="group_descr" placeholder="Write you group description.." ng-model="group_descr" required></textarea>
+        </div>
+        
+        <div class="modal-content-button">
+            <button value="submit">Create Group</button>
+        </div>
+        </form>
+        
     </div>  
+
+
 </div>
 
-<div id="myModal" class="modal" ng-show="joinModal">
+
+
+<div class="modal" ng-show="joinModal">
     <div class="modal-content">
-        <div ng-click="joinGrp()"><span class="iconify" data-inline="false" data-icon="akar-icons:cross" style="font-size: 40px;" ></span></div>
-        <p>Join Code</p>
-    </div>  
+        <div ng-click="joinGrp()" class="closebtn"><span class="iconify" data-inline="false" data-icon="akar-icons:cross" style="font-size: 30px; height:30px;width:30px;" ></span></div>
+
+        <form name="joinGroup" action="/joingroup" method="post" class="joingrpForm">
+            <div>
+                <label for="group_code">Group Code</label><br>
+                <input type="text" name="group_code" placeholder="Enter Group Code" required>
+            </div>
+            <div>
+                <button type="submit">Join Group</button>
+            </div>
+        </form>
+
+    </div>
 </div>
