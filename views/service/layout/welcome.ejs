@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%- include('./partials/header') %>
+
     <link rel="stylesheet" href="../style/welcome.css">
-    <title>Document</title>
+    <title>Welcome</title>
 </head>
-<body>
-    <%- include('../index') %>
+    <%- include('./partials/body') %>
 
     <div class="welcome-container">
 
@@ -16,7 +11,7 @@
 
         <div class="rhs">
             <div class="welcome-text">
-                Welcome <%=user.full_name%>
+                Welcome <br><%=user.full_name%>
             </div>
             <div class="create-join">
                 <center>
@@ -28,6 +23,7 @@
 
     </div>
 
+    <%- include('./partials/footer') %>
     
 </body>
 </html>
