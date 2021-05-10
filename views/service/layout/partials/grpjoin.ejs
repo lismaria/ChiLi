@@ -4,7 +4,7 @@
     <div class="modal-content">
 
         <div ng-click="createGrp()" class="closebtn"><span class="iconify" data-inline="false" data-icon="akar-icons:cross" style="font-size: 30px; height:30px;width:30px;" ></span></div>
-        <form name="createGroup" method="post" action="/creategroup" class="creategrpForm">
+        <form name="createGroup" method="POST" action="/creategroup" class="creategrpForm">
         
         <div class="modal-group-name">
             <label for="group_name">Group Name</label><br>
@@ -12,7 +12,7 @@
         </div>
         
         <div class="modal-group-descr">
-            <label for="group_name">Group Description</label><br>
+            <label for="group_descr">Group Description</label><br>
             <textarea name="group_descr" placeholder="Write you group description.." ng-model="group_descr" required></textarea>
         </div>
         

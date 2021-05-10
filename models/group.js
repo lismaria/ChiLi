@@ -9,7 +9,10 @@ const groupSchema = new Schema
         admin_name:String,
         group_descr:String,
         group_code:String,
-        users:[user.userSchema]
+        users:{
+                type:Schema.Types.ObjectId,
+                ref:'user'
+        }
 });
 
 

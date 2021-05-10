@@ -13,6 +13,6 @@ const userSchema = new Schema
 
 
 //Creating the model
-const user=mongoose.model("user",userSchema);      //(collection_name,scheme_name)
+const user=mongoose.model("user",userSchema);      //(collection_name,scheme_name) 
 
 module.exports=user;                                   //exporting the model to be used in other files
