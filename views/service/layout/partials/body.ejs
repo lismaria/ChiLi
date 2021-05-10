@@ -17,8 +17,19 @@
             <div ng-hide="theme" ng-click="toggletheme()">
                 <span onclick="changetheme()" class="iconify" data-inline="false" data-icon="ic:outline-light-mode"></span>
             </div>
-            <div class="userimg">
+            <div class="userimg" ng-click="popup()">
                 <!-- User Profile Image -->
+                <div class="popup-card" ng-show="popupcard">
+                    <div class="popuptext">
+                        <p><%=user.full_name%></p>
+                        <div class="popnav1">
+                            <span class="iconify" data-inline="false" data-icon="carbon:settings" style="color: #ffffff;"></span><a href="/settings">Settings</a>   
+                        </div>
+                        <div class="popnav2">
+                            <span class="iconify" data-inline="false" data-icon="carbon:logout" style="color: #ffffff;"></span><a href="/settings">Log Out</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

@@ -36,4 +36,10 @@ obj.controller("ctrl2",function($scope)
     {
         $scope.navicon = $scope.navicon == false ? true: false;
     }
+
+    $scope.popupcard=false
+    $scope.popup=function()
+    {
+        $scope.popupcard = $scope.popupcard == false ? true: false;
+    }
 });
