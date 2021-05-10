@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const path = require('path');
 const authenticate = require("./scripts/authenticate");     //importing the authentication file
+const grpjoin = require('./scripts/grpjoin');
 const app=express();
 const port = process.env.PORT || 3000;
 
@@ -51,3 +52,4 @@ app.get("/",function(req,res)                                   //initially load
     }
 });
 authenticate(app,express);                                   //passing args to authenticate file
+grpjoin(app,express);
