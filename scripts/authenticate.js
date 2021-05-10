@@ -41,6 +41,7 @@ module.exports=function(app,express)
     })
         
     })
+    
     app.post("/login",urlencodedParser,function(req,res){               //user authentication
         user.findOne({user_name:req.body.user_name})                    //finding record through username
             .then(async function(result){
@@ -64,5 +65,10 @@ module.exports=function(app,express)
                     }
                 }
             })
+    })
+
+    app.get("/logout",function(req,res){
+        req.session.destroy();
+        res.redirect("/#!login");
     })
 }
