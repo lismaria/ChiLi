@@ -44,7 +44,7 @@ app.get("/",function(req,res)                                   //initially load
     }
     else{
         app.use(express.static(path.resolve(__dirname+'/views/service')));
-        res.render("./service/index.ejs");
+        res.render("./service/partials/welcome.ejs");
     }
 });
 authenticate(app,express);                                   //passing args to authenticate file
