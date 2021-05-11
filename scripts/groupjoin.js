@@ -3,7 +3,6 @@ const user=require("../models/user")
 
 const uniqid=require("uniqid");
 const alert=require("alert");
-const { find } = require("../models/group");
 
 module.exports=function(app,express)
 {
@@ -23,41 +22,59 @@ module.exports=function(app,express)
             }]
         });
         
-        await newgroup.save((err, doc) => {
+        await newgroup.save((err) => {
             if (!err){
-                console.log("saved");
                 res.send("group created")
                 }
             else {
+                console.log(err);
                 res.send(err);
             }})
 
         group.findOne({_id:newgroup._id}).then(function(result){
-            console.log(result);
             user.findOne({_id:req.session.user._id}).then(function(user){
                 user.groups.push({_id:newgroup._id,group_name:newgroup.group_name,group_code:newgroup.group_code});
                 user.save();
             })
         })        
     })
+
+
     app.post("/joingroup",urlencodedParser,function(req,res){
+        var counter=0;
         group.findOne({group_code:req.body.group_code}).then(function(result){
             if(result==null){
                 alert("Group Doesnt Exist.");
                 res.redirect("/")
             }
             else{
-                group.users.id(_id).then(function(use){
-                    console.log(use.user_name)
-                })
-                result.users.push({_id:req.session.user._id,user_name:req.session.user.user_name,full_name:req.session.user.full_name});
-                result.save();
+                // group.aggregate([{$unwind:"$users"},{$match:{"users._id":req.session.user._id}}]).then(function(userr){
+                //     console.log(userr);
+                //     alert("You already exist nig");
+                //     return 0;
+                // })
 
-                user.findOne({_id:req.session.user._id}).then(function(user){
-                    user.groups.push({_id:result._id,group_name:result.group_name});
-                    user.save();
-                })
-                res.send("Group Joined")
+                for(i in result.users)
+                {
+                    if(result.users[i].user_name==req.session.user.user_name)
+                    {
+                        counter=counter+1;
+                        alert("You already there");
+                        res.redirect("/");
+                    } 
+                }
+
+                if(counter==0)
+                {
+                    result.users.push({_id:req.session.user._id,user_name:req.session.user.user_name,full_name:req.session.user.full_name});
+                    result.save();
+    
+                    user.findOne({_id:req.session.user._id}).then(function(user){
+                        user.groups.push({_id:result._id,group_name:result.group_name});
+                        user.save();
+                    })
+                    res.send("Group Joined")
+                }
             }
         })
     })

@@ -37,6 +37,9 @@ mongoose.connection.once("open",function()                                      
 {   
     console.log("ERROR :",err);
 });
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 
 
 app.get("/",function(req,res)                                   //initially loading index file
