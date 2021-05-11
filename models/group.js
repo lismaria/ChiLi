@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 const Schema=mongoose.Schema;
-const user = require("./user")
+const user=require("./user");
+// const userSchema = require("./user/userSchema");
 
 //Creating the schema 
 const groupSchema = new Schema
@@ -9,10 +10,10 @@ const groupSchema = new Schema
         admin_name:String,
         group_descr:String,
         group_code:String,
-        users:{
+        users:[{
                 type:Schema.Types.ObjectId,
                 ref:'user'
-        }
+        }]
 });
 
 
