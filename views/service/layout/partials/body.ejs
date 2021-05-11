@@ -68,26 +68,14 @@
 
                 <div class="sidemenu-groups">
                     <p>Groups</p>
+
+                    <% user.groups.forEach(function(groups){ %>
                     <div class="group1">
                         <span class="iconify" data-inline="false" data-icon="el:group" style="font-size: 45px;"></span>
-                        <span>Group 1</span>
+                        <span><%=groups.group_name %></span>
                     </div>
-                    <div class="group1">
-                        <span class="iconify" data-inline="false" data-icon="el:group" style="font-size: 45px;"></span>
-                        <span>Group 1</span>
-                    </div>
-                    <div class="group1">
-                        <span class="iconify" data-inline="false" data-icon="el:group" style="font-size: 45px;"></span>
-                        <span>Group 1</span>
-                    </div>
-                    <div class="group1">
-                        <span class="iconify" data-inline="false" data-icon="el:group" style="font-size: 45px;"></span>
-                        <span>Group 1</span>
-                    </div>
-                    <div class="group1">
-                        <span class="iconify" data-inline="false" data-icon="el:group" style="font-size: 45px;"></span>
-                        <span>Group 1</span>
-                    </div>
+                    <% }) %>
+
                 </div>
                 
             </div>
