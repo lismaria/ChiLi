@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-
+const group=require("./group");
 const Schema=mongoose.Schema;
 
 //Creating the schema 
@@ -8,7 +8,11 @@ const userSchema = new Schema
         user_name:String,
         full_name:String,
         user_email:String,
-        user_pswd:String
+        user_pswd:String,
+        groups:[{
+                type:Schema.Types.Object,
+                ref:'group'
+        }]
 });
 
 

@@ -1,4 +1,5 @@
 const group=require("../models/group")            //importing the group model
+const user=require("../models/user")
 const alert=require("alert");
 const bcrypt=require("bcrypt");               //for encryption
 
@@ -13,7 +14,8 @@ module.exports=function(app,express)
             group_descr:req.body.group_descr,
             group_code:"abcd",
             users:[{
-                _id:req.session.user._id
+                _id:req.session.user._id,
+                user_name:req.session.user.user_name,
             }]
         });
         
@@ -26,8 +28,12 @@ module.exports=function(app,express)
                 res.send(err);
             }})
 
-        group.findOne({_id:newgroup._id}).populate({path:"users",select:{'_id':1,'user_name':1}}).then(function(result){
+        group.findOne({_id:newgroup._id}).then(function(result){
             console.log(result);
+            user.findOne({_id:req.session.user._id}).then(function(user){
+                user.groups.push({_id:newgroup._id,group_name:newgroup.group_name});
+                user.save();
+            })
         })
 
         

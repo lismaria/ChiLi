@@ -11,7 +11,7 @@ const groupSchema = new Schema
         group_descr:String,
         group_code:String,
         users:[{
-                type:Schema.Types.ObjectId,
+                type:Schema.Types.Object,
                 ref:'user'
         }]
 });
