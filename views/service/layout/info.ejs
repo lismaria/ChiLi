@@ -14,7 +14,8 @@
             <div class="info-lhs">
                 <div class="lhs-upper">
                     <div><span class="iconify" data-inline="false" data-icon="el:group" style="font-size: 40px;margin-right:0px"></span></div>
-                    <span><%=group.group_name%></span>
+                    <!-- GROUP Object coming from scripts/groupinfo.js -->
+                    <span><%=group.group_name%></span> 
                 </div>
 
                 <div class="lhs-middle">
@@ -30,7 +31,7 @@
             <div class="info-rhs">
                 <div class="member-names-box">
                     <span>Group Members</span>
-                    <span><%=group.__v+1%></span>
+                    <span><%=group.users.length%></span>
                 </div>
                 
                 <div class="members-box">
