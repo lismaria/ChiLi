@@ -22,8 +22,10 @@
                 </div>
 
                 <div class="lhs-lower">
-                    <button>Leave</button>
-                    <span>Group Code :<strong> <%=group.group_code%></strong></span>
+                    <button>Leave</button>                    
+                    <% if(group.admin_name==user.user_name){ %>
+                        <span>Group Code :<strong> <%=group.group_code%></strong></span>
+                    <% } %>
                 </div>
             </div>
 
