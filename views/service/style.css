@@ -36,6 +36,8 @@ body{
     --modalbglight:#fff;
     --modalbgdark:#182735;
     --modalbtndark:#BDBDBD;
+    --primarybtnlight:#3FB3C3;
+    --primarybtndark:#0047A1;
 }
 
 .light-theme 
@@ -48,6 +50,8 @@ body{
     --bgwelcome:var(--bgwelcomelight);
     --modalbg:var(--modalbglight);
     --modalbtn:var(--modalbgdark);
+    --primarybtn:var(--primarybtnlight);
+    --groupdp:var(--modalbtndark);
     transition: 2s linear;
 }
 
@@ -61,6 +65,8 @@ body{
     --bgwelcome:var(--bgwelcomedark);
     --modalbg:var(--modalbgdark);
     --modalbtn:var(--modalbtndark);
+    --primarybtn:var(--primarybtndark);
+    --groupdp:var(--modalbgdark);
 }
 
 /* NAV BAR */

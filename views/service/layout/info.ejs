@@ -1,14 +1,53 @@
 <%- include('./partials/header') %>
 
-    <link rel="stylesheet" href="../style/welcome.css">
+    <link rel="stylesheet" href="../style/groupinfo.css">
     <title>Welcome</title>
 </head>
     <%- include('./partials/body') %>
 
-    <%= group.group_name %>
-    <% group.users.forEach(function(users){ %>
-        <span><%=users.full_name %></span><br>
-    <% }) %>
+    
+    <div class="groupinfo-container" style="height:100%">
+        <center>Group Info</center><hr>
+
+        <div class="info-maincontent">
+
+            <div class="info-lhs">
+                <div class="lhs-upper">
+                    <div><span class="iconify" data-inline="false" data-icon="el:group" style="font-size: 40px;margin-right:0px"></span></div>
+                    <span><%=group.group_name%></span>
+                </div>
+
+                <div class="lhs-middle">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt atque culpa veniam sunt! Quidem impedit quo totam, dolores qui blanditiis sequi dolorem ut deserunt porro facere. Excepturi a quam nihil.</p>
+                </div>
+
+                <div class="lhs-lower">
+                    <button>Leave</button>
+                    <span>Group Code :<strong> <%=group.group_code%></strong></span>
+                </div>
+            </div>
+
+            <div class="info-rhs">
+                <div class="member-names-box">
+                    <span>Group Members</span>
+                    <span><%=group.__v+1%></span>
+                </div>
+                
+                <div class="members-box">
+
+                    <%group.users.forEach(function(users){%>
+                        <div class="member-profiles">
+                           <div></div>
+                           <span><%=users.full_name;%></span>
+                        </div>
+                    <% }) %>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 
     <%- include('./partials/footer') %>
     
