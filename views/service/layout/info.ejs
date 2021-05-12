@@ -6,6 +6,9 @@
     <%- include('./partials/body') %>
 
     <%= group.group_name %>
+    <% group.users.forEach(function(users){ %>
+        <span><%=users.full_name %></span><br>
+    <% }) %>
 
     <%- include('./partials/footer') %>
     
