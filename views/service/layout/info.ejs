@@ -14,7 +14,8 @@
             <div class="info-lhs">
                 <div class="lhs-upper">
                     <div><span class="iconify" data-inline="false" data-icon="el:group" style="font-size: 40px;margin-right:0px"></span></div>
-                    <span><%=group.group_name%></span>
+                    <!-- GROUP Object coming from scripts/groupinfo.js -->
+                    <span><%=group.group_name%></span> 
                 </div>
 
                 <div class="lhs-middle">
@@ -22,17 +23,15 @@
                 </div>
 
                 <div class="lhs-lower">
-                    <button>Leave</button>                    
-                    <% if(group.admin_name==user.user_name){ %>
-                        <span>Group Code :<strong> <%=group.group_code%></strong></span>
-                    <% } %>
+                    <form method="post" action="/leavegroup/<%=group._id%>"><button type="submit">Leave</button></form>
+                    <span>Group Code :<strong> <%=group.group_code%></strong></span>
                 </div>
             </div>
 
             <div class="info-rhs">
                 <div class="member-names-box">
                     <span>Group Members</span>
-                    <span><%=group.__v+1%></span>
+                    <span><%=group.users.length%></span>
                 </div>
                 
                 <div class="members-box">

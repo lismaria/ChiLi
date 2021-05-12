@@ -24,17 +24,18 @@ module.exports=function(app,express)
         
         await newgroup.save((err) => {
             if (!err){
-                res.redirect("/info/"+newgroup._id)
+                console.log(err);
                 }
             else {
                 console.log(err);
-                res.send(err);
             }})
 
         group.findOne({_id:newgroup._id}).then(function(result){
-            user.findOne({_id:req.session.user._id}).then(function(user){
+            user.findOne({_id:req.session.user._id}).then(async function(user){
                 user.groups.push({_id:newgroup._id,group_name:newgroup.group_name,group_code:newgroup.group_code});
-                user.save();
+                var userr=await user.save();
+                req.session.user=userr;
+                res.redirect("/info/"+newgroup._id)
             })
         })        
     })
@@ -69,11 +70,13 @@ module.exports=function(app,express)
                     result.users.push({_id:req.session.user._id,user_name:req.session.user.user_name,full_name:req.session.user.full_name});
                     result.save();
     
-                    user.findOne({_id:req.session.user._id}).then(function(user){
+                    user.findOne({_id:req.session.user._id}).then(async function(user){
                         user.groups.push({_id:result._id,group_name:result.group_name});
-                        user.save();
+                        var userr=await user.save();
+                        req.session.user=userr;
+                        res.redirect("/info/"+result._id);
                     })
-                    res.redirect("/info/"+result._id)
+                    
                 }
             }
         })
