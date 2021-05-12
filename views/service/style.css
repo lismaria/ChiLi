@@ -297,6 +297,8 @@ button
 }
 .bottomnav{
     display: flex;
+    justify-content: center;
+    margin-right: 100px;
 }
 .bottomnav div{
     margin:0 60px;
