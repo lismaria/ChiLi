@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 const express = require('express');
+const app=express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 const session = require('express-session');
 const path = require('path');
 const authenticate = require("./scripts/authenticate");     //importing the authentication file
 const groupjoin = require('./scripts/groupjoin');
-const app=express();
+const groupinfo = require('./scripts/groupinfo');
+
 const port = process.env.PORT || 3000;
 
 
@@ -31,7 +35,7 @@ mongoose.connect('mongodb+srv://chili:lischirag@chilicluster.kios7.mongodb.net/d
 mongoose.connection.once("open",function()                                         //once connected
 {
     console.log("Database Connection made");
-    app.listen(port,()=>console.log("Port active :",port));
+    http.listen(port,()=>console.log("Port active :",port));
 
 }).on("error",function(err)                                                         //always on, to get errors
 {   
@@ -43,16 +47,17 @@ mongoose.set('useCreateIndex', true);
 
 
 app.get("/",function(req,res)                                   //initially loading index file
-{
+{  
     if(!res.locals.user)                                       //if the user is not logged in
     {
         app.use(express.static(path.resolve(__dirname+'/views/landing')));
         res.render("./landing/index.html");
     }
-    else{
-        app.use(express.static(path.resolve(__dirname+'/views/service')));
+    else{   
+    app.use(express.static(path.resolve(__dirname+'/views/service')));
         res.render("./service/layout/welcome.ejs");
-    }
+}
 });
 authenticate(app,express);                                   //passing args to authenticate file
 groupjoin(app,express);
+groupinfo(app,express);

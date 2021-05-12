@@ -24,7 +24,7 @@ module.exports=function(app,express)
         
         await newgroup.save((err) => {
             if (!err){
-                res.send("group created")
+                res.redirect("/info/"+newgroup._id)
                 }
             else {
                 console.log(err);
@@ -73,7 +73,7 @@ module.exports=function(app,express)
                         user.groups.push({_id:result._id,group_name:result.group_name});
                         user.save();
                     })
-                    res.send("Group Joined")
+                    res.redirect("/info/"+result._id)
                 }
             }
         })
