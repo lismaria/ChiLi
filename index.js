@@ -8,6 +8,7 @@ const path = require('path');
 const authenticate = require("./scripts/authenticate");     //importing the authentication file
 const groupjoin = require('./scripts/groupjoin');
 const groupinfo = require('./scripts/groupinfo');
+const settings = require('./scripts/settings');
 
 const port = process.env.PORT || 3000;
 
@@ -61,3 +62,4 @@ app.get("/",function(req,res)                                   //initially load
 authenticate(app,express);                                   //passing args to authenticate file
 groupjoin(app,express);
 groupinfo(app,express);
+settings(app,express);
