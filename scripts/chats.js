@@ -2,7 +2,7 @@ const group=require("../models/group")            //importing the group model
 const user=require("../models/user")
 const chat=require("../models/chatModel")
 
-module.exports=function(app,express)
+module.exports=function(app,express,io)
 {
     var urlencodedParser=express.urlencoded({extended:false});
 
@@ -23,6 +23,20 @@ module.exports=function(app,express)
                 res.write("No group found");
                 res.end();
             }
+        
+            // *** socket.io code *** //
+            io.on('connection', function(socket){
+                console.log("connected inside grp")
+                socket.on('chat',function(data){
+                    io.sockets.emit('chat',data);
+                })
+            })
+        })
+        io.on('connection', function(socket){
+            console.log("connected outside grp")
+            socket.on('chat',function(data){
+                io.sockets.emit('chat',data);
+            })
         })
     });
 
