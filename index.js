@@ -10,6 +10,7 @@ const groupjoin = require('./scripts/groupjoin');
 const groupinfo = require('./scripts/groupinfo');
 const settings = require('./scripts/settings');
 const groupleave = require('./scripts/groupleave');
+const chats = require('./scripts/chats');
 
 const port = process.env.PORT || 3000;
 
@@ -33,7 +34,7 @@ app.set('view engine', 'html');
 
 
 mongoose.connect('mongodb+srv://chili:lischirag@chilicluster.kios7.mongodb.net/dummy?retryWrites=true&w=majority&ssl=true',
-                    {useNewUrlParser: true, useUnifiedTopology: true});            //connecting to database
+                    {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true});            //connecting to database
 mongoose.connection.once("open",function()                                         //once connected
 {
     console.log("Database Connection made");
@@ -43,9 +44,7 @@ mongoose.connection.once("open",function()                                      
 {   
     console.log("ERROR :",err);
 });
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
+
 
 
 app.get("/",function(req,res)                                   //initially loading index file
@@ -65,3 +64,4 @@ groupjoin(app,express);
 groupinfo(app,express);
 groupleave(app,express);
 settings(app,express);
+chats(app,express);
