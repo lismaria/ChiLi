@@ -25,19 +25,21 @@ module.exports=function(app,express,io)
             }
         
             // *** socket.io code *** //
-            io.on('connection', function(socket){
-                console.log("connected inside grp")
-                socket.on('chat',function(data){
-                    io.sockets.emit('chat',data);
-                })
-            })
+            
         })
-        io.on('connection', function(socket){
-            console.log("connected outside grp")
-            socket.on('chat',function(data){
-                io.sockets.emit('chat',data);
-            })
-        })
+        // io.on('connection', function(socket){
+        //     console.log("connected outside grp")
+        //     socket.on('chat',function(data){
+        //         io.sockets.emit('chat',data);
+        //     })
+        // })
     });
+
+    io.on('connection', function(socket){
+        console.log("connected outside /get")
+        socket.on('chat',function(data){
+            io.sockets.emit('chat',data);
+        })
+    })
 
 }
