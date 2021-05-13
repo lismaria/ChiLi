@@ -1,0 +1,89 @@
+body{
+    background:var(--bgchats);
+    color:var(--bgtxt);
+}
+.msgBox::-webkit-scrollbar,.sendBox textarea::-webkit-scrollbar {
+    display: none;
+}
+.chatContainer{
+    display: flex;
+    justify-content: center;
+    height:100%
+}
+.chatBox{
+    width: 70%;
+    /* background-color:palevioletred; */
+    padding: 30px 0;
+}
+.msgBox{
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    height:400px;
+    margin: 3px;
+}
+
+.message{
+    background: var(--chatbg);
+    border-radius: 25px;
+    padding: 10px;
+    width: max-content;
+    margin-top: 3px;
+    max-width: fit-content;
+}
+
+.userImg{
+    background: url(../img/default-dp2.jpg);
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50% 50%;
+    margin-right: 10px;
+}
+
+.userProfile{
+    display: flex;
+    margin: 10px;
+}
+
+.userName{
+    font-weight: bold;
+    margin-left: 5px;
+    font-size: 20px;
+    color: #000;
+}
+
+
+
+/* Sending message */
+.sendBox{
+    height: 66px;
+    background: var(--chatbg);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:10px;
+}
+
+.sendBox textarea{
+    border: none;
+    border-bottom: 1px solid #9C9C9C;
+    margin: 5px;
+    padding: 10px;
+    background: var(--chatbg);
+    width: 200px;
+    transition: width 0.4s ease-in-out;
+    color: var(--bgtxt);
+}
+
+.sendBox textarea:focus{
+    width:90%
+}
+
+.sendBox button{
+    border-radius: 50%;
+    width:50px;
+    height:50px;
+    background: #1FCF51;
+}

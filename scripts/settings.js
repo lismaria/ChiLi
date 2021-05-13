@@ -1,7 +1,6 @@
 const group=require("../models/group")            //importing the group model
 const user=require("../models/user")
 
-const uniqid=require("uniqid");
 const alert=require("alert");
 
 module.exports=function(app,express)
