@@ -2,7 +2,7 @@ body{
     background:var(--bgchats);
     color:var(--bgtxt);
 }
-.msgBox::-webkit-scrollbar,.sendBox textarea::-webkit-scrollbar {
+.msgBox::-webkit-scrollbar,.sendBox input[type=text]::-webkit-scrollbar {
     display: none;
 }
 .chatContainer{
@@ -66,7 +66,7 @@ body{
     padding:10px;
 }
 
-.sendBox textarea{
+.sendBox input[type=text]{
     border: none;
     border-bottom: 1px solid #9C9C9C;
     margin: 5px;
@@ -77,7 +77,7 @@ body{
     color: var(--bgtxt);
 }
 
-.sendBox textarea:focus{
+.sendBox input[type=text]:focus{
     width:90%
 }
 

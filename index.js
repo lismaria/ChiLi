@@ -31,7 +31,12 @@ app.use(function(req, res, next) {
 app.engine('html', require('ejs').renderFile);                  //sets the templating engine to ejs of html files
 app.set('view engine', 'html');
 
-
+// io.on('connection', function(socket){
+//     console.log("connected index");
+//     socket.on('disconnect', function () {
+//         console.log('A user disconnected');
+//      });
+// })
 
 mongoose.connect('mongodb+srv://chili:lischirag@chilicluster.kios7.mongodb.net/dummy?retryWrites=true&w=majority&ssl=true',
                     {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true});            //connecting to database
@@ -39,7 +44,6 @@ mongoose.connection.once("open",function()                                      
 {
     console.log("Database Connection made");
     http.listen(port,()=>console.log("Port active :",port));
-
 }).on("error",function(err)                                                         //always on, to get errors
 {   
     console.log("ERROR :",err);
@@ -64,4 +68,4 @@ groupjoin(app,express);
 groupinfo(app,express);
 groupleave(app,express);
 settings(app,express);
-chats(app,express);
+chats(app,express,io);
