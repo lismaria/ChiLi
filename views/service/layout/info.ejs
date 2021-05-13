@@ -19,12 +19,14 @@
                 </div>
 
                 <div class="lhs-middle">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt atque culpa veniam sunt! Quidem impedit quo totam, dolores qui blanditiis sequi dolorem ut deserunt porro facere. Excepturi a quam nihil.</p>
+                    <p><%=group.group_descr%></p>
                 </div>
 
                 <div class="lhs-lower">
                     <form method="post" action="/leavegroup/<%=group._id%>"><button type="submit">Leave</button></form>
-                    <span>Group Code :<strong> <%=group.group_code%></strong></span>
+                    <% if(group.admin_name==user.user_name){ %>
+                        <span>Group Code :<strong> <%=group.group_code%></strong></span>
+                    <% } %>
                 </div>
             </div>
 
@@ -48,6 +50,13 @@
 
         </div>
 
+    </div>
+
+    <div class="groupmark">
+        <div>
+            <span class="iconify" data-inline="false" data-icon="el:group" style="font-size: 45px;"></span>
+            <span><%=group.group_name%></span>
+        </div>
     </div>
 
     <%- include('./partials/nav') %>
