@@ -32,6 +32,11 @@ body{
     max-width: fit-content;
 }
 
+.message span{
+    font-size: 8px;
+    color: var(--chattime);
+}
+
 .userImg{
     background: url(../img/default-dp2.jpg);
     background-size: 50px 50px;
