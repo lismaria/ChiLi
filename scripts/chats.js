@@ -51,12 +51,13 @@ module.exports=function(app,express,io)
                         messages:[{                    
                             user_name: data.user,
                             text: data.input,
+                            time: new Date()
                         }]
                     });
                     newchat.save();
                 }
                 else{                                                             //if group exists push texts into messages                  
-                    chat.findOneAndUpdate({groupid:obj.groupId},{$push:{messages:{user_name:data.user,text:data.input}}}).then(function(result){
+                    chat.findOneAndUpdate({groupid:obj.groupId},{$push:{messages:{user_name:data.user,text:data.input,time:new Date()}}}).then(function(result){
                         // :D
                     })
                 }
