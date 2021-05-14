@@ -8,7 +8,6 @@ module.exports=function(app,express)
     var urlencodedParser=express.urlencoded({extended:false});
 
     app.get("/settings",urlencodedParser,function(req,res){
-        // console.log("in settings")
         res.render("./service/layout/settings.ejs")
     });
 

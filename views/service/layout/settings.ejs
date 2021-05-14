@@ -5,8 +5,50 @@
 </head>
     <%- include('./partials/body') %>
 
-    <div class="settings">
-        
+    <div class="settings-container">
+
+
+        <div class="settings-lhs">
+            <div>
+                <!-- Background Color -->
+            </div>
+            <div class="user-img">
+                <!-- Profile Picture -->
+            </div>
+        </div>
+
+
+        <div class="settings-rhs">
+            <div class="title">
+                Settings
+            </div>
+
+            <div class="settings-form">
+                <form name="user-settings" id="user-settings" action="/settings" method="post">
+                    <table cellspacing=30>
+                        <td>Name :</td>
+                        <th>
+                            <input type="text" name="user_name" value="<%=user.full_name%>">
+                        </th>
+                        <tr>
+                            <td>Profile Photo :</td>
+                            <th>
+                                <label for="upload-img" style="color: var(--primarybtn);">Change</label>
+                                <input type="file" name="user_profile" id="upload-img" class="upload-img">
+                            </th>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <div class="save-cancel-buttons">
+                <button type="submit" form="user-settings" style="background: var(--primarybtn);color:#fff">Save</button>
+                <button type="reset" form="user-settings" style="background: transparent;border: 1px solid #687283;">Cancel</button>
+            </div>
+
+        </div>
+
+
     </div>
 
     </div>
