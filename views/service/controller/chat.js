@@ -1,4 +1,4 @@
-var socket = io.connect("localhost:3000");
+var socket = io();
  
 //DOM 
 var user = document.getElementById('output').dataset.test;
