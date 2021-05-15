@@ -31,6 +31,8 @@ body{
     --bgwelcomedark: linear-gradient(360deg, #000000 0%, #0047A1 65.5%);
     --bgchatslight: linear-gradient(360deg, #FFFFFF 0%, #1FCF51 65.5%);
     --bgchatsdark: linear-gradient(360deg, #000000 0%, #169239 65.5%);
+    --bgforumslight: linear-gradient(360deg, #FFFFFF 0%, #BA4CCF 65.5%);
+    --bgforumsdark: linear-gradient(360deg, #000000 0%, #8B00A6 65.5%);
     --glass:linear-gradient(to bottom,
     rgba(255,255,255, 0.7),
     rgba(255,255,255, 0.4)
@@ -43,6 +45,12 @@ body{
     --chatbglight:#EFECEC;
     --chattimelight:#333333;
     --chattimedark:#7FE49C;
+    --grpmarkCL:#1FCF51;
+    --grpmarkCD:#169239;
+    --grpmarkRL:#FF6580;
+    --grpmarkRD:#C83E57;    
+    --grpmarkFL:#BA4CCF;
+    --grpmarkFD:#8B00A6;
 }
 
 .light-theme 
@@ -60,6 +68,10 @@ body{
     --groupdp:var(--modalbtndark);
     --chatbg:var(--chatbglight);
     --chattime: var(--chattimelight);
+    --bgforums: var(--bgforumslight);
+    --grpmarkC: var(--grpmarkCL);
+    --grpmarkR: var(--grpmarkRL);
+    --grpmarkF: var(--grpmarkFL);
     transition: 2s linear;
 }
 
@@ -77,7 +89,11 @@ body{
     --primarybtn:var(--primarybtndark);
     --groupdp:var(--modalbgdark);
     --chatbg: var(--modalbgdark);
-    --chattime: var(--chattimedark)
+    --chattime: var(--chattimedark);
+    --bgforums: var(--bgforumsdark);
+    --grpmarkC: var(--grpmarkCD);
+    --grpmarkR: var(--grpmarkRL);
+    --grpmarkF: var(--grpmarkFD);
 }
 
 /* NAV BAR */

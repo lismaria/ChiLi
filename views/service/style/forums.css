@@ -1,0 +1,6 @@
+body{
+    background:var(--bgforums);
+}
+.groupmark{
+    background-color: var(--grpmarkF);
+}
