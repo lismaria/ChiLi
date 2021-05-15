@@ -9,18 +9,18 @@ module.exports=function(app,express,io)
 
     app.get("/chats/:id",urlencodedParser,function(req,res){
         var counter=0;
-        group.findOne({_id:req.params.id}).then(function(result)            //getting Group ID from url, passed by scripts/groupjoin.js
+        group.findOne({_id:req.params.id}).then(function(result)            //getting Group ID from url, passed by layout/partials/nav.ejs
         {
             for(i in result.users)
             {
-                if(result.users[i].user_name==req.session.user.user_name)       //if the user is found, render the info page
+                if(result.users[i].user_name==req.session.user.user_name)       //if the user is found, render the chat page
                 {
                     counter=counter+1;
                     chat.findOne({_id: result.chat_id}).then(function(msgs){
-                        if(msgs==null){
-                            res.render("./service/layout/chats.ejs",{group:result})      //sending group object in layout/info.ejs                            
+                        if(msgs==null){                                                  //if there are no chats yet, then only pass group object
+                            res.render("./service/layout/chats.ejs",{group:result})                                 
                         }
-                        else{
+                        else{                                                           //if chats exist, then pass chat object as well
                             res.render("./service/layout/chats.ejs",{group:result,chat:msgs}) 
                         }
                     });
@@ -61,16 +61,13 @@ module.exports=function(app,express,io)
                             time: new Date()
                         }]
                     });
-                    newchat.save().then(function(newdoc){
-                        // console.log(newdoc);
+                    newchat.save().then(function(newdoc){                        //if first chat, then store chat_id in groups Schema for reference
                         group.findOneAndUpdate({_id:obj.groupId},{$push: {chat_id:newdoc._id}}).then(function(grp){
-                            // console.log(grp);
                         })
                     })
                     
                 }
                 else{                                                             //if group exists push texts into messages                  
-                    // const date=new Date();
                     chat.findOneAndUpdate({groupid:obj.groupId},{$push:{messages:{user_name:data.user,text:data.input,time:new Date()}}}).then(function(result){
                         // :D
                         // console.log(date.toLocaleTimeString());

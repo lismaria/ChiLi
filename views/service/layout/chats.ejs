@@ -8,6 +8,7 @@
     <div class="chatBox">
         <hr>
         <div class="msgBox" id="output" data-test=<%= user.user_name %>>
+            <!-- Checking if the chat_id is stored in the group Schema, then rendering messages -->
             <% if(group.chat_id!=null){ %>
                 <% chat.messages.forEach(function(messages){ %>                
                     <div class="userProfile" id="userProfile"><div class="userImg"></div><div style="width:100%"><span id="username" class="userName"><%= messages.user_name %></span><div class="message"><p><%= messages.text %></p><span><%= messages.time.toLocaleTimeString().replace(/:\d{2}\s/,' ')%></span></div></div></div>
