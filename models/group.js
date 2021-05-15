@@ -13,7 +13,11 @@ const groupSchema = new Schema
         users:[{
                 type:Schema.Types.Object,
                 ref:'user'
-        }]
+        }],
+        chat_id:{
+                type:Schema.Types.ObjectId,
+                ref:'chat'
+        }
 });
 
 

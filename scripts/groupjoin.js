@@ -22,13 +22,8 @@ module.exports=function(app,express)
             }]
         });
         
-        await newgroup.save((err) => {                                  //first saving the new group
-            if (!err){
-                console.log(err);
-                }
-            else {
-                console.log(err);
-            }})
+        await newgroup.save()                                             //first saving the new group
+
 
         group.findOne({_id:newgroup._id}).then(function(result){                        
             user.findOne({_id:req.session.user._id}).then(async function(user){             //saving groups to user object

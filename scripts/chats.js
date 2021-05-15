@@ -16,7 +16,14 @@ module.exports=function(app,express,io)
                 if(result.users[i].user_name==req.session.user.user_name)       //if the user is found, render the info page
                 {
                     counter=counter+1;
-                    res.render("./service/layout/chats.ejs",{group:result})      //sending group object in layout/info.ejs
+                    chat.findOne({_id: result.chat_id}).then(function(msgs){
+                        if(msgs==null){
+                            res.render("./service/layout/chats.ejs",{group:result})      //sending group object in layout/info.ejs                            
+                        }
+                        else{
+                            res.render("./service/layout/chats.ejs",{group:result,chat:msgs}) 
+                        }
+                    });
                 } 
             }
             if(counter==0){                                                     //if user havent joined the group but is trying to access from url
@@ -54,10 +61,16 @@ module.exports=function(app,express,io)
                             time: new Date()
                         }]
                     });
-                    newchat.save();
+                    newchat.save().then(function(newdoc){
+                        // console.log(newdoc);
+                        group.findOneAndUpdate({_id:obj.groupId},{$push: {chat_id:newdoc._id}}).then(function(grp){
+                            // console.log(grp);
+                        })
+                    })
+                    
                 }
                 else{                                                             //if group exists push texts into messages                  
-                    const date=new Date();
+                    // const date=new Date();
                     chat.findOneAndUpdate({groupid:obj.groupId},{$push:{messages:{user_name:data.user,text:data.input,time:new Date()}}}).then(function(result){
                         // :D
                         // console.log(date.toLocaleTimeString());
