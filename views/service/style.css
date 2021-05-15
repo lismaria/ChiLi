@@ -41,6 +41,8 @@ body{
     --primarybtnlight:#3FB3C3;
     --primarybtndark:#0047A1;
     --chatbglight:#EFECEC;
+    --chattimelight:#333333;
+    --chattimedark:#7FE49C;
 }
 
 .light-theme 
@@ -57,6 +59,7 @@ body{
     --primarybtn:var(--primarybtnlight);
     --groupdp:var(--modalbtndark);
     --chatbg:var(--chatbglight);
+    --chattime: var(--chattimelight);
     transition: 2s linear;
 }
 
@@ -74,6 +77,7 @@ body{
     --primarybtn:var(--primarybtndark);
     --groupdp:var(--modalbgdark);
     --chatbg: var(--modalbgdark);
+    --chattime: var(--chattimedark)
 }
 
 /* NAV BAR */

@@ -57,8 +57,10 @@ module.exports=function(app,express,io)
                     newchat.save();
                 }
                 else{                                                             //if group exists push texts into messages                  
+                    const date=new Date();
                     chat.findOneAndUpdate({groupid:obj.groupId},{$push:{messages:{user_name:data.user,text:data.input,time:new Date()}}}).then(function(result){
                         // :D
+                        // console.log(date.toLocaleTimeString());
                     })
                 }
             })          
