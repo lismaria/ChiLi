@@ -11,6 +11,7 @@ const groupinfo = require('./scripts/groupinfo');
 const settings = require('./scripts/settings');
 const groupleave = require('./scripts/groupleave');
 const chats = require('./scripts/chats');
+const resources=require('./scripts/resources');
 
 const port = process.env.PORT || 3000;
 
@@ -69,3 +70,4 @@ groupinfo(app,express);
 groupleave(app,express);
 settings(app,express);
 chats(app,express,io);
+resources(app,express,io);
