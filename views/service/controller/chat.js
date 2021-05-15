@@ -1,7 +1,7 @@
 var socket = io();
  
 //DOM 
-var user = document.getElementById('output').dataset.test;
+var user = document.getElementById('output').dataset.test;                  //getting values from dom elements by ID
 var output = document.getElementById("output");
 var input = document.getElementById("input");
 var username = document.getElementById("username");
@@ -11,15 +11,14 @@ var send = document.getElementById("send");
 //*** Emit Events ***//
 
 //on Button Click
-if(input){
+if(input){                                                          //if there is input, then adding event listener to emit data
 send.addEventListener('click',function(event){
-    console.log("click pressed");
     event.preventDefault();
     socket.emit('chat',{
         input: input.value,
         user:user
     });
-    input.value = '';
+    input.value = '';                                               //clearing input box after data is sent
 })
 }
 
@@ -27,7 +26,6 @@ send.addEventListener('click',function(event){
 if(input){
 input.addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
-        console.log("enter pressed");
         event.preventDefault();
         socket.emit('chat',{
             input: input.value,
@@ -40,7 +38,7 @@ input.addEventListener('keypress', function (event) {
 
 
 //*** Listen for Events ***//
-socket.on('chat',function (data){
+socket.on('chat',function (data){                       //data coming from server and merged into HTML
     output.innerHTML+='<div class="userProfile" id="userProfile"><div class="userImg"></div><div style="width:100%"><span id="username" class="userName">'+data.user+'</span><div class="message"><p>'+data.input+'</p></div></div></div>'
     
     var element = document.getElementById('output');
