@@ -11,6 +11,7 @@ const groupinfo = require('./scripts/groupinfo');
 const settings = require('./scripts/settings');
 const groupleave = require('./scripts/groupleave');
 const chats = require('./scripts/chats');
+const resources=require('./scripts/resources');
 
 const forums = require('./scripts/forums');
 
@@ -71,5 +72,5 @@ groupinfo(app,express);
 groupleave(app,express);
 settings(app,express);
 chats(app,express,io);
-
 forums(app,express,io);
+resources(app,express,io);

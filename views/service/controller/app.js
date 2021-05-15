@@ -31,4 +31,10 @@ obj.controller("ctrl2",function($scope)
     {
         $scope.joinModal = $scope.joinModal == false ? true: false;
     }
+
+    $scope.resourceModal=false
+    $scope.resource=function()
+    {
+        $scope.resourceModal = $scope.resourceModal == false ? true: false;
+    }
 });

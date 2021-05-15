@@ -1,0 +1,60 @@
+<%- include('./partials/header') %>
+
+    <link rel="stylesheet" href="../style/resources.css">
+    <title><%=group.group_name%> | Forums </title>
+</head>
+    <%- include('./partials/body') %>
+    
+    <div class="resource-container">
+
+
+        <div class="resource-header">
+            <div class="create-folder" ng-click="resource()">
+                <button>Create Folder</button>
+            </div>
+            <div class="search-files">
+                <input type="text" placeholder="Search files">
+                <span class="iconify" data-inline="false" data-icon="bx:bx-search-alt" style="color:#ffffff;margin-right:0px;width:40px;height:40px;"></span>
+            </div>
+        </div>
+
+
+        <div class="resource-maincontent">
+            <div class="resource-folders">
+                <button>
+                    <span class="iconify" data-inline="false" data-icon="bx:bxs-folder" style="color:var(--bg);margin-right:0px;width:40px;height:30px;"></span>
+                    <p>Folder 1</p>
+                </button>
+            </div>   
+        </div>
+
+        <div class="resource-modal" ng-show="resourceModal">
+
+            <div class="resource-modal-content">
+                <div class="resource-modal-upper">
+                    Create a Folder
+                </div>
+
+
+                <div class="resource-modal-form">
+                    <form name="create-folder" method="POST" action="/create-folder" id="create-folder">
+                        Name :<br>
+                        <input type="text" required>
+                    </form>
+                </div>
+
+
+                <div class="create-cancel-buttons">
+                    <button type="submit" form="create-folder" style="background: #FF6580;color:#fff">Create</button>
+                    <button ng-click="resource()" style="background: transparent;border: 1px solid #687283;">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <%- include('./partials/grpname') %>
+    <%- include('./partials/nav') %>
+    <%- include('./partials/footer') %>
