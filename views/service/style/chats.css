@@ -92,3 +92,7 @@ body{
     height:50px;
     background: #1FCF51;
 }
+
+.groupmark{
+    background-color: var(--grpmarkC);
+}
