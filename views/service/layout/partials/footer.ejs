@@ -3,6 +3,7 @@
 
 
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="../../controller/chat.js"></script>
 <script>
 function changetheme()
@@ -10,6 +11,10 @@ function changetheme()
     const element = document.getElementById('switch');
     element.classList.toggle('dark-theme'); 
 }
+$(".add-ans").click(function() {
+  $(".add").toggleClass("rotate");
+//   $(".plus").toggleClass("open");
+});
 </script>
 </body>
 </html>
