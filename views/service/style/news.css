@@ -82,21 +82,14 @@ a.newsnav{
 
 .news-content-column{
     display:flex;
-    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items:center;
     overflow-y:scroll;
 }
 
-.news-content{
-    margin-bottom:20px;
-    display:flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-    align-items:center;
-    justify-content:space-evenly;
-}
-
 .flip-card {
-    margin-top:50px;
+    margin:10px 0px 50px 0px;
     width: 400px;
     height: 300px;
     perspective: 1000px;

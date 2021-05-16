@@ -67,6 +67,10 @@ a.resourcenav{
     color:#FFFCFC;
 }
 
+.search-files input:focus{
+    outline: none;
+}
+
 .resource-maincontent{
     padding:20px;
     display:flex;

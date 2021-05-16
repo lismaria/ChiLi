@@ -37,10 +37,6 @@ input.addEventListener('keypress', function (event) {
 });
 }
 
-window.onload=function () {                                                 //to scroll to bottom by default
-    var msgBox = document.getElementById("output");
-    msgBox.scrollTop = msgBox.scrollHeight;
-}
 
 //*** Listen for Events ***//
 socket.on('chat',function (data){

@@ -4,7 +4,22 @@
 
 </div>
 <script src="../../controller/chat.js"></script>
+
 <script>
+window.onload=function () {  
+    var msgBox = document.getElementById("output");             //to scroll to bottom by default
+    if(msgBox)
+    {
+        msgBox.scrollTop = msgBox.scrollHeight;      
+    }                           
+    
+    var newsbox = document.getElementById("news-content-column");
+    if(newsbox)
+    {
+        newsbox.scrollTop = newsbox.scrollHeight;   
+    }
+}
+
 function changetheme()
 {
     const element = document.getElementById('switch');

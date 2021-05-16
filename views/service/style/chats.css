@@ -44,6 +44,7 @@ a.chatnav{
 .message span{
     font-size: 8px;
     color: var(--chattime);
+    padding:2px;
 }
 
 .userImg{
@@ -92,6 +93,7 @@ a.chatnav{
 }
 
 .sendBox input[type=text]:focus{
+    outline:none;
     width:90%
 }
 
