@@ -15,12 +15,15 @@ a.forumnav{
     border-radius:20px 20px 0 0;
     display: flex;
     justify-content:space-around;
+    position:relative;
 }
 
 .forumContent{
-    height:445px;
+    height: 405px;
     overflow: scroll;
     border-radius: 0 0 20px 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .forumContent::-webkit-scrollbar {
@@ -122,7 +125,8 @@ a.forumnav{
     width: 124px;
     height: 42px;
     background: var(--searchF);
-    color:#fff
+    color:#fff;
+    border-radius: 0;
 }
 
 /* Questions */
@@ -131,7 +135,7 @@ a.forumnav{
     display: flex;
     justify-content: space-between;
     background-color: var(--chatbg);
-    margin: 20px 80px;
+    margin: 0 80px 20px;
     padding:20px;
     border-radius:10px;
     text-decoration: none;
@@ -183,9 +187,189 @@ a.forumnav{
     border-style: solid;
     border-color: var(--chatbg) transparent transparent transparent;
     visibility: visible;
-  }
-  /* height: 405px;
+}
+
+
+/* Forums - PART 2 */
+.forumHeader a{
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px;
+}
+
+.forumQues{
+    display: flex;
+    justify-content: space-around;
+    height: 405px;
     overflow: scroll;
     border-radius: 0 0 20px 20px;
     margin-bottom: 20px;
-    margin-top: 20px; */
+    margin-top: 20px;
+}
+
+
+.forumQues::-webkit-scrollbar {
+    display: none;
+}
+
+
+.forum-rhs{
+    position: relative;
+    /* width: 400px;
+    height: 400px; */
+}
+
+.ans-form{
+    width: 400px;
+    height: 400px;
+    background-color: var(--grpmarkF); 
+    position: absolute;
+    top: 100px;
+    right: 30px; 
+    box-shadow: 0px 0px 5px 5px rgb(0 0 0 / 50%);  
+}
+
+/* .ans-form form{
+    position: relative;
+} */
+.ans-box{
+    display:flex;
+    flex-direction:column;
+}
+
+.add-ans {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--chatbg);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: 0.5s;
+    position:absolute;
+    right:0;
+    z-index: 1;
+}
+
+.rotate{
+    transform: rotate(135deg);
+}
+/* .add-ans:hover+.hide{
+    display: block;
+    z-index: 1000;
+}
+
+.hide {
+    display: none;
+    z-index: -1000;
+} */
+.ans-box textarea{
+    margin: 40px;
+    margin-top: 0;
+    height: 225px;
+    background: var(--chatbg);
+    color: var(--bgtxt);
+    padding: 20px;
+}
+
+.ans-box label{
+    padding: 20px;
+    color: var(--bgtxt);
+    font-weight: bold;
+}
+
+.ans-box textarea::placeholder{
+    /* color: #EDBFF5; */
+    color: var(--searchF);
+}
+
+
+/* LHS */
+
+.forum-lhs{
+    width: 950px;
+    height: max-content;
+    background-color: var(--chatbg);
+    padding: 20px;
+    color: var(--bgtxt);
+}
+
+
+.ques-body{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.quesimg{
+    border-radius: 50%;
+    background: url(../img/default-dp2.jpg);
+    background-size: 50px 50px;
+    margin: 0 20px 10px 0;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    position: relative;
+}
+.queshead{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: max-content;
+    flex-shrink: 20;
+    margin-bottom: 15px;
+}
+.queshead p{
+    padding: 5px;
+}
+
+.queshead p:first-child {
+    padding: 5px;
+    color: var(--searchF);
+    font-family: 'Righteous';
+    font-size: 20px;
+}
+
+
+.ans-body{
+    margin-top: 15px;
+}
+.ans-body{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.ans-arr{
+    padding-left: 100px
+}
+.ans-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.ans-votes{
+    width: 100px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid var(--searchF);
+  }
+.triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid var(--searchF);
+  }
