@@ -27,14 +27,16 @@ body{
     --shadowdark:10px 10px 10px rgba(255, 255, 255, 0.26);
     --blob12light:invert(63%) sepia(59%) saturate(464%) hue-rotate(140deg) brightness(88%) contrast(83%);
     --blob12dark:invert(15%) sepia(99%) saturate(2704%) hue-rotate(205deg) brightness(91%) contrast(101%);
-    --bgwelcomelight: linear-gradient(360deg, #FFFFFF 0%, #FF6A3B 65.5%);
-    --bgwelcomedark: linear-gradient(360deg, #000000 0%, #e65f35 65.5%);
+    --bgwelcomelight: linear-gradient(360deg, #FFFFFF 0%, #3FB3C3 65.5%);
+    --bgwelcomedark: linear-gradient(360deg, #000000 0%, #0047A1 65.5%);
     --bgchatslight: linear-gradient(360deg, #FFFFFF 0%, #1FCF51 65.5%);
     --bgchatsdark: linear-gradient(360deg, #000000 0%, #169239 65.5%);
     --bgforumslight: linear-gradient(360deg, #FFFFFF 0%, #BA4CCF 65.5%);
     --bgforumsdark: linear-gradient(360deg, #000000 0%, #8B00A6 65.5%);
     --resourcesbglight:linear-gradient(360deg, #FFFFFF 0%, #FF6580 65.5%);
     --resourcesbgdark:linear-gradient(360deg, #000000 0%, #C83E57 65.5%);
+    --bgnewslight: linear-gradient(360deg, #FFFFFF 0%, #FF804A 65.5%);
+    --bgnewsdark: linear-gradient(360deg, #000000 0%, #FF6A3B 65.5%);
     --glass:linear-gradient(to bottom,
     rgba(255,255,255, 0.7),
     rgba(255,255,255, 0.4)
@@ -53,6 +55,8 @@ body{
     --grpmarkRD:#C83E57;    
     --grpmarkFL:#BA4CCF;
     --grpmarkFD:#8B00A6;
+    --grpmarkNL:#FF804A;
+    --grpmarkND:#FF6A3B;
 }
 
 .light-theme 
@@ -64,6 +68,7 @@ body{
     --blob12:var(--blob12light);
     --bgwelcome:var(--bgwelcomelight);
     --bgchats:var(--bgchatslight);
+    --bgnews:var(--bgnewslight);
     --modalbg:var(--modalbglight);
     --modalbtn:var(--modalbgdark);
     --primarybtn:var(--primarybtnlight);
@@ -74,6 +79,7 @@ body{
     --grpmarkC: var(--grpmarkCL);
     --grpmarkR: var(--grpmarkRL);
     --grpmarkF: var(--grpmarkFL);
+    --grpmarkN: var(--grpmarkNL);
     --resourcesbg:var(--resourcesbglight);
     transition: 2s linear;
 }
@@ -87,6 +93,7 @@ body{
     --blob12:var(--blob12dark);
     --bgwelcome:var(--bgwelcomedark);
     --bgchats:var(--bgchatsdark);
+    --bgnews:var(--bgnewsdark);
     --modalbg:var(--modalbgdark);
     --modalbtn:var(--modalbtndark);
     --primarybtn:var(--primarybtndark);
@@ -97,6 +104,7 @@ body{
     --grpmarkC: var(--grpmarkCD);
     --grpmarkR: var(--grpmarkRL);
     --grpmarkF: var(--grpmarkFD);
+    --grpmarkN: var(--grpmarkND);
     --resourcesbg:var(--resourcesbgdark);
 }
 

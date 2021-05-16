@@ -37,4 +37,10 @@ obj.controller("ctrl2",function($scope)
     {
         $scope.resourceModal = $scope.resourceModal == false ? true: false;
     }
+
+    $scope.newsModal=false
+    $scope.news=function()
+    {
+        $scope.newsModal = $scope.newsModal == false ? true: false;
+    }
 });

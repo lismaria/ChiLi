@@ -5,7 +5,71 @@
 </head>
     <%- include('./partials/body') %>
 
-    News
+    <div class="news-container">
+
+
+        <div class="add-news" ng-click="news()">
+            <span class="iconify" data-inline="false" data-icon="bi:plus" style="color:#fff;font-size: 50px;margin-right:0px;"></span>
+        </div>
+
+        <div class="news-content-column">
+        <div class="news-content">
+            <div class="flip-card">
+
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <h1>News Title 1</h1>
+                  </div>
+
+                  <div class="flip-card-back">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci vitae, architecto quia modi mollitia totam excepturi fugit obcaecati id tempora dicta suscipit ab cumque qui ratione magni numquam, quidem officia?</p> 
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="flip-card">
+
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <h1>News Title 2</h1>
+                  </div>
+
+                  <div class="flip-card-back">
+                    <p>News Content comes here</p> 
+                  </div>
+                </div>
+
+            </div>
+        </div>     
+        </div>
+
+        <div class="news-modal" ng-show="newsModal">
+
+
+            <div class="news-modal-content">
+        
+                <div ng-click="news()" class="closebtn"><span class="iconify" data-inline="false" data-icon="akar-icons:cross" style="font-size: 30px; height:30px;width:30px;" ></span></div>
+                <form name="postnews" method="POST" action="/postnews" class="creategrpForm">
+                
+                <div>
+                    <input type="text" name="news_title" placeholder="News Title" required>
+                </div>
+                
+                <div class="news-modal-descr">
+                    <textarea name="news_descr" placeholder="Write your news content here.." required></textarea>
+                </div>
+                
+                <div class="news-post-button">
+                    <button value="submit">Post</button>
+                </div>
+                </form>
+                
+            </div>  
+        
+        
+        </div>
+
 
     </div>
     <%- include('./partials/grpname') %>
