@@ -68,7 +68,10 @@
                 <%- include('./grpjoin') %>
 
                 <div class="sidemenu-groups">
-                    <p>Groups</p>
+                    <div class="dashboard-groups">
+                        <p>Groups</p>
+                        <span><strong><%=user.groups.length%></strong></span>
+                    </div>
 
                     <% user.groups.forEach(function(groups){ %>
                     <div class="group1">

@@ -26,6 +26,12 @@ obj.controller("ctrl2",function($scope)
         $scope.createModal = $scope.createModal == false ? true: false;
     }
 
+    $scope.leaveModal=false
+    $scope.leaveGrp=function()
+    {
+        $scope.leaveModal = $scope.leaveModal == false ? true: false;
+    }
+
     $scope.joinModal=false
     $scope.joinGrp=function()
     {

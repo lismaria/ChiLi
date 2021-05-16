@@ -81,6 +81,7 @@ body{
     --grpmarkF: var(--grpmarkFL);
     --grpmarkN: var(--grpmarkNL);
     --searchF:var(--grpmarkFD);
+    --filebg:var(--modalbgdark);
     --resourcesbg:var(--resourcesbglight);
     transition: 2s linear;
 }
@@ -107,6 +108,7 @@ body{
     --grpmarkF: var(--grpmarkFD);
     --grpmarkN: var(--grpmarkND);
     --searchF: var(--grpmarkFL);
+    --filebg:var(--chatbglight);
     --resourcesbg:var(--resourcesbgdark);
 }
 
@@ -278,6 +280,11 @@ button
     flex-direction: column;
     justify-content: space-between;
     height:150px;
+}
+
+.dashboard-groups{
+    display:flex;
+    justify-content: space-between;   
 }
 
 .dashboard p,.sidemenu-groups p

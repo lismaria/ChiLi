@@ -24,10 +24,32 @@
                 </div>
 
                 <div class="lhs-lower">
-                    <form method="post" action="/leavegroup/<%=group._id%>"><button type="submit">Leave</button></form>
+                    <button ng-click="leaveGrp()">Leave</button>
                     <% if(group.admin_name==user.user_name){ %>
                         <span>Group Code :<strong> <%=group.group_code%></strong></span>
                     <% } %>
+                </div>
+
+                <div class="leave-modal" ng-show="leaveModal">
+
+
+                    <div class="leave-modal-content">
+                
+                        <form name="leaveGroup" method="POST" action="/leavegroup/<%=group._id%>" class="creategrpForm">
+                        
+                        <div class="leave-modal-confirm">
+                            Are you sure you want to leave this group ?
+                        </div>
+                        
+                        <div class="leave-modal-button">
+                            <button type="submit" style="background: #1FCF51">Yes I'm sure</button>
+                            <button type="reset" ng-click="leaveGrp()" style="background: #C83E57">I'll stay</button>
+                        </div>
+                        </form>
+                        
+                    </div>  
+                
+                
                 </div>
             </div>
 
