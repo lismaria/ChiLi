@@ -49,4 +49,9 @@ obj.controller("ctrl2",function($scope)
     {
         $scope.forumModal = $scope.forumModal == false ? true: false;
     }
+    $scope.answercard=false
+    $scope.answer=function()
+    {
+        $scope.answercard = $scope.answercard == false ? true: false;
+    }
 });
