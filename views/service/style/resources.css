@@ -2,6 +2,14 @@ body{
     background:var(--resourcesbg);
 }
 
+.groupmark{
+    background-color: var(--grpmarkR);
+}
+
+a.resourcenav{
+    bottom: -10px;
+}
+
 .resource-container{
     height:100%;
     padding:20px;

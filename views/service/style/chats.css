@@ -2,6 +2,15 @@ body{
     background:var(--bgchats);
     color:var(--bgtxt);
 }
+
+.groupmark{
+    background-color: var(--grpmarkC);
+}
+
+a.chatnav{
+    bottom: -10px;
+}
+
 .msgBox::-webkit-scrollbar,.sendBox input[type=text]::-webkit-scrollbar {
     display: none;
 }
@@ -91,8 +100,4 @@ body{
     width:50px;
     height:50px;
     background: #1FCF51;
-}
-
-.groupmark{
-    background-color: var(--grpmarkC);
 }

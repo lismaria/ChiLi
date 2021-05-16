@@ -2,6 +2,10 @@ body{
     background:var(--bgwelcome);
 }
 
+a.infonav{
+    bottom: -10px;
+}
+
 .members-box::-webkit-scrollbar {
     display: none;
 }
