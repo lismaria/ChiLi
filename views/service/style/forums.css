@@ -8,3 +8,115 @@ body{
 a.forumnav{
     bottom: -10px;
 }
+
+.forumHeader{
+    height:80px;
+    background-color:var(--chatbg); 
+    border-radius:20px 20px 0 0;
+    display: flex;
+    justify-content:space-around;
+}
+
+.forumContent{
+    height:100%;
+    border-radius: 0 0 20px 20px;
+}
+
+
+/* Ask Ques Styles */
+.askQues {
+    display: flex;
+    align-items: center;
+}
+.askQues button {
+    height: 48px;
+    width: 383px;
+    font-size: 25px;
+    color: #ffffff;
+    background-color: #BA4CCF;
+}
+
+
+/* Search Ques Styles */
+.searchQues input[type=text] {
+    width: 0px;
+    height:40px;
+    font-size: 25px;
+    color: var(--bgtxt);
+    background-color:var(--chatbg);
+    padding: 12px 20px 12px 40px;    
+    border:none;
+    transition: width 0.4s ease-in-out;
+}
+
+.searchQues input[type=text]:hover{
+    width:90%;
+}
+
+.searchQues input[type=text]:focus{
+    width:90%;
+    outline: none;
+    border-bottom: var(--bgtxt) solid;
+}
+
+.searchQues input::placeholder{
+    color: var(--searchF);
+}
+
+.searchQues{
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;  
+    width: 400px;
+}
+
+.searchQues svg.iconify {
+    cursor:default;
+    color: var(--searchF);
+}
+
+/* Forum Modal */
+
+.forum-modal {
+    position: fixed; 
+    z-index: 2; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.4); 
+
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.forum-modal-content {
+  padding: 20px;
+  width: 500px;
+  height: 400px;
+  background: var(--modalbg);
+  border-radius: 20px;
+  position: relative;
+  z-index: 3;
+}
+
+.ques-descr textarea{
+    height:200px;
+}
+
+.ques-post-btn{
+    width:100%;
+    display:flex;
+    justify-content:flex-end;
+}
+
+.ques-post-btn button{
+    margin-right:30px;
+    font-size:18px;
+    font-weight:bold;
+    width: 124px;
+    height: 42px;
+    background: var(--searchF);
+    color:#fff
+}

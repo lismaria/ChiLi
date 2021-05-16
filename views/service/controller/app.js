@@ -37,4 +37,10 @@ obj.controller("ctrl2",function($scope)
     {
         $scope.resourceModal = $scope.resourceModal == false ? true: false;
     }
+
+    $scope.forumModal=false
+    $scope.forum=function()
+    {
+        $scope.forumModal = $scope.forumModal == false ? true: false;
+    }
 });

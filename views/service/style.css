@@ -74,6 +74,7 @@ body{
     --grpmarkC: var(--grpmarkCL);
     --grpmarkR: var(--grpmarkRL);
     --grpmarkF: var(--grpmarkFL);
+    --searchF:var(--grpmarkFD);
     --resourcesbg:var(--resourcesbglight);
     transition: 2s linear;
 }
@@ -97,6 +98,7 @@ body{
     --grpmarkC: var(--grpmarkCD);
     --grpmarkR: var(--grpmarkRL);
     --grpmarkF: var(--grpmarkFD);
+    --searchF: var(--grpmarkFL);
     --resourcesbg:var(--resourcesbgdark);
 }
 
