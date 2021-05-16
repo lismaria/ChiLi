@@ -1,0 +1,136 @@
+<%- include('./partials/header') %>
+
+    <link rel="stylesheet" href="/../../style/resources.css">
+    <title><%=group.group_name%> | Resources </title>
+</head>
+    <%- include('./partials/body') %>
+    
+    <div class="resource-container">
+
+
+        <div class="resource-header">
+            <a href="/resources/<%=group._id%>"><span class="iconify" data-inline="false" data-icon="akar-icons:arrow-back-thick-fill" style="width:30px;height:30px"></span></a>
+            <div class="attach-file" ng-click="resource()">
+                <div>
+                    <span class="iconify" data-inline="false" data-icon="bi:plus" style="color:#FF6580;font-size: 50px;margin-right:0px;"></span>
+                </div>
+                <button>Attach File</button>
+            </div>
+            <div class="search-files">
+                <input type="text" placeholder="Search files">
+                <span class="iconify" data-inline="false" data-icon="bx:bx-search-alt" style="color:#ffffff;margin-right:0px;width:40px;height:40px;"></span>
+            </div>
+        </div>
+
+
+        <div class="folder-maincontent">
+            <div class="folder-header">
+                <div>
+                    <span class="iconify" data-inline="false" data-icon="bx:bxs-folder" style="color:var(--bg);margin-right:0px;width:40px;height:30px;"></span>
+                    <p>Folder 1</p>
+                </div>
+            </div>
+            
+            <div class="file-container">
+                <div class="resource-file">
+                    <div class="uploaded-files">
+
+                    </div>
+
+                    <div class="file_name">
+                        abc.txt
+                    </div>
+                </div>
+
+                <div class="resource-file">
+                    <div class="uploaded-files">
+
+                    </div>
+
+                    <div class="file_name">
+                        abc.txt
+                    </div>
+                </div>
+
+                <div class="resource-file">
+                    <div class="uploaded-files">
+
+                    </div>
+
+                    <div class="file_name">
+                        abc.txt
+                    </div>
+                </div>
+
+                <div class="resource-file">
+                    <div class="uploaded-files">
+
+                    </div>
+
+                    <div class="file_name">
+                        abc.txt
+                    </div>
+                </div>
+
+                <div class="resource-file">
+                    <div class="uploaded-files">
+
+                    </div>
+
+                    <div class="file_name">
+                        abc.txt
+                    </div>
+                </div>
+
+                <div class="resource-file">
+                    <div class="uploaded-files">
+
+                    </div>
+
+                    <div class="file_name">
+                        abc.txt
+                    </div>
+                </div>
+
+                <div class="resource-file">
+                    <div class="uploaded-files">
+
+                    </div>
+
+                    <div class="file_name">
+                        abc.txt
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resource-modal" ng-show="resourceModal">
+
+            <div class="resource-modal-content">
+                <div class="resource-modal-upper">
+                    Attach a File
+                </div>
+
+
+                <div class="resource-modal-form">
+                    <form name="create-folder" method="POST" action="/create-folder" id="create-folder">
+                        <label for="choose-file">Choose a file</label>
+                        <input type="file" name="" id="choose-file">
+                    </form>
+                </div>
+
+
+                <div class="create-cancel-buttons">
+                    <button type="submit" form="create-folder" style="background: #FF6580;color:#fff">Add</button>
+                    <button type="reset" form="create-folder" ng-click="resource()" style="background: transparent;border: 1px solid #687283;">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <%- include('./partials/grpname') %>
+    <%- include('./partials/nav') %>
+    <%- include('./partials/footer') %>
