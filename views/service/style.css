@@ -27,8 +27,8 @@ body{
     --shadowdark:10px 10px 10px rgba(255, 255, 255, 0.26);
     --blob12light:invert(63%) sepia(59%) saturate(464%) hue-rotate(140deg) brightness(88%) contrast(83%);
     --blob12dark:invert(15%) sepia(99%) saturate(2704%) hue-rotate(205deg) brightness(91%) contrast(101%);
-    --bgwelcomelight: linear-gradient(360deg, #FFFFFF 0%, #3FB3C3 65.5%);
-    --bgwelcomedark: linear-gradient(360deg, #000000 0%, #0047A1 65.5%);
+    --bgwelcomelight: linear-gradient(360deg, #FFFFFF 0%, #FF6A3B 65.5%);
+    --bgwelcomedark: linear-gradient(360deg, #000000 0%, #e65f35 65.5%);
     --bgchatslight: linear-gradient(360deg, #FFFFFF 0%, #1FCF51 65.5%);
     --bgchatsdark: linear-gradient(360deg, #000000 0%, #169239 65.5%);
     --bgforumslight: linear-gradient(360deg, #FFFFFF 0%, #BA4CCF 65.5%);
@@ -382,4 +382,8 @@ button
 .groupmark div{
     display: flex;
     align-items: center;
+}
+
+hr{
+    background-color:#000000;
 }
