@@ -17,6 +17,10 @@ const groupSchema = new Schema
         chat_id:{
                 type:Schema.Types.ObjectId,
                 ref:'chat'
+        },
+        news_id:{
+                type:Schema.Types.ObjectId,
+                ref:'news'
         }
 });
 

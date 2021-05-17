@@ -14,10 +14,13 @@ var send = document.getElementById("send");
 if(input){                                                          //if there is input, then adding event listener to emit data
 send.addEventListener('click',function(event){
     event.preventDefault();
-    socket.emit('chat',{
-        input: input.value,
-        user:user
-    });
+    if(input.value.length>0)
+    {
+        socket.emit('chat',{
+            input: input.value,
+            user:user
+        });
+    }
     input.value = '';                                               //clearing input box after data is sent
 })
 }
@@ -27,11 +30,14 @@ if(input){
 input.addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
         event.preventDefault();
-        socket.emit('chat',{
-            input: input.value,
-            user:user,
-            time: new Date()
-        });
+        if(input.value.length>0)
+        {
+            socket.emit('chat',{
+                input: input.value,
+                user:user,
+                time: new Date()
+            });
+        }
         input.value = '';
     }
 });
