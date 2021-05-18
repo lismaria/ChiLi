@@ -22,11 +22,11 @@
                 <div style="display:flex;">
                     <div class="quesimg"></div>
                     <div class="queshead">
-                        <p style="padding-left: 0"><%=user.user_name%></p>
-                        <b style="font-size: 18px;">Qeus Tlite Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit tempore neque dicta aperiam, iure corrupti ad aliquam totam optio placeat? Quasi veniam dolores beatae perferendis magnam laudantium tempora facere cum.</b>
+                        <p style="padding-left: 0"><%=question[0].questions.user_name%></p>
+                        <b style="font-size: 18px;"><%=question[0].questions.ques_title%></b>
                     </div>
                 </div> 
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit, aliquam. Ea nostrum, magnam voluptates consequatur architecto iusto neque doloremque sunt non. Reiciendis ipsum quasi rem vero aliquid voluptatum! Et, quidem.</p>
+                <p><%=question[0].questions.ques_descr%></p>
             </div>
 
             <hr>
@@ -34,6 +34,7 @@
             <div class="ans-body">
                 <div style="width: 300px;font-size: 20px;"><b>2 Answers: </b></div>
                 <div class="ans-arr">
+
                     <div class="ans-container">                        
                         <div class="answerss">
                             <div style="display:flex;">
@@ -54,47 +55,7 @@
                             <div class="triangle-down"></div>
                         </div>                                          
                     </div>
-                    <hr> 
-
-                    <div class="ans-container">                        
-                        <div class="answerss">
-                            <div style="display:flex;">
-                                <div class="quesimg"></div>
-                                <div class="queshead">
-                                    <p>shaveena</p>
-                                    <p>Qeus Tlite Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit tempore neque dicta aperiam, iure corrupti ad aliquam totam optio placeat? Quasi veniam dolores beatae perferendis magnam laudantium tempora facere cum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore ad itaque repellendus, reiciendis consequatur inventore assumenda, est amet cumque, illo optio id saepe animi rerum rem nobis libero aut maxime.
-                                    Aspernatur aut hic aliquid delectus earum, excepturi quos dolor labore veniam nisi, quam numquam vero quis ratione cupiditate possimus? Voluptatum quos corporis exercitationem nobis ipsum sequi tempore ipsa ipsam est?
-                                    </p>
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="ans-votes">
-                            <div class="triangle-up"></div>
-                            <div style="padding: 5px;">205</div>
-                            <div class="triangle-down"></div>
-                        </div>                                          
-                    </div>
-                    <hr> 
-
-                    <div class="ans-container">                        
-                        <div class="answerss">
-                            <div style="display:flex;">
-                                <div class="quesimg"></div>
-                                <div class="queshead">
-                                    <p>neha</p>
-                                    <p>Qeus Tlite Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit tempore neque dicta aperiam, iure corrupti ad aliquam totam optio placeat? Quasi veniam dolores beatae perferendis magnam laudantium tempora facere cum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore ad itaque repellendus, reiciendis consequatur inventore assumenda, est amet cumque, illo optio id saepe animi rerum rem nobis libero aut maxime.
-                                    </p>
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="ans-votes">
-                            <div class="triangle-up"></div>
-                            <div style="padding: 5px;">2005</div>
-                            <div class="triangle-down"></div>
-                        </div>                                          
-                    </div>
-                    <hr> 
-                    
+                    <hr>    
 
                 </div>
             </div>

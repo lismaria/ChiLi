@@ -15,76 +15,30 @@
         </div>
     </div>
 
-    <div class="forumContent">
-        <a href="/forums/<%=group._id%>/ques" class="ques-block">
-            <div style='display:flex'>
-                <div class="userimg"></div>
-                <div class="ques-title">
-                    <div style='padding-bottom:5px;'><b><%=user.user_name%></b></div>
-                    <div>lorem ipsum dolor sit amet, consectet</div>
-                </div>
-            </div>
-            <div class="ques-votes">
-                <div class="tooltip">
-                    <span class="tooltiptext">10</span>
-                </div>
-                <div>
-                    19 June, 2021<br> 5 : 59 PM
-                </div>
-            </div>
-        </a>
-        <a href="#" class="ques-block">
-            <div style='display:flex'>
-                <div class="userimg"></div>
-                <div class="ques-title">
-                    <div style='padding-bottom:5px;'><b><%=user.user_name%></b></div>
-                    <div>lorem ipsum dolor sit amet, consectet</div>
-                </div>
-            </div>
-            <div class="ques-votes">
-                <div class="tooltip">
-                    <span class="tooltiptext">10</span>
-                </div>
-                <div>
-                    19 June, 2021<br> 5 : 59 PM
-                </div>
-            </div>
-        </a>
-        <a href="#" class="ques-block">
-            <div style='display:flex'>
-                <div class="userimg"></div>
-                <div class="ques-title">
-                    <div style='padding-bottom:5px;'><b><%=user.user_name%></b></div>
-                    <div>lorem ipsum dolor sit amet, consectet</div>
-                </div>
-            </div>
-            <div class="ques-votes">
-                <div class="tooltip">
-                    <span class="tooltiptext">10</span>
-                </div>
-                <div>
-                    19 June, 2021<br> 5 : 59 PM
-                </div>
-            </div>
-        </a>
-        <a href="#" class="ques-block">
-            <div style='display:flex'>
-                <div class="userimg"></div>
-                <div class="ques-title">
-                    <div style='padding-bottom:5px;'><b><%=user.user_name%></b></div>
-                    <div>lorem ipsum dolor sit amet, consectet</div>
-                </div>
-            </div>
-            <div class="ques-votes">
-                <div class="tooltip">
-                    <span class="tooltiptext">10</span>
-                </div>
-                <div>
-                    19 June, 2021<br> 5 : 59 PM
-                </div>
-            </div>
-        </a>
-
+    <div id="forumContent" class="forumContent" data-test=<%= user.user_name %>>
+        <% if(group.forum_id!=null){ %>
+            <% forum.questions.forEach(function(post){ %> 
+                <a href="/forums/<%=group._id%>/<%=post._id%>" class="ques-block">
+                    <div style="display:flex">
+                        <div class="userimg"></div>
+                        <div class="ques-title">
+                            <div style="padding-bottom:5px;">
+                                <b><%= post.user_name %></b>
+                            </div>
+                            <div><%= post.ques_title %></div>
+                        </div>
+                    </div>
+                    <div class="ques-votes">
+                        <div class="tooltip">
+                            <span class="tooltiptext">0</span>
+                        </div>
+                        <div><%= post.time.toLocaleDateString(undefined, {month:"short",year:"numeric",day:"numeric"})%>
+                            <br><%= post.time.toLocaleTimeString().replace(/:\d{2}\s/,' ')%>
+                        </div>
+                    </div>
+                </a>
+            <% }) %> 
+        <% } %>
     </div>
     
 
@@ -92,23 +46,21 @@
         <div class="forum-modal-content">
             <div ng-click="forum()" class="closebtn"><span class="iconify" data-inline="false" data-icon="akar-icons:cross" style="font-size: 30px; height:30px;width:30px;" ></span></div>
     
-            <form name="ask-ques" action="/askques" method="POST" class="creategrpForm">
+            <form name="ask-ques" class="creategrpForm">
                 <div>
-                    <input type="text" name="ques_title" placeholder="Question Title">
+                    <input type="text" id="ques_title" name="ques_title" placeholder="Question Title">
                 </div>
                 <div class="ques-descr">
-                    <textarea name="ques_descr" placeholder="Describe your query"></textarea>
+                    <textarea id="ques_descr" name="ques_descr" placeholder="Describe your query"></textarea>
                 </div>
                 <div class="ques-post-btn">
-                    <button type="submit">POST</button></div>
+                    <button id="post_ques" type="submit" ng-click="forum()">POST</button></div>
                 </div>
             </form>
     
         </div>
     </div>
 
-
-    
     </div>
 
     <%- include('./partials/grpname') %>

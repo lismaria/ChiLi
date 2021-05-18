@@ -4,8 +4,9 @@
 
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="../../controller/chat.js"></script>
+<script src="../../controller/clientchat.js"></script>
 <script src="../../controller/clientnews.js"></script>
+<script src="../../controller/clientforum.js"></script>
 
 <script>
 window.onload=function () {  
@@ -19,6 +20,11 @@ window.onload=function () {
     if(newsbox)
     {
         newsbox.scrollTop = newsbox.scrollHeight;   
+    }
+    var forumbox = document.getElementById("forumContent");
+    if(forumbox)
+    {
+        forumbox.scrollTop = forumbox.scrollHeight;   
     }
 }
 

@@ -21,6 +21,10 @@ const groupSchema = new Schema
         news_id:{
                 type:Schema.Types.ObjectId,
                 ref:'news'
+        },
+        forum_id:{
+                type:Schema.Types.ObjectId,
+                ref:'forum'
         }
 });
 

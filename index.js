@@ -13,7 +13,6 @@ const groupleave = require('./scripts/groupleave');
 const chats = require('./scripts/chats');
 const resources=require('./scripts/resources');
 const news=require('./scripts/news');
-
 const forums = require('./scripts/forums');
 
 const port = process.env.PORT || 3000;
@@ -50,7 +49,7 @@ mongoose.connection.once("open",function()                                      
     http.listen(port,()=>console.log("Port active :",port));
 }).on("error",function(err)                                                         //always on, to get errors
 {   
-    console.log("ERROR :",err);
+    console.log("Failed to connect to db, Please check your network connection.");
 });
 
 
