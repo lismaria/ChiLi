@@ -5,7 +5,7 @@
 </head>
     <%- include('./partials/body') %>
     <div style="position: relative;">    
-    <div class="forumHeader">
+    <div id="forumContent" class="forumHeader" data-test=<%= user.user_name %>>
         <a href="/forums/<%=group._id%>"><span class="iconify" data-inline="false" data-icon="akar-icons:arrow-back-thick-fill" style="width:30px;height:30px;"></span></a>
         <div class="askQues" ng-click="forum()">
             <button>Ask a Question</button>
@@ -29,33 +29,28 @@
                 <p><%=question[0].questions.ques_descr%></p>
             </div>
 
-            <hr>
+            <hr style="background-color:var(--bgtxt);border-top: 2px solid var(--bgtxt);">
 
             <div class="ans-body">
                 <div style="width: 300px;font-size: 20px;"><b>2 Answers: </b></div>
-                <div class="ans-arr">
-
-                    <div class="ans-container">                        
-                        <div class="answerss">
-                            <div style="display:flex;">
-                                <div class="quesimg"></div>
-                                <div class="queshead">
-                                    <p>lis_maria</p>
-                                    <p>Qeus Tlite Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit tempore neque dicta aperiam, iure corrupti ad aliquam totam optio placeat? Quasi veniam dolores beatae perferendis magnam laudantium tempora facere cum. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore ad itaque repellendus, reiciendis consequatur inventore assumenda, est amet cumque, illo optio id saepe animi rerum rem nobis libero aut maxime.
-                                    Aspernatur aut hic aliquid delectus earum, excepturi quos dolor labore veniam nisi, quam numquam vero quis ratione cupiditate possimus? Voluptatum quos corporis exercitationem nobis ipsum sequi tempore ipsa ipsam est?
-                                    Cupiditate architecto tenetur accusantium necessitatibus aliquid pariatur? Delectus quis nemo animi ratione sed iusto quaerat minima cupiditate omnis, voluptatibus voluptate porro quia, ducimus eveniet blanditiis molestias provident maxime! Sunt, quod.
-                                    Ipsam, vel. Illum corrupti explicabo assumenda porro adipisci amet maxime omnis obcaecati ipsam. Aliquam blanditiis ipsa ducimus impedit velit necessitatibus explicabo voluptatum. Eveniet, mollitia nemo at amet asperiores a nostrum!
-                                    Omnis vel facere nobis, velit nostrum sunt similique quis quos debitis alias officia id, autem neque voluptatibus dolores voluptas. Sunt quas similique, sequi cum numquam ullam quibusdam distinctio tempora corrupti.</p>
-                                </div>
-                            </div> 
+                <div id="ans_arr" class="ans-arr">
+                    <div class="answerss">
+                        <div style="display:flex;position:relative;padding: 10px;">
+                            <div class="quesimg"></div>
+                            <div class="queshead">
+                                <p>'+ansData.user+'</p>
+                                <p>'+ansData.ans+'</p>
+                            </div>
+                            <div class="ans-votes">
+                                <div class="triangle-up"></div>
+                                <div style="padding: 5px;">5</div>
+                                <div class="triangle-down"></div>
+                            </div>
                         </div>
-                        <div class="ans-votes">
-                            <div class="triangle-up"></div>
-                            <div style="padding: 5px;">5</div>
-                            <div class="triangle-down"></div>
-                        </div>                                          
                     </div>
-                    <hr>    
+                
+                <hr>
+                        
 
                 </div>
             </div>
@@ -69,37 +64,35 @@
     </div>
 
     <div class="ans-form" ng-show="answercard">
-        <form name="ask-ques" action="/answer" method="POST">
+        <form name="ask-ques">
             <div ><div class="ans-box">
-                <label for="answer">Your Answer</label>                
-                <textarea name="answer" placeholder="Type your reply..."></textarea>
+                <label for="ans">Your Answer</label>                
+                <textarea id="ans" name="ans" placeholder="Type your reply..."></textarea>
             </div>
             <div class="ques-post-btn">
-                <button type="submit">POST</button>
+                <button id="post_ans" type="submit">POST</button>
             </div></div>
         </form>
     </div>
 
     <div class="forum-modal" ng-show="forumModal">
         <div class="forum-modal-content">
-            <div ng-click="forum()" class="closebtn"><span class="iconify" data-inline="false" data-icon="akar-icons:cross" style="font-size: 30px; height:30px;width:30px; " ></span></div>
+            <div ng-click="forum()" class="closebtn"><span class="iconify" data-inline="false" data-icon="akar-icons:cross" style="font-size: 30px; height:30px;width:30px;" ></span></div>
     
-            <form name="ask-ques" action="/askques" method="POST" class="creategrpForm">
+            <form name="ask-ques" class="creategrpForm">
                 <div>
-                    <input type="text" name="ques_title" placeholder="Question Title">
+                    <input type="text" id="ques_title" name="ques_title" placeholder="Question Title">
                 </div>
                 <div class="ques-descr">
-                    <textarea name="ques_descr" placeholder="Describe your query"></textarea>
+                    <textarea id="ques_descr" name="ques_descr" placeholder="Describe your query"></textarea>
                 </div>
                 <div class="ques-post-btn">
-                    <button type="submit">POST</button></div>
+                    <button id="post_ques" type="submit" ng-click="forum()">POST</button></div>
                 </div>
             </form>
     
         </div>
     </div>
-
-
     
     </div>
 

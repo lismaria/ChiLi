@@ -3,6 +3,7 @@ const user=require("../models/user")
 const forum=require("../models/forumModel")
 const mongoose=require("mongoose")
 var showques;
+var showans;
 
 module.exports =function(app,express,io)
 {
@@ -67,12 +68,21 @@ module.exports =function(app,express,io)
                 res.end();
             }
         }) 
+        function showAns(){                                                     // storing from req parameter
+            app={
+                postId: ques,
+                userRef: req.session.user 
+            }
+            return app;
+        }  
+        showans=showAns;
     }); 
 
     // *** socket.io code *** //
     io.on('connection', function(socket){
         socket.on('post_ques',function(data){              //listening for post question event from client
-            io.sockets.emit('post_ques',data);                                        // emiting msg to all sockets(clients) on server
+            // io.sockets.emit('post_ques',data); 
+            socket.emit('post_ques',data);                                       // emiting msg to all sockets(clients) on server
  
             obj=showques();                                                          // storing the return obj of showMsg
  
@@ -90,7 +100,8 @@ module.exports =function(app,express,io)
                     newforum.save().then(function(newdoc)                 //if first chat, then store chat_id in groups Schema for reference
                     {                        
                         group.findOneAndUpdate({_id:obj.groupId},{$push: {forum_id:newdoc._id}}).then(function(frm){
-                            io.sockets.emit('reload', {});
+                            // console.log(frm);
+                            socket.emit('reload', {});
                         })
                     })
  
@@ -99,11 +110,25 @@ module.exports =function(app,express,io)
                     forum.findOneAndUpdate({groupid:obj.groupId},{$push:{questions:{user_name:data.user,ques_title:data.ques_title,ques_descr:data.ques_descr,time:new Date()}}}).then(function(result){
                         // :D
                         // console.log(date.toLocaleTimeString());
-                        io.sockets.emit('reload', {});
+                        // io.sockets.emit("post_ques",data)
+                        socket.emit('reload', {});
                     })
                 }
-            })          
+            }) 
+            // io.sockets.emit('post_ques',data)         
  
         })
-     })
+
+        //post answer
+        socket.on('post_ans',function(ansData){              //listening for post question event from client
+            socket.emit('post_ans',ansData);                                        // emiting msg to all sockets(clients) on server
+            console.log(ansData);
+            app=showans();
+            forum.aggregate([{$unwind:"$questions"},{$match:{"questions._id":app.postId}}]).then(function(answer){        //getting Questions ID from url, passed by forums.ejs
+                // user.groups.push({_id:result._id,group_name:result.group_name});
+                console.log(answer);
+            }) 
+        })
+
+     }) 
  }

@@ -343,7 +343,8 @@ a.forumnav{
 }
 
 .ans-arr{
-    padding-left: 100px
+    padding-left: 100px;
+    width: 100%;
 }
 .ans-container{
     display: flex;
@@ -358,6 +359,8 @@ a.forumnav{
     align-items: center;
     flex-direction: column;
     padding: 5px;
+    position: absolute;
+    right: 0;
 }
 
 .triangle-up {
@@ -366,11 +369,19 @@ a.forumnav{
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-bottom: 20px solid var(--searchF);
-  }
+}
+
 .triangle-down {
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 20px solid var(--searchF);
-  }
+}
+
+hr{
+    border-top: 2px dashed var(--searchF);
+    border-bottom: none;
+    background-color: transparent;
+}
+
