@@ -1,4 +1,8 @@
 var socket = io();
+
+socket.on('reload', function (data) {
+    location.reload();
+});
  
 //DOM 
 var user = document.getElementById('forumContent').dataset.test;                  //getting values from dom elements by ID
@@ -16,7 +20,7 @@ post_ques.addEventListener('click',function(event){
     event.preventDefault();
     if(ques_title.value.length>0 && ques_descr.value.length>0)
     {
-        socket.emit('post_ques',{
+        socket.emit('post_ques',{                        //emit to server
             ques_title: ques_title.value,
             ques_descr: ques_descr.value,
             user:user
@@ -29,8 +33,8 @@ post_ques.addEventListener('click',function(event){
 
 
 // *** Listen for Events *** //
-socket.on('post_ques',function (data){
-    forumContent.innerHTML+='<a href="/forums/<%=group._id%>/ques" class="ques-block"><div style="display:flex"><div class="userimg"></div><div class="ques-title"><div style="padding-bottom:5px;"><b>'+data.user+'</b></div><div>'+data.ques_title+'</div></div></div><div class="ques-votes"><div class="tooltip"><span class="tooltiptext">0</span></div><div>'+new Date().toLocaleDateString(undefined, {month:"short",year:"numeric",day:"numeric"})+'<br>'+new Date().toLocaleTimeString().replace(/:\d{2}\s/,' ')+'</div></div></a>'
+socket.on('post_ques',function (data){                   //listening from server
+    forumContent.innerHTML+='<a href="/forums/<%=group._id%>/<%=post._id%>" class="ques-block"><div style="display:flex"><div class="userimg"></div><div class="ques-title"><div style="padding-bottom:5px;"><b>'+data.user+'</b></div><div>'+data.ques_title+'</div></div></div><div class="ques-votes"><div class="tooltip"><span class="tooltiptext">0</span></div><div>'+new Date().toLocaleDateString(undefined, {month:"short",year:"numeric",day:"numeric"})+'<br>'+new Date().toLocaleTimeString().replace(/:\d{2}\s/,' ')+'</div></div></a>'
     var element = document.getElementById('forumContent');
     element.scrollTop = element.scrollHeight;
 })

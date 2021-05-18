@@ -157,6 +157,7 @@ a.forumnav{
 .tooltip{
     height:42px;
     width: 42px;
+    margin-bottom: 10px;
 }
 
 .tooltip .tooltiptext {

@@ -71,7 +71,7 @@ module.exports =function(app,express,io)
 
     // *** socket.io code *** //
     io.on('connection', function(socket){
-        socket.on('post_ques',function(data){
+        socket.on('post_ques',function(data){              //listening for post question event from client
             io.sockets.emit('post_ques',data);                                        // emiting msg to all sockets(clients) on server
  
             obj=showques();                                                          // storing the return obj of showMsg
@@ -89,7 +89,8 @@ module.exports =function(app,express,io)
                     });
                     newforum.save().then(function(newdoc)                 //if first chat, then store chat_id in groups Schema for reference
                     {                        
-                             group.findOneAndUpdate({_id:obj.groupId},{$push: {forum_id:newdoc._id}}).then(function(frm){
+                        group.findOneAndUpdate({_id:obj.groupId},{$push: {forum_id:newdoc._id}}).then(function(frm){
+                            io.sockets.emit('reload', {});
                         })
                     })
  
@@ -98,6 +99,7 @@ module.exports =function(app,express,io)
                     forum.findOneAndUpdate({groupid:obj.groupId},{$push:{questions:{user_name:data.user,ques_title:data.ques_title,ques_descr:data.ques_descr,time:new Date()}}}).then(function(result){
                         // :D
                         // console.log(date.toLocaleTimeString());
+                        io.sockets.emit('reload', {});
                     })
                 }
             })          
