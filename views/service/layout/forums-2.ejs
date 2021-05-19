@@ -5,10 +5,12 @@
 </head>
     <%- include('./partials/body') %>
     <div id="forumContent" style="position: relative;" data-test=<%= user.user_name %>>   
-        
+        <div class="add-ans add-div" ng-click="answer()">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="color: var(--searchF);font-size: 50px;margin-right: 0px;" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" class="iconify add" data-inline="false" data-icon="bi:plus"><g fill="currentColor"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path></g></svg>
+        </div>    
     <a href="/forums/<%=group._id%>"><span class="iconify" data-inline="false" data-icon="akar-icons:arrow-back-thick-fill" style="width:30px;height:30px;margin: 20px 0px 0 20px;"></span></a>
 
-    <div class="forumQues">
+    <div id="forumQues" class="forumQues">
         <div class="forum-lhs">
             <div class="ques-body">
                 <div style="display:flex;">
@@ -24,14 +26,16 @@
             <hr style="background-color:var(--bgtxt);border-top: 2px solid var(--bgtxt);">
 
             <div class="ans-body">
-                <div style="width: 300px;font-size: 20px;"><b>2 Answers: </b></div>
+                <div style="width: 300px;font-size: 20px;"><b><%=question[0].questions.answers.length%> Answers: </b></div>
                 <div id="ans_arr" class="ans-arr">
+                    <% if(group.forum_id!=null){ %>
+                        <% question[0].questions.answers.forEach(function(answer){ %> 
                     <div class="answerss">
                         <div style="display:flex;position:relative;padding: 10px;">
                             <div class="quesimg"></div>
                             <div class="queshead">
-                                <p>'+ansData.user+'</p>
-                                <p>'+ansData.ans+'</p>
+                                <p><%=answer.user_name%></p>
+                                <p><%=answer.ans%></p>
                             </div>
                             <div class="ans-votes">
                                 <div class="triangle-up"></div>
@@ -42,17 +46,16 @@
                     </div>
                 
                 <hr>
-                        
+                <% }) %> 
+                <% } %>       
 
                 </div>
             </div>
         </div> 
 
-        <div class="forum-rhs">
-            <div class="add-ans" ng-click="answer()">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="color: var(--searchF);font-size: 50px;margin-right: 0px;" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" class="iconify add" data-inline="false" data-icon="bi:plus"><g fill="currentColor"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path></g></svg>
-            </div>
-        </div>
+        <!-- <div class="forum-rhs">
+            
+        </div> -->
     </div>
 
     <div class="ans-form" ng-show="answercard">
@@ -61,8 +64,8 @@
                 <label for="ans">Your Answer</label>                
                 <textarea id="ans" name="ans" placeholder="Type your reply..."></textarea>
             </div>
-            <div class="ques-post-btn">
-                <button id="post_ans" type="submit">POST</button>
+            <div class="ques-post-btn add-div">
+                <button id="post_ans" type="submit" ng-click="answer()">POST</button>
             </div></div>
         </form>
     </div>

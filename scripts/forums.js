@@ -99,7 +99,6 @@ module.exports =function(app,express,io)
                     newforum.save().then(function(newdoc)                 //if first chat, then store chat_id in groups Schema for reference
                     {                        
                         group.findOneAndUpdate({_id:obj.groupId},{$push: {forum_id:newdoc._id}}).then(function(frm){
-                            // console.log(frm);
                             socket.emit('reload', {});
                         })
                     })
@@ -116,13 +115,17 @@ module.exports =function(app,express,io)
 
         //post answer
         socket.on('post_ans',function(ansData){              //listening for post question event from client
-            socket.emit('post_ans',ansData);                                        // emiting msg to all sockets(clients) on server
+            io.sockets.emit('post_ans',ansData);                                        // emiting msg to all sockets(clients) on server
 
+            obj=showques();
             app=showans();
-            forum.aggregate([{$unwind:"$questions"},{$match:{"questions._id":app.postId}}]).then(function(answer){        //getting Questions ID from url, passed by forums.ejs
-                // user.groups.push({_id:result._id,group_name:result.group_name});
-                console.log(answer);
-            }) 
+            forum.findOne({groupid:obj.groupId},{ questions: { $elemMatch: { _id: app.postId } } }).then(function(result)
+            {
+                console.log(result);
+                result.questions[0].answers.push({user_name:ansData.user,ans:ansData.ans,time:new Date()});
+                // socket.emit('reload', {});
+                result.save();
+            })
         })
 
      }) 

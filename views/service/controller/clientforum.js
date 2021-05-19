@@ -57,6 +57,6 @@ socket.on('post_ques',function (data){                   //listening from server
 
 socket.on('post_ans',function (ansData){                   //listening from server
     ans_arr.innerHTML+='<div class="answerss"><div style="display:flex;position:relative;padding: 10px;"><div class="quesimg"></div><div class="queshead"><p>'+ansData.user+'</p><p>'+ansData.ans+'</p></div><div class="ans-votes"><div class="triangle-up"></div><div style="padding: 5px;">5</div><div class="triangle-down"></div></div></div></div></div><hr>'
-    var element = document.getElementById('ans_arr');
+    var element = document.getElementById('forumQues');
     element.scrollTop = element.scrollHeight;
 })
