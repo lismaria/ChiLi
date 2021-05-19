@@ -121,7 +121,7 @@ module.exports =function(app,express,io)
             app=showans();
             forum.findOne({groupid:obj.groupId},{ questions: { $elemMatch: { _id: app.postId } } }).then(function(result)
             {
-                result.questions[0].answers.push({user_name:ansData.user,ans:ansData.ans,time:new Date()});
+                result.questions[0].answers.push({user_name:ansData.user,ans:ansData.ans,time:new Date(),votes:0});
                 socket.emit('reload', {});
                 result.save();
             })
@@ -135,22 +135,38 @@ module.exports =function(app,express,io)
      {
         var id = mongoose.Types.ObjectId(req.params.id);
         var quesid = mongoose.Types.ObjectId(req.params.quesid);
-        // var ansid = mongoose.Types.ObjectId(req.params.ansid);
+        var ansid = mongoose.Types.ObjectId(req.params.ansid);
 
-        forum.findOne({groupid:id},{ questions: { $elemMatch: { _id: quesid } } }).then(function(result)
-        {
-            for(i in result.questions[0].answers)
-            {
-                if(result.questions[0].answers[i]._id==req.params.ansid)
-                {
-                    console.log(result.questions[0].answers[i]);
-                    result.questions[0].answers[i].update({$inc:{votes:1}});
-                    result.save();
+        // forum.findOne({groupid:id},{ questions: { $elemMatch: { _id: quesid } } }).then(function(result)
+        // {
+        //     for(i in result.questions[0].answers)
+        //     {
+        //         if(result.questions[0].answers[i]._id==req.params.ansid)
+        //         {
+        //             console.log(result.questions[0].answers[i]);
+        //             result.questions[0].answers[i].push({$inc:{votes:1}});
+        //             result.markModified('answers');
+        //             result.save()( function(error){
+        //                 if (error){
+        //                   // augh!
+        //                 }else{
+        //                   console.log(result)
+        //                 }
+        //             })
                     
-                    res.redirect("/forums/"+id+"/"+quesid);
-                }
-            }
-        })
+        //             res.redirect("/forums/"+id+"/"+quesid);
+        //         }
+        //     }
+        // })
+
+        forum.findOneAndUpdate(
+            { groupid: id },
+            { $inc: { "questions.$[q].answers.$[a].votes": 1 } },
+            { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
+                console.log(rrr);
+                res.redirect("/forums/"+id+"/"+quesid);
+            })
+            console.log("outside forum");
      })
 
 
