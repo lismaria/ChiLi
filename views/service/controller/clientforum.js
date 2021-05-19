@@ -13,6 +13,9 @@ var post_ques = document.getElementById("post_ques");
 var post_ans = document.getElementById("post_ans");
 var ans_arr = document.getElementById("ans_arr");
 var ans = document.getElementById("ans");
+var votecount= document.getElementById("votecount");
+var upvote = document.getElementById("upvote");
+var downvote = document.getElementById("downvote");
 
 //*** Emit Events ***//
 
@@ -47,6 +50,31 @@ post_ans.addEventListener('click',function(event){
  })
 }
 
+if(true){                                                       //if there is ques_title, then adding event listener to emit data
+upvote.addEventListener('click',function(event){
+    event.preventDefault();
+    var vote=votecount.innerHTML;
+    console.log(votecount.innerHTML);
+    vote++;
+    console.log("+",vote);
+    socket.emit('upvote',{
+        vote: vote
+    })
+})
+}
+
+if(downvote){                                                          //if there is ques_title, then adding event listener to emit data
+downvote.addEventListener('click',function(event){
+    event.preventDefault();
+    var vote=votecount.innerHTML;
+    console.log(votecount.innerHTML);
+    vote--;
+    console.log("+",vote);
+    socket.emit('upvote',{
+        vote: vote
+    })
+})
+}
 
 // *** Listen for Events *** //
 socket.on('post_ques',function (data){                   //listening from server

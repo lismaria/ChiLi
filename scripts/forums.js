@@ -123,10 +123,20 @@ module.exports =function(app,express,io)
             {
                 console.log(result);
                 result.questions[0].answers.push({user_name:ansData.user,ans:ansData.ans,time:new Date()});
-                // socket.emit('reload', {});
+                socket.emit('reload', {});
                 result.save();
             })
         })
 
+        socket.on('upvote',function(voteData){
+            console.log("in upvote")
+            io.sockets.emit('upvote',voteData);
+            console.log("U",voteData);
+        })
+
+        socket.on('downvote',function(voteData){
+            io.sockets.emit('downvote',voteData);
+            console.log("D",voteData);
+        })
      }) 
  }

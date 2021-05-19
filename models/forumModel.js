@@ -3,6 +3,19 @@ const Schema=mongoose.Schema;
 const user=require("./user");
 const group=require("./group");
 
+const answerSchema = new Schema
+({
+    user_name: {
+        type: Schema.Types.Object,
+        ref: 'user'
+    },
+    ans: String,
+    votes: Number,
+    time : {
+        type : Date, 
+        default: Date.now 
+    }
+})
 
 const questionSchema = new Schema
 ({
@@ -16,16 +29,7 @@ const questionSchema = new Schema
         type : Date, 
         default: Date.now 
     },
-    answers:[{
-        type: Schema.Types.Object,
-        ref: 'user',
-        ans: String,
-        votes: Number,
-        time : {
-            type : Date, 
-            default: Date.now 
-    }
-    }]
+    answers:[answerSchema]
 })
 
 const forumSchema = new Schema
