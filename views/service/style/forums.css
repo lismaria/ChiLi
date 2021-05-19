@@ -358,6 +358,7 @@ a.forumnav{
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-bottom: 20px solid var(--searchF);
+    background: transparent;
 }
 
 .triangle-down {
@@ -366,6 +367,7 @@ a.forumnav{
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 20px solid var(--searchF);
+    background: transparent;
 }
 
 hr{

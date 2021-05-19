@@ -121,22 +121,42 @@ module.exports =function(app,express,io)
             app=showans();
             forum.findOne({groupid:obj.groupId},{ questions: { $elemMatch: { _id: app.postId } } }).then(function(result)
             {
-                console.log(result);
                 result.questions[0].answers.push({user_name:ansData.user,ans:ansData.ans,time:new Date()});
                 socket.emit('reload', {});
                 result.save();
             })
         })
-
-        socket.on('upvote',function(voteData){
-            console.log("in upvote")
-            io.sockets.emit('upvote',voteData);
-            console.log("U",voteData);
-        })
-
-        socket.on('downvote',function(voteData){
-            io.sockets.emit('downvote',voteData);
-            console.log("D",voteData);
-        })
      }) 
- }
+
+
+
+
+     app.post("/forums/:id/:quesid/:ansid/upvote",function(req,res)
+     {
+        var id = mongoose.Types.ObjectId(req.params.id);
+        var quesid = mongoose.Types.ObjectId(req.params.quesid);
+        // var ansid = mongoose.Types.ObjectId(req.params.ansid);
+
+        forum.findOne({groupid:id},{ questions: { $elemMatch: { _id: quesid } } }).then(function(result)
+        {
+            for(i in result.questions[0].answers)
+            {
+                if(result.questions[0].answers[i]._id==req.params.ansid)
+                {
+                    console.log(result.questions[0].answers[i]);
+                    result.questions[0].answers[i].update({$inc:{votes:1}});
+                    result.save();
+                    
+                    res.redirect("/forums/"+id+"/"+quesid);
+                }
+            }
+        })
+     })
+
+
+     app.post("/forums/:id/:quesid/downvote",function(req,res)
+     {
+        var id = mongoose.Types.ObjectId(req.params.id);
+        var quesid = mongoose.Types.ObjectId(req.params.quesid);
+     })
+}
