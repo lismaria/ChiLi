@@ -40,7 +40,7 @@
                             <div class="ans-votes">
                                 <form action="/forums/<%=group._id%>/<%=question[0].questions._id%>/<%=answer._id%>/upvote" method="post"><button class="triangle-up" style="cursor: pointer;" type="submit"></button></form>
                                 <div style="padding: 5px;"><%=answer.votes%></div>
-                                <form action="/forums/<%=group._id%>/<%=question[0].questions._id%>/<%=answer._id%>/downvote"><button class="triangle-down" style="cursor: pointer;" type="submit"></button></form>
+                                <form action="/forums/<%=group._id%>/<%=question[0].questions._id%>/<%=answer._id%>/downvote" method="post"><button class="triangle-down" style="cursor: pointer;" type="submit"></button></form>
                             </div>
                         </div>
                     </div>

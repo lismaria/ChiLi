@@ -131,11 +131,11 @@ module.exports =function(app,express,io)
 
 
 
-     app.post("/forums/:id/:quesid/:ansid/upvote",function(req,res)
-     {
-        var id = mongoose.Types.ObjectId(req.params.id);
-        var quesid = mongoose.Types.ObjectId(req.params.quesid);
-        var ansid = mongoose.Types.ObjectId(req.params.ansid);
+    //  app.post("/forums/:id/:quesid/:ansid/upvote",function(req,res)
+    //  {
+    //     var id = mongoose.Types.ObjectId(req.params.id);
+    //     var quesid = mongoose.Types.ObjectId(req.params.quesid);
+    //     var ansid = mongoose.Types.ObjectId(req.params.ansid);
 
         // forum.findOne({groupid:id},{ questions: { $elemMatch: { _id: quesid } } }).then(function(result)
         // {
@@ -159,20 +159,34 @@ module.exports =function(app,express,io)
         //     }
         // })
 
-        forum.findOneAndUpdate(
-            { groupid: id },
-            { $inc: { "questions.$[q].answers.$[a].votes": 1 } },
-            { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
-                console.log(rrr);
-                res.redirect("/forums/"+id+"/"+quesid);
+        app.post("/forums/:id/:quesid/:ansid/upvote",function(req,res)
+        {
+            var id = mongoose.Types.ObjectId(req.params.id);
+            var quesid = mongoose.Types.ObjectId(req.params.quesid);
+            var ansid = mongoose.Types.ObjectId(req.params.ansid);
+    
+            forum.findOneAndUpdate(
+                { groupid: id },
+                { $inc: { "questions.$[q].answers.$[a].votes": 1 } },
+                { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
+                    console.log(rrr);
+                    res.redirect("/forums/"+id+"/"+quesid);
             })
-            console.log("outside forum");
-     })
-
-
-     app.post("/forums/:id/:quesid/downvote",function(req,res)
-     {
-        var id = mongoose.Types.ObjectId(req.params.id);
-        var quesid = mongoose.Types.ObjectId(req.params.quesid);
-     })
-}
+        })
+    
+    
+        app.post("/forums/:id/:quesid/:ansid/downvote",function(req,res)
+        {
+            var id = mongoose.Types.ObjectId(req.params.id);
+            var quesid = mongoose.Types.ObjectId(req.params.quesid);
+            var ansid = mongoose.Types.ObjectId(req.params.ansid);
+    
+            forum.findOneAndUpdate(
+                { groupid: id },
+                { $inc: { "questions.$[q].answers.$[a].votes": -1 } },
+                { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
+                    console.log(rrr);
+                    res.redirect("/forums/"+id+"/"+quesid);
+            })
+        })
+    }        
