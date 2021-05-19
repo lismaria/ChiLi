@@ -1,4 +1,4 @@
-var socket = io({transports: ['websocket'], upgrade: false});
+var socket = io();
 
 socket.on('reload', function (data) {
     location.reload();

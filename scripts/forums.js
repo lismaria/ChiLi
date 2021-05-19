@@ -81,7 +81,6 @@ module.exports =function(app,express,io)
     // *** socket.io code *** //
     io.on('connection', function(socket){
         socket.on('post_ques',function(data){              //listening for post question event from client
-            // io.sockets.emit('post_ques',data); 
             socket.emit('post_ques',data);                                       // emiting msg to all sockets(clients) on server
  
             obj=showques();                                                          // storing the return obj of showMsg
@@ -108,21 +107,17 @@ module.exports =function(app,express,io)
                 }
                 else{                                                             //if group exists push texts into messages                  
                     forum.findOneAndUpdate({groupid:obj.groupId},{$push:{questions:{user_name:data.user,ques_title:data.ques_title,ques_descr:data.ques_descr,time:new Date()}}}).then(function(result){
-                        // :D
-                        // console.log(date.toLocaleTimeString());
-                        // io.sockets.emit("post_ques",data)
                         socket.emit('reload', {});
                     })
                 }
-            }) 
-            // io.sockets.emit('post_ques',data)         
+            })      
  
         })
 
         //post answer
         socket.on('post_ans',function(ansData){              //listening for post question event from client
             socket.emit('post_ans',ansData);                                        // emiting msg to all sockets(clients) on server
-            console.log(ansData);
+
             app=showans();
             forum.aggregate([{$unwind:"$questions"},{$match:{"questions._id":app.postId}}]).then(function(answer){        //getting Questions ID from url, passed by forums.ejs
                 // user.groups.push({_id:result._id,group_name:result.group_name});

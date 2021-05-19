@@ -4,17 +4,9 @@
     <title><%=group.group_name%> | Forums </title>
 </head>
     <%- include('./partials/body') %>
-    <div style="position: relative;">    
-    <div id="forumContent" class="forumHeader" data-test=<%= user.user_name %>>
-        <a href="/forums/<%=group._id%>"><span class="iconify" data-inline="false" data-icon="akar-icons:arrow-back-thick-fill" style="width:30px;height:30px;"></span></a>
-        <div class="askQues" ng-click="forum()">
-            <button>Ask a Question</button>
-        </div>
-        <div class="searchQues">
-            <input type="text" placeholder="Search Topics">
-            <span class="iconify" data-inline="false" data-icon="bx:bx-search-alt" style="margin-right:0px;width:40px;height:40px;"></span>
-        </div>
-    </div>
+    <div id="forumContent" style="position: relative;" data-test=<%= user.user_name %>>   
+        
+    <a href="/forums/<%=group._id%>"><span class="iconify" data-inline="false" data-icon="akar-icons:arrow-back-thick-fill" style="width:30px;height:30px;margin: 20px 0px 0 20px;"></span></a>
 
     <div class="forumQues">
         <div class="forum-lhs">
@@ -73,25 +65,6 @@
                 <button id="post_ans" type="submit">POST</button>
             </div></div>
         </form>
-    </div>
-
-    <div class="forum-modal" ng-show="forumModal">
-        <div class="forum-modal-content">
-            <div ng-click="forum()" class="closebtn"><span class="iconify" data-inline="false" data-icon="akar-icons:cross" style="font-size: 30px; height:30px;width:30px;" ></span></div>
-    
-            <form name="ask-ques" class="creategrpForm">
-                <div>
-                    <input type="text" id="ques_title" name="ques_title" placeholder="Question Title">
-                </div>
-                <div class="ques-descr">
-                    <textarea id="ques_descr" name="ques_descr" placeholder="Describe your query"></textarea>
-                </div>
-                <div class="ques-post-btn">
-                    <button id="post_ques" type="submit" ng-click="forum()">POST</button></div>
-                </div>
-            </form>
-    
-        </div>
     </div>
     
     </div>
