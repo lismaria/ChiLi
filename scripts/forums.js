@@ -169,8 +169,37 @@ module.exports =function(app,express,io)
                 { groupid: id },
                 { $inc: { "questions.$[q].answers.$[a].votes": 1 } },
                 { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
-                    console.log(rrr);
-                    res.redirect("/forums/"+id+"/"+quesid);
+                    // // console.log(rrr);
+                    // // res.redirect("/forums/"+id+"/"+quesid);
+                    // // console.log(rrr.questions.$[quesid])
+                    // console.log(rrr.questions[quesid])
+
+                    // // console.log(rrr.questions[quesid].answers[ansid])
+                    // votes=rrr.questions[quesid].answers[ansid].votes;
+                    // console.log("votes")
+                    // // res.redirect("/forums/"+id+"/"+quesid);
+                    // forum.aggregate([
+                    //     {
+                    //         $unwind: '$questions'
+                    //     },
+                    //     {
+                    //         $match: {
+                    //             'questions._id':quesid
+                    //         }
+                    //     },
+                    //     {
+                    //         $project: {
+                    //             answers:'$questions.answers'
+                    //         }
+                    //     }
+                    // ]).then(function(arr){
+                    //     for(i in arr[0].answers){
+                    //         if(arr[0].answers[i]._id==req.params.ansid){
+                    //             var votes=arr[0].answers[i].votes;
+                    //             res.status(200).send(votes.toString());
+                    //         }
+                    //     }
+                    // })
             })
         })
     
@@ -185,8 +214,29 @@ module.exports =function(app,express,io)
                 { groupid: id },
                 { $inc: { "questions.$[q].answers.$[a].votes": -1 } },
                 { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
-                    console.log(rrr);
-                    res.redirect("/forums/"+id+"/"+quesid);
+                    // forum.aggregate([
+                    //     {
+                    //         $unwind: '$questions'
+                    //     },
+                    //     {
+                    //         $match: {
+                    //             'questions._id':quesid
+                    //         }
+                    //     },
+                    //     {
+                    //         $project: {
+                    //             answers:'$questions.answers'
+                    //         }
+                    //     }
+                    // ]).then(function(arr){
+                    //     for(i in arr[0].answers){
+                    //         if(arr[0].answers[i]._id==req.params.ansid){
+                    //             var votes=arr[0].answers[i].votes;
+                    //             res.status(200).send(votes.toString());
+                    //         }
+                    //     }
+                    // })
             })
         })
-    }        
+}
+    
