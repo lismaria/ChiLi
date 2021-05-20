@@ -31,7 +31,7 @@
                     </div>
                     <div class="ques-votes">
                         <div class="tooltip">
-                            <span class="tooltiptext">0</span>
+                            <span class="tooltiptext"><%=post.answers.length%></span>
                         </div>
                         <div><%= post.time.toLocaleDateString(undefined, {month:"short",year:"numeric",day:"numeric"})%>
                             <br><%= post.time.toLocaleTimeString().replace(/:\d{2}\s/,' ')%>

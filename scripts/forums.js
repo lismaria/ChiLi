@@ -186,8 +186,95 @@ module.exports =function(app,express,io)
             group.findOne({_id:req.params.id}).then(function(group)
             {
                 res.render("./service/layout/forums-3.ejs",{searcharr:result,group:group})
-            })
+            });
+        });
+    });
+}
+
+
+ // app.post("/forums/:id/:quesid/:ansid/upvote",function(req,res)
+        // {
+        //     var id = mongoose.Types.ObjectId(req.params.id);
+        //     var quesid = mongoose.Types.ObjectId(req.params.quesid);
+        //     var ansid = mongoose.Types.ObjectId(req.params.ansid);
+    
+        //     forum.findOneAndUpdate(
+        //         { groupid: id },
+        //         { $inc: { "questions.$[q].answers.$[a].votes": 1 } },
+        //         { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
+                    // // console.log(rrr);
+                    // // res.redirect("/forums/"+id+"/"+quesid);
+                    // // console.log(rrr.questions.$[quesid])
+                    // console.log(rrr.questions[quesid])
+
+                    // // console.log(rrr.questions[quesid].answers[ansid])
+                    // votes=rrr.questions[quesid].answers[ansid].votes;
+                    // console.log("votes")
+                    // // res.redirect("/forums/"+id+"/"+quesid);
+                    // forum.aggregate([
+                    //     {
+                    //         $unwind: '$questions'
+                    //     },
+                    //     {
+                    //         $match: {
+                    //             'questions._id':quesid
+                    //         }
+                    //     },
+                    //     {
+                    //         $project: {
+                    //             answers:'$questions.answers'
+                    //         }
+                    //     }
+                    // ]).then(function(arr){
+                    //     for(i in arr[0].answers){
+                    //         if(arr[0].answers[i]._id==req.params.ansid){
+                    //             var votes=arr[0].answers[i].votes;
+                    //             res.status(200).send(votes.toString());
+                    //         }
+                    //     }
+                    // })
+    //         })
+    //     })
+    // })
+
+
+
+
+
+
+            // var id = mongoose.Types.ObjectId(req.params.id);
+            // var quesid = mongoose.Types.ObjectId(req.params.quesid);
+            // var ansid = mongoose.Types.ObjectId(req.params.ansid);
+    
+            // forum.findOneAndUpdate(
+            //     { groupid: id },
+            //     { $inc: { "questions.$[q].answers.$[a].votes": -1 } },
+            //     { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
+                    // forum.aggregate([
+                    //     {
+                    //         $unwind: '$questions'
+                    //     },
+                    //     {
+                    //         $match: {
+                    //             'questions._id':quesid
+                    //         }
+                    //     },
+                    //     {
+                    //         $project: {
+                    //             answers:'$questions.answers'
+                    //         }
+                    //     }
+                    // ]).then(function(arr){
+                    //     for(i in arr[0].answers){
+                    //         if(arr[0].answers[i]._id==req.params.ansid){
+                    //             var votes=arr[0].answers[i].votes;
+                    //             res.status(200).send(votes.toString());
+                    //         }
+                    //     }
+                    // })
+//             })
             
-        })
-    })
-}       
+//         })
+//     })
+// }       
+// }

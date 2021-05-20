@@ -57,7 +57,58 @@ socket.on('post_ques',function (data){                   //listening from server
 })
 
 socket.on('post_ans',function (ansData){                   //listening from server
-    ans_arr.innerHTML+='<div class="answerss"><div style="display:flex;position:relative;padding: 10px;"><div class="quesimg"></div><div class="queshead"><p>'+ansData.user+'</p><p>'+ansData.ans+'</p></div><div class="ans-votes"><div class="triangle-up"></div><div style="padding: 5px;">5</div><div class="triangle-down"></div></div></div></div></div><hr>'
+    ans_arr.innerHTML+='<div class="answerss"><div style="display:flex;position:relative;padding: 10px;"><div class="quesimg"></div><div class="queshead"><p>'+ansData.user+'</p><p>'+ansData.ans+'</p></div><div class="ans-votes"><div class="triangle-up"></div><div style="padding: 5px;">0</div><div class="triangle-down"></div></div></div></div></div><hr>'
     var element = document.getElementById('forumQues');
     element.scrollTop = element.scrollHeight;
 })
+
+function uClicks(id,quesid,ansid,uid){
+    var xhr = new XMLHttpRequest();
+    
+    console.log("IN uClicks()")
+    if(typeof(Storage)!=="undefined"){
+        if(localStorage[uid+'ucount'+ansid]>=1){
+                console.log("if ucount", localStorage[uid+'ucount'+ansid]);
+            }
+        else{
+                localStorage[uid+'ucount'+ansid]=1;
+                console.log("else ucount", localStorage[uid+'ucount'+ansid]);
+                xhr.onreadystatechange = function(){ 
+                        location.reload();
+                    // if (this.readyState == 4 && this.status == 200){
+                    //     document.getElementById("votes").innerHTML =this.responseText;
+                    //     // console.log("in",this.responseText);
+                    // }
+                }
+                xhr.open("POST","/forums/"+id+"/"+quesid+"/"+ansid+"/upvote");
+                xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+                xhr.send();
+        }
+    }
+}
+
+function dClicks(id,quesid,ansid,uid){
+    var xhr = new XMLHttpRequest();
+    
+    console.log("IN dClicks()")
+    if(typeof(Storage)!=="undefined"){
+        if(localStorage[uid+'dcount'+ansid]>=1){
+                console.log("if dcount", localStorage[uid+'dcount'+ansid]);
+            }
+        else{
+                localStorage[uid+'dcount'+ansid]=1;
+                console.log("else dcount", localStorage[uid+'dcount'+ansid]);
+                xhr.onreadystatechange = function(){ 
+                        location.reload();
+                    // if (this.readyState == 4 && this.status == 200){
+                    //     document.getElementById("votes").innerHTML =this.responseText;
+                    //     // console.log("in",this.responseText);
+                    // }
+                }
+                xhr.open("POST","/forums/"+id+"/"+quesid+"/"+ansid+"/downvote");
+                xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+                xhr.send();
+        }
+    }
+}
+
