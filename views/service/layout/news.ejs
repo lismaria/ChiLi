@@ -19,16 +19,17 @@
 
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
-                    <p><%=posts.time.toLocaleDateString(undefined, {month:'short',year:'numeric',day:'numeric'})%></p>
+                    <p class="flip-card-mark"><%=posts.time.toLocaleDateString(undefined, {month:'short',year:'numeric',day:'numeric'})%></p>
                     <h1><%=posts.news_title%></h1>
                     <div>
                       <span><%=posts.user_name%></span>
-                      <span style="border-radius:0 0 10px 0;"><%=posts.time.toLocaleTimeString().replace(/:\d{2}\s/,' ')%></span>
+                      <!-- <span style="border-radius:0 0 10px 0;"><%=posts.time.toLocaleTimeString().replace(/:\d{2}\s/,' ')%></span> -->
                     </div>
                   </div>
 
                   <div class="flip-card-back">
-                    <p><%=posts.news_story%></p>
+                    <p class="flip-card-mark"><%=posts.time.toLocaleTimeString().replace(/:\d{2}\s/,' ')%></p>
+                    <p style="margin: 0 10px 10px;"><%=posts.news_story%></p>
                   </div>
                 </div>
 
@@ -37,7 +38,7 @@
           <% } %>
         </div>
 
-        <div class="news-modal" ng-show="newsModal">
+        <div class="news-modal ng-hide" ng-show="newsModal">
 
 
             <div class="news-modal-content">

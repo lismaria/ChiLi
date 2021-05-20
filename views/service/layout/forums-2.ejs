@@ -31,22 +31,20 @@
                     <% if(group.forum_id!=null){ %>
                         <% question[0].questions.answers.forEach(function(answer){ %> 
                     <div class="answerss">
-                        <div style="display:flex;position:relative;padding: 10px; align-items: center;">
+                        <div style="display:flex;padding: 10px; align-items: center;">
                             <div class="quesimg"></div>
                             <div class="queshead">
                                 <p><%=answer.user_name%></p>
                                 <p><%=answer.ans%></p>
                             </div>
-                            <div class="ans-votes">
-                                
-                                <button id="upvote" onclick="uClicks('<%= group._id %>','<%=question[0].questions._id%>','<%=answer._id%>','<%=user._id %>')" class="triangle-up" style="cursor: pointer;" type="submit"></button>
-                                <div id="votes" style="padding: 5px;"><%=answer.votes%></div>
-                                <button id="downvote" onclick="dClicks('<%= group._id %>','<%=question[0].questions._id%>','<%=answer._id%>','<%=user._id %>')" class="triangle-down" style="cursor: pointer;" type="submit"></button>
-                            </div>
                         </div>
-                    </div>
-                
-                <hr>
+                        <div class="ans-votes">                                
+                            <button id="upvote" onclick="uClicks('<%= group._id %>','<%=question[0].questions._id%>','<%=answer._id%>','<%=user._id %>')" class="triangle-up" style="cursor: pointer;" type="submit"></button>
+                            <div id="votes" style="padding: 5px;"><%=answer.votes%></div>
+                            <button id="downvote" onclick="dClicks('<%= group._id %>','<%=question[0].questions._id%>','<%=answer._id%>','<%=user._id %>')" class="triangle-down" style="cursor: pointer;" type="submit"></button>
+                        </div>
+                    </div>                
+                    <hr>
                 <% }) %> 
                 <% } %>       
 

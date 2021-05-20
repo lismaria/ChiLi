@@ -57,7 +57,7 @@ socket.on('post_ques',function (data){                   //listening from server
 })
 
 socket.on('post_ans',function (ansData){                   //listening from server
-    ans_arr.innerHTML+='<div class="answerss"><div style="display:flex;position:relative;padding: 10px;"><div class="quesimg"></div><div class="queshead"><p>'+ansData.user+'</p><p>'+ansData.ans+'</p></div><div class="ans-votes"><div class="triangle-up"></div><div style="padding: 5px;">0</div><div class="triangle-down"></div></div></div></div></div><hr>'
+    ans_arr.innerHTML+='<div class="answerss"><div style="display:flex;padding: 10px; align-items: center;"><div class="quesimg"></div><div class="queshead"><p>'+ansData.user+'</p><p>'+ansData.ans+'</p></div></div><div class="ans-votes"><button id="upvote" onclick="uClicks("<%= group._id %>","<%=question[0].questions._id%>","<%=answer._id%>","<%=user._id %>")" class="triangle-up" style="cursor: pointer;" type="submit"></button><div id="votes" style="padding: 5px;">0</div><button id="downvote" onclick="dClicks("<%= group._id %>","<%=question[0].questions._id%>","<%=answer._id%>","<%=user._id %>")" class="triangle-up" style="cursor: pointer;" type="submit"></button></div></div><hr>'
     var element = document.getElementById('forumQues');
     element.scrollTop = element.scrollHeight;
 })

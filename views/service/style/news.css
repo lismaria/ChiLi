@@ -122,7 +122,7 @@ a.newsnav{
     backface-visibility: hidden;
 }
 
-.flip-card-front p{
+.flip-card-mark{
     display: flex;
     justify-content:flex-start;
     align-items:center;
@@ -146,6 +146,8 @@ a.newsnav{
     width:200px;
     padding:5px;
     background: var(--grpmarkN);
+    border-radius: 0 0 10px 0;
+    box-shadow:-2px -4px 5px rgb(0 0 0 / 50%);
 }
 
 .flip-card-front {
@@ -158,4 +160,14 @@ a.newsnav{
     background:var(--chatbg);
     color: var(--bgtxt);
     transform: rotateY(180deg);
+}
+
+.flip-card-back p{
+    overflow: scroll;
+    text-align: justify;
+    padding: 20px;
+}
+
+.flip-card-back p::-webkit-scrollbar{
+    display: none;
 }

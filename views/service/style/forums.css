@@ -317,6 +317,10 @@ a.forumnav{
     font-size: 20px;
 }
 
+.answerss{
+    display: flex;
+    justify-content: space-between;
+}
 
 .ans-body{
     margin-top: 15px;
@@ -344,8 +348,6 @@ a.forumnav{
     align-items: center;
     flex-direction: column;
     padding: 5px;
-    position: absolute;
-    right: 0;
 }
 
 .triangle-up {
