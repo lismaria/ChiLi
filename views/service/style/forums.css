@@ -48,7 +48,7 @@ a.forumnav{
 .searchQues input[type=text] {
     width: 0px;
     height:40px;
-    font-size: 25px;
+    font-size: 20px;
     color: var(--bgtxt);
     background-color:var(--chatbg);
     padding: 12px 20px 12px 40px;    
@@ -77,10 +77,6 @@ a.forumnav{
     width: 400px;
 }
 
-.searchQues svg.iconify {
-    cursor:default;
-    color: var(--searchF);
-}
 
 /* Forum Modal */
 

@@ -20,10 +20,10 @@ module.exports =function(app,express,io)
                     counter=counter+1;
                     forum.findOne({_id: result.forum_id}).then(function(newforum){
                         if(newforum==null){                                                  //if there are no chats yet, then only pass group object
-                            res.render("./service/layout/forums.ejs",{group:result})                                 
+                            res.render("./service/layout/forums.ejs",{group:result,searcharr:null})                                 
                         }
                         else{                                                           //if chats exist, then pass chat object as well
-                            res.render("./service/layout/forums.ejs",{group:result,forum:newforum}) 
+                            res.render("./service/layout/forums.ejs",{group:result,forum:newforum,searcharr:null}) 
                         }
                     });
                 } 
@@ -159,34 +159,67 @@ module.exports =function(app,express,io)
         //     }
         // })
 
-        app.post("/forums/:id/:quesid/:ansid/upvote",function(req,res)
-        {
-            var id = mongoose.Types.ObjectId(req.params.id);
-            var quesid = mongoose.Types.ObjectId(req.params.quesid);
-            var ansid = mongoose.Types.ObjectId(req.params.ansid);
-    
-            forum.findOneAndUpdate(
-                { groupid: id },
-                { $inc: { "questions.$[q].answers.$[a].votes": 1 } },
-                { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
-                    console.log(rrr);
-                    res.redirect("/forums/"+id+"/"+quesid);
-            })
+    app.post("/forums/:id/:quesid/:ansid/upvote",function(req,res)
+    {
+        var id = mongoose.Types.ObjectId(req.params.id);
+        var quesid = mongoose.Types.ObjectId(req.params.quesid);
+        var ansid = mongoose.Types.ObjectId(req.params.ansid);
+
+        forum.findOneAndUpdate(
+            { groupid: id },
+            { $inc: { "questions.$[q].answers.$[a].votes": 1 } },
+            { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
+                console.log(rrr);
+                res.redirect("/forums/"+id+"/"+quesid);
         })
-    
-    
-        app.post("/forums/:id/:quesid/:ansid/downvote",function(req,res)
-        {
-            var id = mongoose.Types.ObjectId(req.params.id);
-            var quesid = mongoose.Types.ObjectId(req.params.quesid);
-            var ansid = mongoose.Types.ObjectId(req.params.ansid);
-    
-            forum.findOneAndUpdate(
-                { groupid: id },
-                { $inc: { "questions.$[q].answers.$[a].votes": -1 } },
-                { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
-                    console.log(rrr);
-                    res.redirect("/forums/"+id+"/"+quesid);
-            })
+    })
+
+
+    app.post("/forums/:id/:quesid/:ansid/downvote",function(req,res)
+    {
+        var id = mongoose.Types.ObjectId(req.params.id);
+        var quesid = mongoose.Types.ObjectId(req.params.quesid);
+        var ansid = mongoose.Types.ObjectId(req.params.ansid);
+
+        forum.findOneAndUpdate(
+            { groupid: id },
+            { $inc: { "questions.$[q].answers.$[a].votes": -1 } },
+            { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
+                console.log(rrr);
+                res.redirect("/forums/"+id+"/"+quesid);
         })
-    }        
+    })
+
+
+    app.post("/forums/:id/search",function(req,res)
+    {
+        var searchstr=new RegExp(req.body.searchQues,'i');
+        forum.aggregate([
+            {
+                $unwind: '$questions'
+            },
+            {
+                $match: {
+                    'questions.ques_title': searchstr
+                }
+            },
+            {
+                $project: {
+                    _id: '$questions._id',
+                    user_name:'$questions.user_name',
+                    ques_title: '$questions.ques_title',
+                    ques_descr: '$questions.ques_descr',
+                    time:'$questions.time',
+                    answers:'$questions.answers'
+                }
+            }
+        ]).then(function(result)
+        {
+            group.findOne({_id:req.params.id}).then(function(group)
+            {
+                res.render("./service/layout/forums.ejs",{searcharr:result,group:group})
+            })
+            
+        })
+    })
+}       

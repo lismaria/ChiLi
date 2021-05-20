@@ -1,22 +1,23 @@
 <%- include('./partials/header') %>
 
-    <link rel="stylesheet" href="../style/forums.css">
+    <link rel="stylesheet" href="/../../style/forums.css">
     <title><%=group.group_name%> | Forums </title>
 </head>
     <%- include('./partials/body') %>
     <div>    
+        <form name="searchQues" id="searchQues" action="/forums/<%=group._id%>/search" method="post"></form>
     <div class="forumHeader">
         <div class="askQues" ng-click="forum()">
             <button>Ask a Question</button>
         </div>
         <div class="searchQues">
-            <input type="text" placeholder="Search Topics">
-            <span class="iconify" data-inline="false" data-icon="bx:bx-search-alt" style="margin-right:0px;width:40px;height:40px;"></span>
+            <input form="searchQues" type="text" placeholder="Search Topics" name="searchQues" required>
+            <button form="searchQues" type="submit" style="box-shadow: none;"><span class="iconify" data-inline="false" data-icon="bx:bx-search-alt" style="margin-right:0px;width:40px;height:40px;color: var(--searchF);"></span></button>
         </div>
     </div>
 
     <div id="forumContent" class="forumContent" data-test=<%= user.user_name %>>
-        <% if(group.forum_id!=null){ %>
+        <% if(group.forum_id!=null && searcharr==null){ %>
             <% forum.questions.forEach(function(post){ %> 
                 <a href="/forums/<%=group._id%>/<%=post._id%>" class="ques-block">
                     <div style="display:flex">
@@ -34,6 +35,32 @@
                         </div>
                         <div><%= post.time.toLocaleDateString(undefined, {month:"short",year:"numeric",day:"numeric"})%>
                             <br><%= post.time.toLocaleTimeString().replace(/:\d{2}\s/,' ')%>
+                        </div>
+                    </div>
+                </a>
+            <% }) %> 
+        <% } %>
+
+
+
+        <% if(searcharr!=null){ %>
+            <% searcharr.forEach(function(result){ %> 
+                <a href="/forums/<%=group._id%>/<%=result._id%>" class="ques-block">
+                    <div style="display:flex">
+                        <div class="userimg"></div>
+                        <div class="ques-title">
+                            <div style="padding-bottom:5px;">
+                                <b><%= result.user_name %></b>
+                            </div>
+                            <div><%= result.ques_title %></div>
+                        </div>
+                    </div>
+                    <div class="ques-votes">
+                        <div class="tooltip">
+                            <span class="tooltiptext">0</span>
+                        </div>
+                        <div><%= result.time.toLocaleDateString(undefined, {month:"short",year:"numeric",day:"numeric"})%>
+                            <br><%= result.time.toLocaleTimeString().replace(/:\d{2}\s/,' ')%>
                         </div>
                     </div>
                 </a>
