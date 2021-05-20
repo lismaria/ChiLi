@@ -1,0 +1,56 @@
+<%- include('./partials/header') %>
+
+    <link rel="stylesheet" href="/../../style/forums.css">
+    <title><%=group.group_name%> | Forums </title>
+</head>
+    <%- include('./partials/body') %>
+    <div>    
+        <form name="searchQues" id="searchQues" action="/forums/<%=group._id%>/search" method="post"></form>
+    <div class="forumHeader">
+    <a href="/forums/<%=group._id%>"><span class="iconify" data-inline="false" data-icon="akar-icons:arrow-back-thick-fill" style="width:30px;height:30px;"></span></a>
+
+        <div class="searchQues" style="margin-left:545px;">
+            <input form="searchQues" type="text" placeholder="Search Topics" name="searchQues" required>
+            <button form="searchQues" type="submit" style="background: transparent;box-shadow: none;"><span class="iconify" data-inline="false" data-icon="bx:bx-search-alt" style="margin-right:0px;width:40px;height:40px;color: var(--searchF);"></span></button>
+        </div>
+    </div>
+
+    <div id="forumContent" class="forumContent" data-test=<%= user.user_name %>>
+        
+        <% if(searcharr[0]!=null){ %>
+            <% searcharr.forEach(function(result){ %> 
+                <a href="/forums/<%=group._id%>/<%=result._id%>" class="ques-block">
+                    <div style="display:flex">
+                        <div class="userimg"></div>
+                        <div class="ques-title">
+                            <div style="padding-bottom:5px;">
+                                <b><%= result.user_name %></b>
+                            </div>
+                            <div><%= result.ques_title %></div>
+                        </div>
+                    </div>
+                    <div class="ques-votes">
+                        <div class="tooltip">
+                            <span class="tooltiptext">0</span>
+                        </div>
+                        <div><%= result.time.toLocaleDateString(undefined, {month:"short",year:"numeric",day:"numeric"})%>
+                            <br><%= result.time.toLocaleTimeString().replace(/:\d{2}\s/,' ')%>
+                        </div>
+                    </div>
+                </a>
+            <% }) %> 
+        <% } %>
+
+        <% if(searcharr[0]==null){ %>
+            <div class="no-result-found" style="width:100%;display:flex;justify-content:center;align-items:center">
+                <img src="/../../img/noresults.jpg" width=350px height=400px>
+            </div>
+        <% } %>
+    </div>
+
+    </div>
+
+    <%- include('./partials/grpname') %>
+    <%- include('./partials/nav') %>
+<%- include('./partials/footer') %>
+    

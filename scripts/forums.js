@@ -20,10 +20,10 @@ module.exports =function(app,express,io)
                     counter=counter+1;
                     forum.findOne({_id: result.forum_id}).then(function(newforum){
                         if(newforum==null){                                                  //if there are no chats yet, then only pass group object
-                            res.render("./service/layout/forums.ejs",{group:result,searcharr:null})                                 
+                            res.render("./service/layout/forums.ejs",{group:result})                                 
                         }
                         else{                                                           //if chats exist, then pass chat object as well
-                            res.render("./service/layout/forums.ejs",{group:result,forum:newforum,searcharr:null}) 
+                            res.render("./service/layout/forums.ejs",{group:result,forum:newforum}) 
                         }
                     });
                 } 
@@ -129,36 +129,6 @@ module.exports =function(app,express,io)
      }) 
 
 
-
-
-    //  app.post("/forums/:id/:quesid/:ansid/upvote",function(req,res)
-    //  {
-    //     var id = mongoose.Types.ObjectId(req.params.id);
-    //     var quesid = mongoose.Types.ObjectId(req.params.quesid);
-    //     var ansid = mongoose.Types.ObjectId(req.params.ansid);
-
-        // forum.findOne({groupid:id},{ questions: { $elemMatch: { _id: quesid } } }).then(function(result)
-        // {
-        //     for(i in result.questions[0].answers)
-        //     {
-        //         if(result.questions[0].answers[i]._id==req.params.ansid)
-        //         {
-        //             console.log(result.questions[0].answers[i]);
-        //             result.questions[0].answers[i].push({$inc:{votes:1}});
-        //             result.markModified('answers');
-        //             result.save()( function(error){
-        //                 if (error){
-        //                   // augh!
-        //                 }else{
-        //                   console.log(result)
-        //                 }
-        //             })
-                    
-        //             res.redirect("/forums/"+id+"/"+quesid);
-        //         }
-        //     }
-        // })
-
     app.post("/forums/:id/:quesid/:ansid/upvote",function(req,res)
     {
         var id = mongoose.Types.ObjectId(req.params.id);
@@ -169,7 +139,6 @@ module.exports =function(app,express,io)
             { groupid: id },
             { $inc: { "questions.$[q].answers.$[a].votes": 1 } },
             { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
-                console.log(rrr);
                 res.redirect("/forums/"+id+"/"+quesid);
         })
     })
@@ -185,7 +154,6 @@ module.exports =function(app,express,io)
             { groupid: id },
             { $inc: { "questions.$[q].answers.$[a].votes": -1 } },
             { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
-                console.log(rrr);
                 res.redirect("/forums/"+id+"/"+quesid);
         })
     })
@@ -217,7 +185,7 @@ module.exports =function(app,express,io)
         {
             group.findOne({_id:req.params.id}).then(function(group)
             {
-                res.render("./service/layout/forums.ejs",{searcharr:result,group:group})
+                res.render("./service/layout/forums-3.ejs",{searcharr:result,group:group})
             })
             
         })
