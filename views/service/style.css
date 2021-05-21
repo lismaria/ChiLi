@@ -112,6 +112,21 @@ body{
     --resourcesbg:var(--resourcesbgdark);
 }
 
+.slide
+{
+    animation:slide 1s ease-in-out;
+}
+
+@keyframes slide
+{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 /* NAV BAR */
 .header
 {

@@ -1,4 +1,4 @@
-<body class="light-theme" id="switch" ng-app="mod2" ng-controller="ctrl2">
+<body class="light-theme slide" id="switch" ng-app="mod2" ng-controller="ctrl2">
 
 
     <div class="header">
@@ -17,7 +17,7 @@
             <div ng-hide="theme" ng-click="toggletheme()">
                 <span onclick="changetheme()" class="iconify" data-inline="false" data-icon="ic:outline-light-mode"></span>
             </div>
-            <div class="userimg" ng-click="popup()">
+            <div class="ng-cloak userimg" ng-click="popup()">
                 <!-- User Profile Image -->
                 <div class="popup-card" ng-show="popupcard">
                     <div class="popuptext">
@@ -46,7 +46,7 @@
                 <span class="iconify" data-inline="false" data-icon="cil:hamburger-menu" style="font-size: 47px;"></span></a>
             </div>
 
-            <div class="sidemenu" ng-hide="navicon">
+            <div class="ng-cloak sidemenu" ng-hide="navicon">
                 <div class="sidemenu-welcome">
 
                     <div>
