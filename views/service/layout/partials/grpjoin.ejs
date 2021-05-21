@@ -1,6 +1,6 @@
 <!-- Creating the Create/Join Group Modal Screen -->
 
-<div class="ng-cloak modal" ng-show="createModal">
+<div class="ng-cloak modal" ng-if="createModal">
 
 
     <div class="modal-content">
@@ -30,7 +30,7 @@
 
 
 
-<div class="ng-cloak modal" ng-show="joinModal" ng-cloak>
+<div class="ng-cloak modal" ng-if="joinModal" ng-cloak>
     <div class="modal-content ng-cloak" ng-cloak>
         <div ng-click="joinGrp()" class="closebtn"><span class="iconify" data-inline="false" data-icon="akar-icons:cross" style="font-size: 30px; height:30px;width:30px;" ></span></div>
 
