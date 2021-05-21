@@ -17,9 +17,9 @@
             <div ng-hide="theme" ng-click="toggletheme()">
                 <span onclick="changetheme()" class="iconify" data-inline="false" data-icon="ic:outline-light-mode"></span>
             </div>
-            <div class="ng-cloak userimg" ng-click="popup()">
+            <div class="ng-cloak userimg" ng-click="popup()" ng-cloak>
                 <!-- User Profile Image -->
-                <div class="popup-card" ng-show="popupcard">
+                <div class="popup-card ng-cloak" ng-show="popupcard" ng-cloak>
                     <div class="popuptext">
                         <!-- Getting USER object from res.locals.user -->
                         <p><%=user.full_name%></p>
@@ -46,8 +46,8 @@
                 <span class="iconify" data-inline="false" data-icon="cil:hamburger-menu" style="font-size: 47px;"></span></a>
             </div>
 
-            <div class="ng-cloak sidemenu" ng-hide="navicon">
-                <div class="sidemenu-welcome">
+            <div class="ng-cloak sidemenu" ng-hide="navicon" ng-cloak>
+                <div class="sidemenu-welcome ng-cloak" ng-cloak>
 
                     <div>
                         Welcome <br><%=user.user_name%>
