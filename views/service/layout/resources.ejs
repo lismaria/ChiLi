@@ -20,14 +20,18 @@
 
 
         <div class="resource-maincontent">
-            <form id="resource-folder" action="/resources/<%=group._id%>/folder1">
-            <div class="resource-folders">
-                <button type="submit" form="resource-folder">
-                    <span class="iconify" data-inline="false" data-icon="bx:bxs-folder" style="color:var(--bg);margin-right:0px;width:40px;height:30px;"></span>
-                    <p>Folder 1</p>
-                </button>
-            </div>   
-            </form>
+            <% if(group.resource_id!=null){ %>
+                <% resource.folders.forEach(function(folder){ %> 
+                    <a href="/resources/<%=group._id%>/<%=folder._id%>" style="text-decoration: none;">
+                        <div class="resource-folders">
+                            <button type="submit" form="resource-folder">
+                                <span class="iconify" data-inline="false" data-icon="bx:bxs-folder" style="color:var(--bg);margin-right:0px;width:40px;height:30px;"></span>
+                                <p><%=folder.folder_name%></p>
+                            </button>
+                        </div>   
+                    </a>
+                 <% }) %> 
+            <% } %>
         </div>
 
         <div class="ng-cloak resource-modal" ng-show="resourceModal" ng-cloak>
@@ -39,9 +43,9 @@
 
 
                 <div class="resource-modal-form">
-                    <form name="create-folder" method="POST" action="/create-folder" id="create-folder">
+                    <form name="create-folder" method="POST" action="/resources/<%=group._id%>/create-folder" id="create-folder">
                         Name :<br>
-                        <input type="text" required>
+                        <input type="text" name="folder_name" required>
                     </form>
                 </div>
 

@@ -27,7 +27,7 @@
             <div class="folder-header">
                 <div>
                     <span class="iconify" data-inline="false" data-icon="bx:bxs-folder" style="color:var(--bg);margin-right:0px;width:40px;height:30px;"></span>
-                    <p>Folder 1</p>
+                    <p><%=folder[0].folders.folder_name%></p>
                 </div>
             </div>
             
@@ -113,16 +113,16 @@
 
 
                 <div class="resource-modal-form">
-                    <form name="create-folder" method="POST" action="/create-folder" id="create-folder">
+                    <form name="insert-file" method="POST" action="/insert-file" id="insert-file" enctype="multipart/form-data">
                         <label for="choose-file">Choose a file</label>
-                        <input type="file" name="" id="choose-file">
+                        <input type="file" name="filename" id="choose-file">
                     </form>
                 </div>
 
 
                 <div class="create-cancel-buttons">
-                    <button type="submit" form="create-folder" style="background: #FF6580;color:#fff">Add</button>
-                    <button type="reset" form="create-folder" ng-click="resource()" style="background: transparent;border: 1px solid #687283;color:var(--bgtxt)">Cancel</button>
+                    <button type="submit" form="insert-file" style="background: #FF6580;color:#fff">Add</button>
+                    <button type="reset" form="insert-file" ng-click="resource()" style="background: transparent;border: 1px solid #687283;color:var(--bgtxt)">Cancel</button>
                 </div>
             </div>
 

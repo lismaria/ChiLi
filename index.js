@@ -14,6 +14,7 @@ const chats = require('./scripts/chats');
 const resources=require('./scripts/resources');
 const news=require('./scripts/news');
 const forums = require('./scripts/forums');
+const upload=require("express-fileupload");
 
 const port = process.env.PORT || 3000;
 
@@ -30,6 +31,7 @@ app.use(function(req, res, next) {
     res.locals.user = req.session.user;
     next();
 });
+app.use(upload());
 
 app.engine('html', require('ejs').renderFile);                  //sets the templating engine to ejs of html files
 app.set('view engine', 'html');
