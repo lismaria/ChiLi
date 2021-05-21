@@ -374,3 +374,9 @@ hr{
     background-color: transparent;
 }
 
+.fdate{
+    color: gray;
+    font-size: 12px;
+    margin-left: 10px;
+}
+

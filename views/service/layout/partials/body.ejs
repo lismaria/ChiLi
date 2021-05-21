@@ -11,10 +11,10 @@
 
         <div class="nav">
 
-            <div ng-show="theme" ng-click="toggletheme()">
+            <div class="ng-cloak" ng-show="theme" ng-click="toggletheme()" ng-cloak>
                 <span onclick="changetheme()" class="iconify" data-inline="false" data-icon="carbon:moon"></span>
             </div>
-            <div ng-hide="theme" ng-click="toggletheme()">
+            <div class="ng-cloak" ng-hide="theme" ng-click="toggletheme()" ng-cloak>
                 <span onclick="changetheme()" class="iconify" data-inline="false" data-icon="ic:outline-light-mode"></span>
             </div>
             <div class="ng-cloak userimg" ng-click="popup()" ng-cloak>
