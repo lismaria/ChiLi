@@ -91,9 +91,23 @@ module.exports =function(app,express,io)
 
     app.post("/resources/:id/:folderid/insert-file",urlencodedParser,function(req,res)
     {
-        console.log(req.files);
-    })
-
-    io.on('connection',function(socket){
+        var id = mongoose.Types.ObjectId(req.params.id);
+        var fid = mongoose.Types.ObjectId(req.params.folderid);
+        var name = req.files.filename.name;
+        var data = req.files.filename.data;
+        var size = req.files.filename.size;
+        var encoding = req.files.filename.encoding;
+        var mimetype = req.files.filename.mimetype;
+        var md5 = req.files.filename.md5;
+        
+        resource.findOne({groupid:id},{ folders: { $elemMatch: { _id: fid } } }).then(function(result)
+        {
+            result.folders[0].files.push({name:name,data:data,size:size,encoding:encoding,mimetype:mimetype,md5:md5});
+            result.save().then(function(newfile)
+            {
+                console.log(newfile.folders[0].files);
+                res.redirect("/resources/"+id+"/"+fid);
+            })
+        })
     })
 }

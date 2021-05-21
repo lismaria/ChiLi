@@ -41,66 +41,6 @@
                         abc.txt
                     </div>
                 </div>
-
-                <div class="resource-file">
-                    <div class="uploaded-files">
-
-                    </div>
-
-                    <div class="file_name">
-                        abc.txt
-                    </div>
-                </div>
-
-                <div class="resource-file">
-                    <div class="uploaded-files">
-
-                    </div>
-
-                    <div class="file_name">
-                        abc.txt
-                    </div>
-                </div>
-
-                <div class="resource-file">
-                    <div class="uploaded-files">
-
-                    </div>
-
-                    <div class="file_name">
-                        abc.txt
-                    </div>
-                </div>
-
-                <div class="resource-file">
-                    <div class="uploaded-files">
-
-                    </div>
-
-                    <div class="file_name">
-                        abc.txt
-                    </div>
-                </div>
-
-                <div class="resource-file">
-                    <div class="uploaded-files">
-
-                    </div>
-
-                    <div class="file_name">
-                        abc.txt
-                    </div>
-                </div>
-
-                <div class="resource-file">
-                    <div class="uploaded-files">
-
-                    </div>
-
-                    <div class="file_name">
-                        abc.txt
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -113,7 +53,7 @@
 
 
                 <div class="resource-modal-form">
-                    <form name="insert-file" method="POST" action="/insert-file" id="insert-file" enctype="multipart/form-data">
+                    <form name="insert-file" method="POST" action="/resources/<%=group._id%>/<%=folder[0].folders._id%>/insert-file" id="insert-file" enctype="multipart/form-data">
                         <label for="choose-file">Choose a file</label>
                         <input type="file" name="filename" id="choose-file">
                     </form>

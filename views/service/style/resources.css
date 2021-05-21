@@ -249,6 +249,7 @@ a.resourcenav{
     justify-content:space-evenly;
     align-items:center;
     color:var(--bgtxt);
+    height:200px;
 }
 
 .uploaded-files{
