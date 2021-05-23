@@ -33,9 +33,9 @@ app.controller("ctrl",function($scope)
 app.controller("homectrl",function($scope)
 {
     $scope.home=[
-        {icon:  "fluent:people-audience-20-filled", descr: "Forums"},
-        {icon: "emojione-monotone:newspaper",descr: 'News'},
-        {icon: "bx:bxs-share-alt",descr:'Resources'},
-        {icon:  "clarity:chat-bubble-solid-badged", descr:'Messaging'}
+        {icon:  "fluent:people-audience-20-filled", title: "Forums",descr:"Ask queries, answer questions, help the community learn and grow !"},
+        {icon: "emojione-monotone:newspaper",title: 'News',descr:"Post and get news updates about various topics."},
+        {icon: "bx:bxs-share-alt",title:'Resources',descr:"Everything becomes smooth when you have an option of sharing files online."},
+        {icon:  "clarity:chat-bubble-solid-badged", title:'Messaging',descr:"Take a while off from study and work and have a chat with your mates."}
     ];
 });

@@ -39,7 +39,10 @@
             <div class="wrapper">
                 <div class="panels" ng-repeat="x in home">
                     <div class="front" ><span id="servicon" class="iconify" data-inline="false" data-icon={{x.icon}} ></span></div>
-                    <div class="back" style="color: var(--bgtxt);" >{{x.descr}}</div>
+                    <div class="back" style="color: var(--bgtxt);" >
+                        <h3>{{x.title}}</h3><br>
+                        <p>{{x.descr}}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -66,8 +69,16 @@
                </div>
            </div>
 
-           <div class="laptop">
+           <div class="laptop" style="position:relative">
+
+                <div style="position:absolute;z-index: 2;border-radius: 10px;width:450; height:280;margin:10px 0 0 35px;overflow:hidden">
+                    <video autoplay muted loop>
+                        <source src="../img/chili-test-5.mp4" type="video/mp4">
+                  </video>
+                </div>
+
                <img src="./img/laptop.jpg">
+
            </div>
        </div>
 
