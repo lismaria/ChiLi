@@ -2,10 +2,62 @@ const group=require("../models/group")            //importing the group model
 const user=require("../models/user")
 const mongoose=require("mongoose")
 const resource=require("../models/resourceModel");
+const uniqid=require("uniqid");
 
 module.exports =function(app,express,io)
 {
     var urlencodedParser=express.urlencoded({extended:false});
+
+    app.get("/resources/:id/:folderid/uploads/:file",urlencodedParser,function(req,res)
+    {
+        var counter=0;
+        var fid = mongoose.Types.ObjectId(req.params.folderid);
+        group.findOne({_id:req.params.id}).then(function(result)            //getting Group ID from url, passed by layout/partials/nav.ejs
+        {
+            for(i in result.users)
+            {
+                if(result.users[i].user_name==req.session.user.user_name)       //if the user is found, render the resource page
+                {
+                    counter=counter+1;
+                    resource.aggregate([{$unwind:"$folders"},{$match:{"folders._id":fid}}]).then(function(folder){   //getting Questions ID from url, passed by forums.ejs
+                        res.render("./service/layout/resources-3.ejs",{file:req.params.file});      //sending group object in layout/forums.ejs
+                    });
+                } 
+            }
+            if(counter==0){                                                     //if user havent joined the group but is trying to access from url
+                res.write("<a href='/'>Return to home</a> <br><br>");
+                res.write("No group found");
+                res.end();
+            }
+        })       
+    })
+
+
+    app.get("/resources/:id/:folderid",urlencodedParser,function(req,res)
+    {
+        var counter=0;
+        var fid = mongoose.Types.ObjectId(req.params.folderid);
+        group.findOne({_id:req.params.id}).then(function(result)            //getting Group ID from url, passed by layout/partials/nav.ejs
+        {
+            for(i in result.users)
+            {
+                if(result.users[i].user_name==req.session.user.user_name)       //if the user is found, render the resource page
+                {
+                    counter=counter+1;
+                    resource.aggregate([{$unwind:"$folders"},{$match:{"folders._id":fid}}]).then(function(folder){   //getting Questions ID from url, passed by forums.ejs
+                        res.render("./service/layout/resources-2.ejs",{group:result,folder:folder})      //sending group object in layout/forums.ejs
+                    });
+                } 
+            }
+            if(counter==0){                                                     //if user havent joined the group but is trying to access from url
+                res.write("<a href='/'>Return to home</a> <br><br>");
+                res.write("No group found");
+                res.end();
+            }
+        })
+    }); 
+
+
     app.get("/resources/:id",urlencodedParser,function(req,res)
     {
         var counter=0;
@@ -35,29 +87,33 @@ module.exports =function(app,express,io)
         })
     });        
 
-    app.get("/resources/:id/:folderid",urlencodedParser,function(req,res)
+
+    app.post("/resources/:id/:folderid/insert-file",urlencodedParser,function(req,res)
     {
-        var counter=0;
+        var file = req.files.filename;
+        var id = mongoose.Types.ObjectId(req.params.id);
         var fid = mongoose.Types.ObjectId(req.params.folderid);
-        group.findOne({_id:req.params.id}).then(function(result)            //getting Group ID from url, passed by layout/partials/nav.ejs
+        var name = req.files.filename.name;
+        var mimetype = req.files.filename.mimetype;
+
+        var rename = uniqid('','-'+name);
+        file.mv("./views/service/uploads/"+rename,function(err)
         {
-            for(i in result.users)
+            if(err)
             {
-                if(result.users[i].user_name==req.session.user.user_name)       //if the user is found, render the resource page
-                {
-                    counter=counter+1;
-                    resource.aggregate([{$unwind:"$folders"},{$match:{"folders._id":fid}}]).then(function(folder){   //getting Questions ID from url, passed by forums.ejs
-                        res.render("./service/layout/resources-2.ejs",{group:result,folder:folder})      //sending group object in layout/forums.ejs
-                    });
-                } 
+                console.log(err);
             }
-            if(counter==0){                                                     //if user havent joined the group but is trying to access from url
-                res.write("<a href='/'>Return to home</a> <br><br>");
-                res.write("No group found");
-                res.end();
-            }
+        });
+        
+        resource.findOne({groupid:id},{ folders: { $elemMatch: { _id: fid } } }).then(function(result)
+        {
+            result.folders[0].files.push({name:name,mimetype:mimetype,rename:rename});
+            result.save().then(function(newfile)
+            {
+                res.redirect("/resources/"+id+"/"+fid);
+            })
         })
-    }); 
+    })
 
 
     app.post("/resources/:id/create-folder",urlencodedParser,function(req,res)
@@ -87,27 +143,5 @@ module.exports =function(app,express,io)
                 })
             }
         });
-    })
-
-    app.post("/resources/:id/:folderid/insert-file",urlencodedParser,function(req,res)
-    {
-        var id = mongoose.Types.ObjectId(req.params.id);
-        var fid = mongoose.Types.ObjectId(req.params.folderid);
-        var name = req.files.filename.name;
-        var data = req.files.filename.data;
-        var size = req.files.filename.size;
-        var encoding = req.files.filename.encoding;
-        var mimetype = req.files.filename.mimetype;
-        var md5 = req.files.filename.md5;
-        
-        resource.findOne({groupid:id},{ folders: { $elemMatch: { _id: fid } } }).then(function(result)
-        {
-            result.folders[0].files.push({name:name,data:data,size:size,encoding:encoding,mimetype:mimetype,md5:md5});
-            result.save().then(function(newfile)
-            {
-                console.log(newfile.folders[0].files);
-                res.redirect("/resources/"+id+"/"+fid);
-            })
-        })
     })
 }

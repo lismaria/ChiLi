@@ -6,11 +6,8 @@ const group=require("./group");
 const fileSchema = new Schema
 ({
     name:String,
-    data:Buffer,
-    size:Number,
-    encoding:String,
     mimetype:String,
-    md5:String
+    rename:String
 })
 
 const folderschema = new Schema

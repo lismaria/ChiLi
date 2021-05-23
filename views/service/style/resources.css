@@ -221,6 +221,7 @@ a.resourcenav{
     height: 40px;
     background: var(--filebg);
     border-radius: 10px;
+    display: flex;
 }
 
 .folder-header div{
@@ -256,4 +257,7 @@ a.resourcenav{
     background:var(--filebg);
     width:150px;
     height:150px;
+    display: flex;
+    align-items:center;
+    justify-content:center;
 }

@@ -29,18 +29,28 @@
                     <span class="iconify" data-inline="false" data-icon="bx:bxs-folder" style="color:var(--bg);margin-right:0px;width:40px;height:30px;"></span>
                     <p><%=folder[0].folders.folder_name%></p>
                 </div>
+
+                <div class="resource-note" style="display:flex;justify-content: flex-end;font-size:15px;color:var(--grpmarkR)">
+                    Note : Word Files and PPT's are only downloadable
+                </div>
             </div>
             
             <div class="file-container">
+                <% if(group.resource_id!=null){ %>
+                    <% folder[0].folders.files.forEach(function(files){ %>
                 <div class="resource-file">
+                    <a href="/resources/<%=group._id%>/<%=folder[0].folders._id%>/uploads/<%=files.rename%>" style="text-decoration: none;color:var(--bg)">
                     <div class="uploaded-files">
-
+                        Click to view
                     </div>
+                    </a>
 
                     <div class="file_name">
-                        abc.txt
+                        <%=files.name%>
                     </div>
                 </div>
+                <% }) %> 
+            <% } %>
             </div>
         </div>
 
