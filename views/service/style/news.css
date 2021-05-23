@@ -160,6 +160,7 @@ a.newsnav{
     background:var(--chatbg);
     color: var(--bgtxt);
     transform: rotateY(180deg);
+    position: relative;
 }
 
 .flip-card-back p{
@@ -170,4 +171,9 @@ a.newsnav{
 
 .flip-card-back p::-webkit-scrollbar{
     display: none;
+}
+
+.flip-card-mark-back{
+    position: absolute;
+    top: 0;
 }

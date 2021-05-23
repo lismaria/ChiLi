@@ -16,20 +16,20 @@
             <div class="form">
                 <p>Contact Us</p>
                 <div class="formContent">
-                    <form name="contactusForm" novalidate>
+                    <form action="mailto:chiliecp@gmail.com" method="POST" enctype="multipart/form-data" name="contactusForm">
                         <div class="nameRow">
-                            <label for="fname">Name</label><br>
-                            <input type="text" id="fname" name="firstname" placeholder=" Your name..">
+                            <label for="firstname">Name</label><br>
+                            <input type="text" name="firstname" placeholder=" Your name..">
                         </div>
                         <div class="emailRow">
-                            <label>Email</label><br>
-                            <input type="email" name="" id="" placeholder=" Your email..">
+                            <label for="email">Email</label><br>
+                            <input type="email" name="email" placeholder=" Your email..">
                         </div>
                         <div class="msgRow">
-                            <label for="">Send a Message</label><br>
-                            <textarea name="" id="" placeholder=" Your message.."></textarea>
+                            <label for="message">Send a Message</label><br>
+                            <textarea name="message" placeholder=" Your message.."></textarea>
                         </div>
-                        <button class="submitBtn">Submit</button>
+                        <button class="submitBtn" type="submit" value="Submit">Submit</button>
                     </form>
                 </div>
             </div>

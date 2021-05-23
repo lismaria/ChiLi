@@ -30,7 +30,7 @@ post_news.addEventListener('click',function(event){
 
 // *** Listen for Events *** //
 socket.on('post_news',function (data){
-    news_content_column.innerHTML+='<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p>'+new Date().toLocaleDateString(undefined, {month:'short',year:'numeric',day:'numeric'})+'</p><h1>'+data.news_title+'</h1><div><span>'+data.user+'</span><span style="border-radius:0 0 10px 0;">'+new Date().toLocaleTimeString().replace(/:\d{2}\s/,' ')+'</span></div></div><div class="flip-card-back"><p>'+data.news_story+'</p></div></div></div>'
+    news_content_column.innerHTML+='<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><p class="flip-card-mark">'+new Date().toLocaleDateString(undefined, {month:'short',year:'numeric',day:'numeric'})+'</p><h1>'+data.news_title+'</h1><div><span>'+data.user+'</span></div></div><div class="flip-card-back"><p class="flip-card-mark  flip-card-mark-back">'+new Date().toLocaleTimeString().replace(/:\d{2}\s/,' ')+'</p><p style="margin: 0 10px 10px;">'+data.news_story+'</p></div></div></div>'
     var element = document.getElementById('news-content-column');
     element.scrollTop = element.scrollHeight;
 })

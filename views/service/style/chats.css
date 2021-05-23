@@ -87,7 +87,7 @@ a.chatnav{
     margin: 5px;
     padding: 10px;
     background: var(--chatbg);
-    width: 200px;
+    width: 140px;
     transition: width 0.4s ease-in-out;
     color: var(--bgtxt);
 }

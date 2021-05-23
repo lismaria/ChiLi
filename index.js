@@ -36,12 +36,6 @@ app.use(upload());
 app.engine('html', require('ejs').renderFile);                  //sets the templating engine to ejs of html files
 app.set('view engine', 'html');
 
-// io.on('connection', function(socket){
-//     console.log("connected index");
-//     socket.on('disconnect', function () {
-//         console.log('A user disconnected');
-//      });
-// })
 
 mongoose.connect('mongodb+srv://chili:lischirag@chilicluster.kios7.mongodb.net/dummy?retryWrites=true&w=majority&ssl=true',
                     {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true});            //connecting to database
