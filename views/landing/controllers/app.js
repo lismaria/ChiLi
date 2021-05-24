@@ -19,6 +19,9 @@ app.config(function($routeProvider)
     .when('/signup',{
         templateUrl:"./views/signup.html"
     })
+    .otherwise({
+        templateUrl:"../404.html"
+    })
 });
 
 app.controller("ctrl",function($scope)

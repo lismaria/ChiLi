@@ -71,3 +71,12 @@ chats(app,express,io);
 forums(app,express,io);
 resources(app,express,io);
 news(app,express,io);
+
+// app.use(function(req,res){
+//     if(req.session.user){
+//      res.status(404).send("haan");}
+// })
+// app.get('/#!/*', function(req, res){
+//     res.status(404).sendFile('404.html');
+// });
+ 
