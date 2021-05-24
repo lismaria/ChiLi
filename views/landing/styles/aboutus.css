@@ -29,7 +29,7 @@
 
 .content-container
 {
-    margin-top:60px;
+    margin-top:55px;
     display:flex;
     justify-content:space-between;
     flex-wrap:wrap;
@@ -61,7 +61,7 @@
 .middle-content p
 {
     width:600px;
-    font-size:25px;
+    font-size:20px;
 }
 
 .middle-content button
@@ -70,10 +70,14 @@
     width: 184px;
     height: 48px;
     border-radius: 30px;
-    margin-top: 100px;
+    margin-top: 50px;
     color:#FFFFFf;
     font-size: 20px;
     font-weight: bold;
+}
+
+.aboutus-content p{
+    margin-top:10px;
 }
 /* About us LHS ends here */
 
