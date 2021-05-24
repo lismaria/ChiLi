@@ -75,6 +75,10 @@ module.exports=function(app,express,io)
                 }
             })          
             
-        })
+        });
+        // socket.on('typing', function(data){
+        //     console.log("Line 80")
+        //     socket.to("").emit('typing', data);
+        // });
     })
 }
