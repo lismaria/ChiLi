@@ -1,5 +1,9 @@
 const group=require("../models/group")
 const user=require("../models/user")
+const chat=require("../models/chatModel")
+const forum=require("../models/forumModel")
+const resource=require("../models/resourceModel")
+const news=require("../models/newsModel")
 const alert=require("alert");
 const mongoose=require("mongoose");
 
@@ -20,5 +24,35 @@ module.exports=function(app,express)
             })
             
         });
+    });
+
+    app.post("/deletegroup/:id",urlencodedParser,function(req,res)           //getting group ID from layout/info.ejs
+    {
+        group.findOne({_id:req.params.id}).then(function(result)
+        {
+            if(req.session.user.user_name==result.admin_name)
+            {
+                chat.findOneAndDelete({_id:result.chat_id}).then(function(){});
+                news.findOneAndDelete({_id:result.news_id}).then(function(){});
+                resource.findOneAndDelete({_id:result.resource_id}).then(function(){});
+                forum.findOneAndDelete({_id:result.forum_id}).then(function(){});
+
+
+                user.updateMany({"groups._id":result._id},{ $pull: { groups: { _id: result._id}}},{ new: true }).then(function()
+                {
+
+                })
+
+                group.deleteOne({_id:req.params.id}).then(function()
+                {
+                    user.findOne({_id:req.session.user._id}).then(function(userr)
+                    {
+                        req.session.user = userr;                           //Storing the new user object in session
+                        alert("Group Deleted");
+                        res.redirect("/");
+                    })
+                })
+            }
+        })
     });
 }

@@ -7,8 +7,17 @@
 
     
     <div class="groupinfo-container" style="height:100%">
-        <center>Group Info</center><hr>
 
+        <div class="info-header">
+            <center>Group Info</center>
+            <% if(user.user_name==group.admin_name){ %>
+            <button ng-click="deleteGrp()">
+            <span class="iconify" data-inline="false" data-icon="carbon:delete" style="color:#fff;margin:0px;width:35px;height:35px;"></span>
+            </button>
+            <% } %>
+        </div>
+        <hr>
+        
         <div class="info-maincontent">
 
             <div class="info-lhs">
@@ -42,8 +51,32 @@
                         </div>
                         
                         <div class="leave-modal-button">
-                            <button type="submit" style="background: #1FCF51">Yes I'm sure</button>
-                            <button type="reset" ng-click="leaveGrp()" style="background: #C83E57">I'll stay</button>
+                            <button type="submit" style="background: #1FCF51;color:#fff;">Yes I'm sure</button>
+                            <button type="reset" ng-click="leaveGrp()" style="background: #C83E57;color:#fff;">I'll stay</button>
+                        </div>
+                        </form>
+                        
+                    </div>  
+                
+                
+                </div>
+
+
+
+                <div class="ng-cloak leave-modal" ng-show="deleteModal" ng-cloak>
+
+
+                    <div class="leave-modal-content ng-cloak" ng-cloak>
+                
+                        <form name="deleteGroup" method="POST" action="/deletegroup/<%=group._id%>" class="creategrpForm">
+                        
+                        <div class="leave-modal-confirm" style="font-size: 25px;">
+                            You are about to delete a group! Every member and all the content will be vanished. Be sure before taking any decision.
+                        </div>
+                        
+                        <div class="leave-modal-button">
+                            <button type="submit" style="color:#fff;background: #C83E57;">Yes Delete</button>
+                            <button type="reset" ng-click="deleteGrp()" style="background: #1FCF51;color:#fff;">I'm good</button>
                         </div>
                         </form>
                         

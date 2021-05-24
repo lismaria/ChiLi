@@ -18,6 +18,23 @@ a.infonav{
     color: #000000;
 }
 
+.info-header{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.info-header button{
+    background-color: red;
+    width:40px;
+    height:38px;
+    position:absolute;
+    right:5px;
+    top:-5px;
+    border-radius: 5px;
+}
+
 .info-maincontent{
     display:flex;
     padding-top:10px;
@@ -158,5 +175,4 @@ a.infonav{
     flex-direction: column;
     justify-content:space-evenly;
     align-items: center;
-    color:var(--bgtxt);
 }
