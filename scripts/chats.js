@@ -34,6 +34,7 @@ module.exports=function(app,express,io)
             
         });
         var id = mongoose.Types.ObjectId(req.params.id);                        // converting string to type ObjectId
+        
         function showMsg(){                                                     // storing from req parameter
             obj={
                 groupId: id,
@@ -45,11 +46,17 @@ module.exports=function(app,express,io)
     });
 
  // *** socket.io code *** //
-    io.on('connection', function(socket){
-        socket.on('chat',function(data){
-            io.sockets.emit('chat',data);                                        // emiting msg to all sockets(clients) on server
+    io.sockets.on('connection', function(socket){
+        
+        socket.on("join",function(room)
+        {
+            socket.join(room);
+        })
 
+        socket.on('chat',function(data){
             obj=show();                                                          // storing the return obj of showMsg
+            console.log("chat recieved on server");
+            io.to(data.roomid).emit('chat',data);                                        // emiting msg to all sockets(clients) on server
 
             chat.findOne({groupid: obj.groupId}).then(function(result){          // findong the current group
                 if(result==null){                                                // if no grp found, creating first insttance   
@@ -76,6 +83,8 @@ module.exports=function(app,express,io)
             })          
             
         });
+
+
         // socket.on('typing', function(data){
         //     console.log("Line 80")
         //     socket.to("").emit('typing', data);

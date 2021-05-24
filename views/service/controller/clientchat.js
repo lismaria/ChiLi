@@ -1,6 +1,8 @@
 var socket = io();
- 
+
 //DOM 
+var roomid = document.getElementById('roomid').dataset.test;
+var sendroomid = document.getElementById("sendroomid");
 var user = document.getElementById('output').dataset.test;                  //getting values from dom elements by ID
 var output = document.getElementById("output");
 var input = document.getElementById("input");
@@ -11,15 +13,21 @@ var feedback = document.getElementById("feedback");
 
 //*** Emit Events ***//
 
+socket.emit("join",roomid);
+
+
 //on Button Click
 if(input){                                                          //if there is input, then adding event listener to emit data
 send.addEventListener('click',function(event){
     event.preventDefault();
     if(input.value.length>0)
     {
+        console.log("chat sent from client")
         socket.emit('chat',{
             input: input.value,
-            user:user
+            user:user,
+            time: new Date(),
+            roomid:roomid
         });
     }
     input.value = '';                                               //clearing input box after data is sent
@@ -33,10 +41,12 @@ input.addEventListener('keypress', function (event) {
         event.preventDefault();
         if(input.value.length>0)
         {
+            console.log("chat sent from client")
             socket.emit('chat',{
                 input: input.value,
                 user:user,
-                time: new Date()
+                time: new Date(),
+                roomid:roomid
             });            
         }
         input.value = '';
@@ -53,6 +63,7 @@ input.addEventListener('keypress', function (event) {
 
 //*** Listen for Events ***//
 socket.on('chat',function (data){
+    console.log("chat displayed");
     feedback.innerHTML="";
     output.innerHTML+='<div class="userProfile" id="userProfile"><div class="userImg"></div><div style="width:100%"><span id="username" class="userName">'+data.user+'</span><div class="message"><p>'+data.input+'</p><span>'+new Date().toLocaleTimeString().replace(/:\d{2}\s/,' ')+'</span></div></div></div>'
     var element = document.getElementById('output');
