@@ -1,4 +1,4 @@
-<body class="light-theme slide" id="switch" ng-app="mod2" ng-controller="ctrl2">
+<body class="slide" id="switch" ng-app="mod2" ng-controller="ctrl2">
 
 
     <div class="header">
@@ -10,12 +10,13 @@
         </div>
 
         <div class="nav">
-
-            <div class="ng-cloak" ng-show="theme" ng-click="toggletheme()" ng-cloak>
-                <span onclick="changetheme()" class="iconify" data-inline="false" data-icon="carbon:moon"></span>
-            </div>
-            <div class="ng-cloak" ng-hide="theme" ng-click="toggletheme()" ng-cloak>
-                <span onclick="changetheme()" class="iconify" data-inline="false" data-icon="ic:outline-light-mode"></span>
+            <div id="dark-mode-toggle">
+                <div class="ng-cloak" id="moon" ng-cloak>
+                    <span class="iconify" data-inline="false" data-icon="carbon:moon"></span>
+                </div>
+                <div class="ng-cloak" id="sun" ng-cloak>
+                    <span class="iconify" data-inline="false" data-icon="ic:outline-light-mode"></span>
+                </div>
             </div>
             <div class="ng-cloak userimg" ng-click="popup()" ng-cloak>
                 <!-- User Profile Image -->

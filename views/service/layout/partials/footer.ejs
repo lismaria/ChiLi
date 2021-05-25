@@ -9,8 +9,9 @@
 <script src="../../controller/clientforum.js"></script>
 
 <script>
+//***** to scroll to bottom by default *****//
 window.onload=function () {  
-    var msgBox = document.getElementById("output");             //to scroll to bottom by default
+    var msgBox = document.getElementById("output");             
     if(msgBox)
     {
         msgBox.scrollTop = msgBox.scrollHeight;      
@@ -28,14 +29,61 @@ window.onload=function () {
     }
 }
 
-function changetheme()
-{
-    const element = document.getElementById('switch');
-    element.classList.toggle('dark-theme'); 
-}
+//***** For Forums Icon *****//
 $(".add-div").click(function() {
   $(".add").toggleClass("rotate");
 });
+
+
+//***** DARK MODE *****//
+
+
+let darkMode = localStorage.getItem('darkMode');                     // check for saved 'darkMode' in localStorage
+const darkModeToggle = document.querySelector('#dark-mode-toggle');
+const element = document.getElementById('switch');
+
+const enableDarkMode = () => {  
+
+    element.classList.remove('light-theme');                  // 1. Remove dark-theme and add light-theme class to the body (#switch is in body)
+    element.classList.add('dark-theme'); 
+
+    document.getElementById("moon").style.display = 'none';   // 2. Change icons
+    document.getElementById("sun").style.display = 'block';
+    
+    localStorage.setItem('darkMode', 'enabled');              // 3. Update darkMode in localStorage
+}
+
+const disableDarkMode = () => {
+
+    element.classList.remove('dark-theme');                 // 1. Remove light-theme and add dark-theme class to the body (#switch is in body)
+    element.classList.add('light-theme');
+
+    document.getElementById("sun").style.display = 'none';  // 2. Change icons
+    document.getElementById("moon").style.display = 'block';
+  
+    localStorage.setItem('darkMode', null);              // 3. Update darkMode in localStorage
+}
+
+ 
+// If the user had already visited 
+if (darkMode === 'enabled') {       // start things off with dark-theme ON
+    enableDarkMode();
+}else{                              // start things off with light-theme ON
+    disableDarkMode();
+}
+
+// When someone clicks the button
+darkModeToggle.addEventListener('click', () => { 
+    darkMode = localStorage.getItem('darkMode');      // get their darkMode setting  
+
+    if (darkMode !== 'enabled') {                    // if it not current enabled, enable it
+        enableDarkMode();  
+    } else if (darkMode == 'enabled'){               // if it has been enabled, turn it off  
+        disableDarkMode(); 
+    }
+});
+
+
 </script>
 </body>
 </html>
