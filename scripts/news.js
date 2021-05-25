@@ -48,7 +48,7 @@ module.exports =function(app,express,io)
     // *** socket.io code *** //
     io.on('connection', function(socket){
        socket.on('post_news',function(data){
-           io.sockets.emit('post_news',data);                                        // emiting msg to all sockets(clients) on server
+           socket.emit('post_news',data);                                        // emiting msg to all sockets(clients) on server
 
            obj=shownews();                                                          // storing the return obj of showMsg
 

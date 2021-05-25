@@ -115,7 +115,7 @@ module.exports =function(app,express,io)
 
         //post answer
         socket.on('post_ans',function(ansData){              //listening for post question event from client
-            io.sockets.emit('post_ans',ansData);                                        // emiting msg to all sockets(clients) on server
+            socket.emit('post_ans',ansData);                                        // emiting msg to all sockets(clients) on server
 
             obj=showques();
             app=showans();
