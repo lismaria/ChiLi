@@ -110,6 +110,7 @@ body{
     --searchF: var(--grpmarkFL);
     --filebg:var(--chatbglight);
     --resourcesbg:var(--resourcesbgdark);
+    transition: 2s linear;
 }
 
 .slide
@@ -169,7 +170,7 @@ body{
 
 .userimg{
     border-radius: 50%;
-    background:url("./img/default-dp2.jpg");
+    /* background:url("./img/default-dp2.jpg"); */
     background-size: 70px 70px;
     margin-right: 50px;
     height: 70px;

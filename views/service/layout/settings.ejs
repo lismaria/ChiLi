@@ -13,7 +13,7 @@
                 <!-- Background Color -->
             </div>
             <div class="user-img">
-                <!-- Profile Picture -->
+                <img src="https://avatars.dicebear.com/api/bottts/{{userdp}}.svg">
             </div>
         </div>
 
@@ -23,7 +23,7 @@
                 Settings
             </div>
 
-            <div class="settings-form">
+            <div class="settings-form" ng-init="userdp='<%=user.profile_pic%>'">
                 <form name="user-settings" id="user-settings" action="/settings" method="post">
                     <table cellspacing=30>
                         <td>Name :</td>
@@ -33,8 +33,7 @@
                         <tr>
                             <td>Profile Photo :</td>
                             <th>
-                                <div class="labelDiv"><label for="upload-img" style="color: var(--primarybtn);">Change</label></div>
-                                <input type="file" name="user_profile" id="upload-img" class="upload-img">
+                                <input type="text" name="profile_pic" ng-model="userdp" value="<%=user.profile_pic%>">
                             </th>
                         </tr>
                     </table>

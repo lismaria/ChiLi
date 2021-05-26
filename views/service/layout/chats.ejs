@@ -7,7 +7,7 @@
     <title><%=group.group_name%> | Chats</title>
 </head>
     <%- include('./partials/body') %>
-    <div class="chatContainer">
+    <div class="chatContainer" id="chatContainer" data-dp=<%= user.profile_pic %>>
     <div class="chatBox">
         <div id="feedback"></div>
         <hr>
@@ -15,7 +15,7 @@
             <!-- Checking if the chat_id is stored in the group Schema, then rendering messages -->
             <% if(group.chat_id!=null){ %>
                 <% chat.messages.forEach(function(messages){ %>                
-                    <div class="userProfile" id="userProfile"><div class="userImg"></div><div style="width:100%"><span id="username" class="userName"><%= messages.user_name %></span><div class="message"><p><%= messages.text %></p><span><%= messages.time.toLocaleTimeString().replace(/:\d{2}\s/,' ')%></span></div></div></div>
+                    <div class="userProfile" id="userProfile"><div class="userImg"><img src="https://avatars.dicebear.com/api/bottts/<%=messages.profile_pic%>.svg"></div><div style="width:100%"><span id="username" class="userName"><%= messages.user_name %></span><div class="message"><p><%= messages.text %></p><span><%= messages.time.toLocaleTimeString().replace(/:\d{2}\s/,' ')%></span></div></div></div>
                 <% }) %> 
             <% } %> 
         </div>

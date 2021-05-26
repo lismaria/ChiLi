@@ -21,7 +21,7 @@
             <% searcharr.forEach(function(result){ %> 
                 <a href="/forums/<%=group._id%>/<%=result._id%>" class="ques-block">
                     <div style="display:flex">
-                        <div class="userimg"></div>
+                        <div class="userimg"><img src="https://avatars.dicebear.com/api/bottts/<%=result.profile_pic%>.svg"></div>
                         <div class="ques-title">
                             <div style="padding-bottom:5px;">
                                 <b><%= result.user_name %></b>

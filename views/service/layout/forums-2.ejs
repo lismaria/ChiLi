@@ -4,6 +4,7 @@
     <title><%=group.group_name%> | Forums </title>
 </head>
     <%- include('./partials/body') %>
+    <div id="forumHeader" data-dp=<%= user.profile_pic %>></div>
     <div id="forumContent" style="position: relative;" data-test=<%= user.user_name %>>   
         <div class="add-ans add-div" ng-click="answer()">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="color: var(--searchF);font-size: 50px;margin-right: 0px;" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16" class="iconify add" data-inline="false" data-icon="bi:plus"><g fill="currentColor"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path></g></svg>
@@ -14,7 +15,7 @@
         <div class="forum-lhs">
             <div class="ques-body">
                 <div style="display:flex;">
-                    <div class="quesimg"></div>
+                    <div class="quesimg"><img src="https://avatars.dicebear.com/api/bottts/<%=question[0].questions.profile_pic%>.svg"></div>
                     <div class="queshead">
                         <p style="padding-left: 0"><%=question[0].questions.user_name%><span class="fdate"><%= question[0].questions.time.toLocaleDateString(undefined, {month:"short",year:"numeric",day:"numeric"})%></span></p>
                         <b style="font-size: 18px;"><%=question[0].questions.ques_title%></b>
@@ -32,7 +33,7 @@
                         <% question[0].questions.answers.forEach(function(answer){ %> 
                     <div class="answerss">
                         <div style="display:flex;padding: 10px; align-items: center;">
-                            <div class="quesimg"></div>
+                            <div class="quesimg"><img src="https://avatars.dicebear.com/api/bottts/<%=answer.profile_pic%>.svg"></div>
                             <div class="queshead">
                                 <p><%=answer.user_name%><span class="fdate"><%= answer.time.toLocaleDateString(undefined, {month:"short",year:"numeric",day:"numeric"})%></span></p>
                                 <p><%=answer.ans%></p>

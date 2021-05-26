@@ -6,7 +6,7 @@
     <%- include('./partials/body') %>
     <div>    
         <form name="searchQues" id="searchQues" action="/forums/<%=group._id%>/search" method="post"></form>
-    <div class="forumHeader">
+    <div class="forumHeader" id="forumHeader" data-dp=<%= user.profile_pic %>>
         <div class="askQues" ng-click="forum()">
             <button>Ask a Question</button>
         </div>
@@ -21,7 +21,7 @@
             <% forum.questions.forEach(function(post){ %> 
                 <a href="/forums/<%=group._id%>/<%=post._id%>" class="ques-block">
                     <div style="display:flex">
-                        <div class="userimg"></div>
+                        <div class="userimg"><img src="https://avatars.dicebear.com/api/bottts/<%=post.profile_pic%>.svg"></div>
                         <div class="ques-title">
                             <div style="padding-bottom:5px;">
                                 <b><%= post.user_name %></b>

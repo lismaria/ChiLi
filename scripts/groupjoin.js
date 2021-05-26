@@ -19,6 +19,7 @@ module.exports=function(app,express)
                 _id:req.session.user._id,
                 user_name:req.session.user.user_name,
                 full_name:req.session.user.full_name,
+                profile_pic:req.session.user.profile_pic
             }]
         });
         
@@ -62,7 +63,7 @@ module.exports=function(app,express)
 
                 if(counter==0)                                                  //if the user doesnt exist in a certain group then add them
                 {
-                    result.users.push({_id:req.session.user._id,user_name:req.session.user.user_name,full_name:req.session.user.full_name});
+                    result.users.push({_id:req.session.user._id,user_name:req.session.user.user_name,full_name:req.session.user.full_name,profile_pic:req.session.user.profile_pic});
                     result.save();
     
                     user.findOne({_id:req.session.user._id}).then(async function(user){     //updating the user object too

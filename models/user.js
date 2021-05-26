@@ -12,7 +12,8 @@ const userSchema = new Schema
         groups:[{
                 type:Schema.Types.Object,
                 ref:'group'
-        }]
+        }],
+        profile_pic:String
 });
 
 

@@ -16,7 +16,8 @@ const chatSchema = new Schema
         time : {
             type : Date, 
             default: Date.now 
-        }
+        },
+        profile_pic: String
     }]
 })
 

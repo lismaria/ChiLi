@@ -13,7 +13,8 @@ module.exports=function(app,express)
             user_name:req.body.user_name,
             full_name:req.body.full_name,
             user_email:req.body.user_email,
-            user_pswd:hashpswd
+            user_pswd:hashpswd,
+            profile_pic:req.body.user_name
         });
         
         user.findOne({$or:[{user_name:req.body.user_name},{user_email:req.body.user_email}]}).then(function(result)     //finding either username or user_email

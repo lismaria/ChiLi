@@ -93,7 +93,8 @@ module.exports =function(app,express,io)
                             user_name: data.user,
                             ques_title: data.ques_title,
                             ques_descr: data.ques_descr,
-                            time: new Date()                            
+                            time: new Date(),
+                            profile_pic: data.userdp                        
                         }]
                     });
                     newforum.save().then(function(newdoc)                 //if first chat, then store chat_id in groups Schema for reference
@@ -105,7 +106,7 @@ module.exports =function(app,express,io)
  
                 }
                 else{                                                             //if group exists push texts into messages                  
-                    forum.findOneAndUpdate({groupid:obj.groupId},{$push:{questions:{user_name:data.user,ques_title:data.ques_title,ques_descr:data.ques_descr,time:new Date()}}}).then(function(result){
+                    forum.findOneAndUpdate({groupid:obj.groupId},{$push:{questions:{user_name:data.user,ques_title:data.ques_title,ques_descr:data.ques_descr,time:new Date(),profile_pic: data.userdp}}}).then(function(result){
                         socket.emit('reload', {});
                     })
                 }
@@ -121,7 +122,7 @@ module.exports =function(app,express,io)
             app=showans();
             forum.findOne({groupid:obj.groupId},{ questions: { $elemMatch: { _id: app.postId } } }).then(function(result)
             {
-                result.questions[0].answers.push({user_name:ansData.user,ans:ansData.ans,time:new Date(),votes:0});
+                result.questions[0].answers.push({user_name:ansData.user,ans:ansData.ans,time:new Date(),votes:0,profile_pic:ansData.userdp});
                 socket.emit('reload', {});
                 result.save();
             })
@@ -178,6 +179,7 @@ module.exports =function(app,express,io)
                     ques_title: '$questions.ques_title',
                     ques_descr: '$questions.ques_descr',
                     time:'$questions.time',
+                    profile_pic:'$questions.profile_pic',
                     answers:'$questions.answers'
                 }
             }

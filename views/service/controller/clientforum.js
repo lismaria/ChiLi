@@ -6,6 +6,7 @@ socket.on('reload', function (data) {
  
 //DOM 
 var user = document.getElementById('forumContent').dataset.test;                  //getting values from dom elements by ID
+var userdp = document.getElementById('forumHeader').dataset.dp; 
 var forumContent = document.getElementById("forumContent");
 var ques_title = document.getElementById("ques_title");
 var ques_descr = document.getElementById("ques_descr");
@@ -26,7 +27,8 @@ post_ques.addEventListener('click',function(event){
         socket.emit('post_ques',{                        //emit to server
             ques_title: ques_title.value,
             ques_descr: ques_descr.value,
-            user:user
+            user:user,
+            userdp:userdp
         });
     }
     ques_title.value = '';                                               //clearing ques_title box after data is sent
@@ -41,7 +43,8 @@ post_ans.addEventListener('click',function(event){
     {
         socket.emit('post_ans',{                        //emit to server
             ans: ans.value,
-            user:user
+            user:user,
+            userdp:userdp
         });
     }
     ans.value = '';                                               //clearing ques_title box after data is sent
@@ -51,13 +54,13 @@ post_ans.addEventListener('click',function(event){
 
 // *** Listen for Events *** //
 socket.on('post_ques',function (data){                   //listening from server
-    forumContent.innerHTML+='<a href="/forums/<%=group._id%>/<%=post._id%>" class="ques-block"><div style="display:flex"><div class="userimg"></div><div class="ques-title"><div style="padding-bottom:5px;"><b>'+data.user+'</b></div><div>'+data.ques_title+'</div></div></div><div class="ques-votes"><div class="tooltip"><span class="tooltiptext">0</span></div><div>'+new Date().toLocaleDateString(undefined, {month:"short",year:"numeric",day:"numeric"})+'<br>'+new Date().toLocaleTimeString().replace(/:\d{2}\s/,' ')+'</div></div></a>'
+    forumContent.innerHTML+='<a href="/forums/<%=group._id%>/<%=post._id%>" class="ques-block"><div style="display:flex"><div class="userimg"><img src="https://avatars.dicebear.com/api/bottts/'+data.userdp+'.svg"></div><div class="ques-title"><div style="padding-bottom:5px;"><b>'+data.user+'</b></div><div>'+data.ques_title+'</div></div></div><div class="ques-votes"><div class="tooltip"><span class="tooltiptext">0</span></div><div>'+new Date().toLocaleDateString(undefined, {month:"short",year:"numeric",day:"numeric"})+'<br>'+new Date().toLocaleTimeString().replace(/:\d{2}\s/,' ')+'</div></div></a>'
     var element = document.getElementById('forumContent');
     element.scrollTop = element.scrollHeight;
 })
 
 socket.on('post_ans',function (ansData){                   //listening from server
-    ans_arr.innerHTML+='<div class="answerss"><div style="display:flex;padding: 10px; align-items: center;"><div class="quesimg"></div><div class="queshead"><p>'+ansData.user+'<span class="fdate">'+new Date().toLocaleDateString(undefined, {month:"short",year:"numeric",day:"numeric"})+'</span></p><p>'+ansData.ans+'</p></div></div><div class="ans-votes"><button id="upvote" class="triangle-up" style="cursor: pointer;" type="submit"></button><div id="votes" style="padding: 5px;">0</div><button id="downvote" class="triangle-down" style="cursor: pointer;" type="submit"></button></div></div><hr>'
+    ans_arr.innerHTML+='<div class="answerss"><div style="display:flex;padding: 10px; align-items: center;"><div class="quesimg"><img src="https://avatars.dicebear.com/api/bottts/'+ansData.userdp+'.svg"></div><div class="queshead"><p>'+ansData.user+'<span class="fdate">'+new Date().toLocaleDateString(undefined, {month:"short",year:"numeric",day:"numeric"})+'</span></p><p>'+ansData.ans+'</p></div></div><div class="ans-votes"><button id="upvote" class="triangle-up" style="cursor: pointer;" type="submit"></button><div id="votes" style="padding: 5px;">0</div><button id="downvote" class="triangle-down" style="cursor: pointer;" type="submit"></button></div></div><hr>'
     var element = document.getElementById('forumQues');
     element.scrollTop = element.scrollHeight;
 })
@@ -65,7 +68,6 @@ socket.on('post_ans',function (ansData){                   //listening from serv
 function uClicks(id,quesid,ansid,uid){
     var xhr = new XMLHttpRequest();
     
-    console.log("IN uClicks()")
     if(typeof(Storage)!=="undefined"){
         if(localStorage[uid+'ucount'+ansid]>=1){
                 console.log("if ucount", localStorage[uid+'ucount'+ansid]);
@@ -90,7 +92,6 @@ function uClicks(id,quesid,ansid,uid){
 function dClicks(id,quesid,ansid,uid){
     var xhr = new XMLHttpRequest();
     
-    console.log("IN dClicks()")
     if(typeof(Storage)!=="undefined"){
         if(localStorage[uid+'dcount'+ansid]>=1){
                 console.log("if dcount", localStorage[uid+'dcount'+ansid]);

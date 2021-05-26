@@ -10,11 +10,12 @@ const answerSchema = new Schema
         ref: 'user'
     },
     ans: String,
-    votes: Number,
     time : {
         type : Date, 
         default: Date.now 
-    }
+    },
+    votes: Number,
+    profile_pic: String
 })
 
 const questionSchema = new Schema
@@ -29,6 +30,7 @@ const questionSchema = new Schema
         type : Date, 
         default: Date.now 
     },
+    profile_pic: String,
     answers:[answerSchema]
 })
 
