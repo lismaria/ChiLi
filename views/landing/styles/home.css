@@ -14,18 +14,18 @@
 
 .blob1
 {
-    position: absolute;
+    /* position: absolute;
     top: 0;
-    right: 0; 
+    right: 0;  */
     /* filter: var(--blob12); */
     z-index: -1;  
 }
 
 .blob2
 {
-    position: absolute;
+    /* position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: 0; */
     /* filter: var(--blob12); */
     z-index:-1;
 }

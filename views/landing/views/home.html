@@ -11,7 +11,7 @@
     <div class="container">
 
         <!-- <img src="./img/blob1.jpg" class="blob1"> -->
-        <svg width="1024" height="408" viewBox="0 0 1024 408"  xmlns="http://www.w3.org/2000/svg" class="blob1">
+        <svg width="1024" height="408" viewBox="0 0 1024 408"  xmlns="http://www.w3.org/2000/svg" style="position: absolute;right:0;top:0;" class="blob1">
             <path fill="var(--blob12)" fill-rule="evenodd" clip-rule="evenodd" d="M756.988 -389.712C896.815 -397.5 1057.16 -433.485 1167.14 -376.084C1277.05 -318.723 1250.9 -206.592 1280.75 -116.351C1306.95 -37.1652 1351.2 38.6117 1330.77 118.531C1307.79 208.43 1269.18 305 1158.96 360.142C1047.98 415.661 896.222 409.502 756.988 405.583C623.381 401.821 486.889 390.44 379.231 338.19C271.995 286.146 228.979 200.122 170.936 121.156C102.139 27.5603 -38.6369 -65.1919 10.0156 -164.119C58.6646 -263.038 250.809 -289.703 394.312 -333.043C510.086 -368.008 630.077 -382.644 756.988 -389.712Z" fill="black"/>
         </svg>
 
@@ -29,7 +29,7 @@
         </div>
 
         <!-- <img src="./img/blob2.jpg" class="blob2"> -->
-        <svg width="768" height="591" viewBox="0 0 768 591" fill="none" xmlns="http://www.w3.org/2000/svg" class="blob2">
+        <svg width="768" height="591" viewBox="0 0 768 591" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;left: 0;bottom:0;" class="blob2">
             <path fill="var(--blob12)" fill-rule="evenodd" clip-rule="evenodd" d="M-49.5741 276.674C2.22205 212.024 110.867 258.952 193.651 246.672C267.163 235.768 336.1 186.263 407.686 208.845C481.557 232.149 531.092 300.241 572.13 366.067C613.114 431.806 647.38 505.297 639.898 581.319C632.538 656.103 581.019 714.961 532.242 771.368C483.868 827.309 431.774 881.188 360.901 903.956C285.849 928.066 201.629 933.605 128.479 901.076C56.0801 868.882 0.94008 803.531 -29.1554 730.505C-56.4638 664.241 -24.2747 593.703 -27.4708 522.666C-31.26 438.448 -101.712 341.749 -49.5741 276.674Z" fill="black"/>
         </svg>
 
@@ -53,7 +53,7 @@
             <div class="wrapper">
                 <div class="panels" ng-repeat="x in home">
                     <div class="front" ><span id="servicon" class="iconify" data-inline="false" data-icon={{x.icon}} ></span></div>
-                    <div class="back" style="color: var(--bgtxt);" >
+                    <div class="back" style="color: var(--bgtxt);cursor: url('../cursor.svg'),auto;" >
                         <h3>{{x.title}}</h3><br>
                         <p>{{x.descr}}</p>
                     </div>

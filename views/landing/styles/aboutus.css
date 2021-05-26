@@ -11,9 +11,9 @@
 
 .blob1
 {
-    position: absolute;
+    /* position: absolute;
     right:0;
-    top:0;
+    top:0; */
     /* filter:var(--color); */
     /* background:var(--color); */
     z-index:-1;
@@ -21,9 +21,9 @@
 
 .blob2
 {
-    position:absolute;
+    /* position:absolute;
     left: 0;
-    bottom:0;
+    bottom:0; */
     z-index:-1;
     /* filter:var(--blob12); */
 }
