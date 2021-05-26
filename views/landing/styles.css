@@ -75,7 +75,8 @@ html::-webkit-scrollbar {
 }
 body{
     background-color:var(--bg);
-    color:var(--bgtxt)
+    color:var(--bgtxt);
+    cursor: url("../cursor.svg"),auto;
 }
 
 
@@ -132,9 +133,9 @@ body{
     font-weight: 900; 
 }
 
-.iconify,button:hover
+.iconify,button:hover,a:hover
 {
-    cursor: pointer;
+    cursor: url("../pointer.svg"),auto;
 }
 
 button

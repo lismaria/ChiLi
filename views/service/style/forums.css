@@ -298,6 +298,11 @@ a.forumnav{
     cursor: pointer;
     position: relative;
 }
+
+.quesimg:hover{
+    cursor: url("../cursor.svg"),auto;
+}
+
 .queshead{
     display: flex;
     flex-direction: column;

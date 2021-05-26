@@ -40,9 +40,9 @@
                             </div>
                         </div>
                         <div class="ans-votes">                                
-                            <button id="upvote" onclick="uClicks('<%= group._id %>','<%=question[0].questions._id%>','<%=answer._id%>','<%=user._id %>')" class="triangle-up" style="cursor: pointer;" type="submit"></button>
+                            <button id="upvote" onclick="uClicks('<%= group._id %>','<%=question[0].questions._id%>','<%=answer._id%>','<%=user._id %>')" class="triangle-up" type="submit"></button>
                             <div id="votes" style="padding: 5px;"><%=answer.votes%></div>
-                            <button id="downvote" onclick="dClicks('<%= group._id %>','<%=question[0].questions._id%>','<%=answer._id%>','<%=user._id %>')" class="triangle-down" style="cursor: pointer;" type="submit"></button>
+                            <button id="downvote" onclick="dClicks('<%= group._id %>','<%=question[0].questions._id%>','<%=answer._id%>','<%=user._id %>')" class="triangle-down" type="submit"></button>
                         </div>
                     </div>                
                     <hr>

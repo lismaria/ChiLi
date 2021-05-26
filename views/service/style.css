@@ -12,6 +12,12 @@
 
 body{
     height: 100vh;
+    cursor: url("../cursor.svg"),auto;
+}
+
+.iconify,button:hover,a:hover,.userimg:hover
+{
+    cursor: url("../pointer.svg"),auto;
 }
 
 /* Defining ROOT variables */
@@ -231,11 +237,11 @@ body{
     width: 32px;
 }
 
-/* Button Styles */
-.iconify,button:hover
-{
-    cursor: pointer;
+svg{
+    fill:#fff;
 }
+
+/* Button Styles */
 
 button
 {
