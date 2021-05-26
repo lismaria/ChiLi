@@ -1,43 +1,43 @@
 body{
     background: var(--bgcontacus);
-    position: relative;
+    /* position: relative; */
     height: 100vh;
 }
 
 /* Star Blobs */
 .leftBlob1{
     /* filter: var(--leftblob); */
-    position: absolute;
+    /* position: absolute; */
     width: 210px;
     height: 126px;
-    left: 426px;
-    top: 67px;
+    /* left: 426px;
+    top: 67px; */
 }
 
 .leftBlob2{
     /* filter: var(--leftblob); */
-    position: absolute;
+    /* position: absolute; */
     width: 427px;
     height: 256px;
-    left: -73px;
-    top: 371px;
+    /* left: -73px;
+    top: 371px; */
 }
 
 .rightBlob1{
     /* filter: var(--rightblob); */
-    position: absolute;
+    /* position: absolute; */
     width: 391px;
     height: 235px;
-    left: 1039px;
-    top: 80px;
+    /* left: 1039px;
+    top: 80px; */
 }
 .rightBlob2{
     /* filter: var(--rightblob); */
-    position: absolute;
+    /* position: absolute; */
     width: 210px;
     height: 126px;
-    left: 1258px;
-    top: 511px;
+    /* left: 1258px;
+    top: 511px; */
 }
 
 /* Form Block*/

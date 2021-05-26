@@ -1,19 +1,19 @@
 /* Outer Blobs */
 .blob1
 {
-    position: absolute;
+    /* position: absolute;
     top: 0;
-    right: 0; 
-    filter: var(--blob12);
+    right: 0;  */
+    /* filter: var(--blob12); */
     z-index: -1;  
 }
 
 .blob4
 {
-    position: absolute;
+    /* position: absolute;
     left: 0;
-    bottom: 0;
-    filter: var(--blob12);
+    bottom: 0; */
+    /* filter: var(--blob12); */
     z-index:-1;
 }
 
@@ -43,13 +43,13 @@
     position:relative;
 }
 
-.divblob
+/* .divblob
 {
     position:absolute;
     left: -320.5px;
     bottom: -75.5px;
     filter:var(--blob12);
-}
+} */
 
 /* SignUp LHS */
 .signup-left
