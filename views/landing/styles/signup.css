@@ -1,21 +1,5 @@
 /* Outer Blobs */
-.blob1
-{
-    /* position: absolute;
-    top: 0;
-    right: 0;  */
-    /* filter: var(--blob12); */
-    z-index: -1;  
-}
-
-.blob4
-{
-    /* position: absolute;
-    left: 0;
-    bottom: 0; */
-    /* filter: var(--blob12); */
-    z-index:-1;
-}
+/* // inline css */
 
 /* SignUp Content */
 .container
@@ -43,13 +27,6 @@
     position:relative;
 }
 
-/* .divblob
-{
-    position:absolute;
-    left: -320.5px;
-    bottom: -75.5px;
-    filter:var(--blob12);
-} */
 
 /* SignUp LHS */
 .signup-left

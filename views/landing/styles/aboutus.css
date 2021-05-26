@@ -9,24 +9,7 @@
     height:78.5vh;
 }
 
-.blob1
-{
-    /* position: absolute;
-    right:0;
-    top:0; */
-    /* filter:var(--color); */
-    /* background:var(--color); */
-    z-index:-1;
-}
-
-.blob2
-{
-    /* position:absolute;
-    left: 0;
-    bottom:0; */
-    z-index:-1;
-    /* filter:var(--blob12); */
-}
+/* Blobs in inline css */
 
 .content-container
 {

@@ -5,24 +5,7 @@
 }
 
 /* Outer Blobs */
-.blob1
-{
-    /* position: absolute;
-    top: 0;
-    right: 0;  */
-    /* filter: var(--blob12); */
-    z-index: -1;  
-    flex-shrink: 3;  
-}
-
-.blob4
-{
-    /* position: absolute;
-    left: 0;
-    bottom: 0; */
-    /* filter: var(--blob12); */
-    z-index:-1;
-}
+/* // inline css */
 
 /* Login Content */
 .container{
@@ -42,12 +25,6 @@
     overflow:hidden;
     position: relative;
 }
-/* .blob4in{
-    position: absolute;
-    left:-320.5px;
-    bottom: -75.5px;
-    filter: var(--blob12);
-} */
 
 /* Image Contents */
 .imgWrapper, .formWrapper{

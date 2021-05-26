@@ -12,23 +12,7 @@
     height:85vh;
 }
 
-.blob1
-{
-    /* position: absolute;
-    top: 0;
-    right: 0;  */
-    /* filter: var(--blob12); */
-    z-index: -1;  
-}
-
-.blob2
-{
-    /* position: absolute;
-    left: 0;
-    bottom: 0; */
-    /* filter: var(--blob12); */
-    z-index:-1;
-}
+/* Blobs 1 and 2 in inline css */
 
 .home-content
 {
