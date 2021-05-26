@@ -21,16 +21,18 @@ html::-webkit-scrollbar {
     --bgtxtdark: #ffffff;
     --shadowlight:2px 10px 20px rgba(0, 0, 0, 0.26);
     --shadowdark:2px 10px 20px rgba(255, 255, 255, 0.26);
-    --blob12light:invert(63%) sepia(59%) saturate(464%) hue-rotate(140deg) brightness(88%) contrast(83%);
-    --blob12dark:invert(15%) sepia(99%) saturate(2704%) hue-rotate(205deg) brightness(91%) contrast(101%);
-    --blob34light:invert(100%) sepia(0%) saturate(7500%) hue-rotate(27deg) brightness(120%) contrast(114%);
-    --blob34dark:invert(0%) sepia(0%) saturate(0%) hue-rotate(80deg) brightness(89%) contrast(105%);
+    /* --blob12light:invert(63%) sepia(59%) saturate(464%) hue-rotate(140deg) brightness(88%) contrast(83%);
+    --blob12dark:invert(15%) sepia(99%) saturate(2704%) hue-rotate(205deg) brightness(91%) contrast(101%); */
+    --blob12light:#3fb3c3;
+    --blob12dark:#0047a1;
+    --blob34light:#ffffff;
+    --blob34dark:#000000;
     --bghome2dark:#0047A1;
     --bghome2darksecondary:#6786C7;
     --bgcontactuslight: linear-gradient(360deg, #FFFFFF 0%, #3FB3C3 65.5%);
     --bgcontactusdark: linear-gradient(360deg, #000000 0%, #0047A1 65.5%);
-    --leftblobdark:invert(90%) sepia(0%) saturate(311%) hue-rotate(126deg) brightness(94%) contrast(76%);
-    --rightblobdark:invert(11%) sepia(8%) saturate(3308%) hue-rotate(168deg) brightness(94%) contrast(91%);
+    --leftblobdark:#bdbdbd;
+    --rightblobdark:#182735;
     --contactlight:#182735;
     --contactdark:#BDBDBD;
 }

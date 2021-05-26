@@ -9,7 +9,7 @@
 
 /* Home Page 1 */
 .container {
-    height:86vh;
+    height:85vh;
 }
 
 .blob1
@@ -17,7 +17,7 @@
     position: absolute;
     top: 0;
     right: 0; 
-    filter: var(--blob12);
+    /* filter: var(--blob12); */
     z-index: -1;  
 }
 
@@ -26,7 +26,7 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    filter: var(--blob12);
+    /* filter: var(--blob12); */
     z-index:-1;
 }
 
@@ -109,14 +109,14 @@
 }
  
 .blob3{
-    filter: var(--blob34);
+    /* filter: var(--blob34); */
     position: absolute;
     top: 0;
     right: 0; 
-    width:898px;
+    /* width:898px; */
 }
 .blob4{
-    filter: var(--blob34);
+    /* filter: var(--blob34); */
     position: absolute;
     left: 0;
     bottom: 0;
@@ -228,7 +228,7 @@ div.back{
     z-index:-1;
     top: 0;
     right:0;
-    filter:var(--blob12);
+    /* filter:var(--blob12); */
 }
 
 /* Home Page 3 Section 1 starts here */

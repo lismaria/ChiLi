@@ -6,7 +6,7 @@ body{
 
 /* Star Blobs */
 .leftBlob1{
-    filter: var(--leftblob);
+    /* filter: var(--leftblob); */
     position: absolute;
     width: 210px;
     height: 126px;
@@ -15,7 +15,7 @@ body{
 }
 
 .leftBlob2{
-    filter: var(--leftblob);
+    /* filter: var(--leftblob); */
     position: absolute;
     width: 427px;
     height: 256px;
@@ -24,7 +24,7 @@ body{
 }
 
 .rightBlob1{
-    filter: var(--rightblob);
+    /* filter: var(--rightblob); */
     position: absolute;
     width: 391px;
     height: 235px;
@@ -32,7 +32,7 @@ body{
     top: 80px;
 }
 .rightBlob2{
-    filter: var(--rightblob);
+    /* filter: var(--rightblob); */
     position: absolute;
     width: 210px;
     height: 126px;
