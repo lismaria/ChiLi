@@ -12,7 +12,7 @@
     <a href="/forums/<%=group._id%>"><span class="iconify" data-inline="false" data-icon="akar-icons:arrow-back-thick-fill" style="width:30px;height:30px;margin: 20px 0px 0 20px;"></span></a>
 
     <div id="forumQues" class="forumQues">
-        <div class="forum-lhs">
+        <div class="forum-lhs" id="quesid" data-test="<%=question[0].questions._id%>">
             <div class="ques-body">
                 <div style="display:flex;">
                     <div class="quesimg"><img src="https://avatars.dicebear.com/api/bottts/<%=question[0].questions.profile_pic%>.svg"></div>

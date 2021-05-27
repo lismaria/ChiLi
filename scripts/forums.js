@@ -80,15 +80,26 @@ module.exports =function(app,express,io)
 
     // *** socket.io code *** //
     io.on('connection', function(socket){
+
+        socket.on("join",function(room)
+        {
+            console.log("joining forum");
+            console.log("forumsid: " + room)
+            socket.join(room);
+        })
+
         socket.on('post_ques',function(data){              //listening for post question event from client
+            console.log("in server posting ques")
+            //io.to(`${socket.id}`).emit('post_ques',data);
             socket.emit('post_ques',data);                                       // emiting msg to all sockets(clients) on server
+            console.log("emitted  ques to client from server")  
  
             obj=showques();                                                          // storing the return obj of showMsg
  
-            forum.findOne({groupid: obj.groupId}).then(function(result){          // finding the current group
+            forum.findOne({groupid: data.forumsid}).then(function(result){          // finding the current group
                 if(result==null){                                                // if no grp found, creating first insttance   
                     var newforum=new forum({                                          //storing the details
-                        groupid:obj.groupId,
+                        groupid:data.forumsid,
                         questions:[{             
                             user_name: data.user,
                             ques_title: data.ques_title,
@@ -98,15 +109,15 @@ module.exports =function(app,express,io)
                         }]
                     });
                     newforum.save().then(function(newdoc)                 //if first chat, then store chat_id in groups Schema for reference
-                    {                        
-                        group.findOneAndUpdate({_id:obj.groupId},{$push: {forum_id:newdoc._id}}).then(function(frm){
+                    {                        console.log("saving to db");
+                        group.findOneAndUpdate({_id:data.forumsid},{$push: {forum_id:newdoc._id}}).then(function(frm){
                             socket.emit('reload', {});
                         })
                     })
  
                 }
-                else{                                                             //if group exists push texts into messages                  
-                    forum.findOneAndUpdate({groupid:obj.groupId},{$push:{questions:{user_name:data.user,ques_title:data.ques_title,ques_descr:data.ques_descr,time:new Date(),profile_pic: data.userdp}}}).then(function(result){
+                else{                     console.log("saving to db");                                        //if group exists push texts into messages                  
+                    forum.findOneAndUpdate({groupid:data.forumsid},{$push:{questions:{user_name:data.user,ques_title:data.ques_title,ques_descr:data.ques_descr,time:new Date(),profile_pic: data.userdp}}}).then(function(result){
                         socket.emit('reload', {});
                     })
                 }
@@ -114,14 +125,25 @@ module.exports =function(app,express,io)
  
         })
 
+        // socket.on("ques",function(room)
+        // {
+        //     console.log("joining");
+        //     console.log("quesid: " + room)
+        //     socket.join(room);
+        // })
+
         //post answer
         socket.on('post_ans',function(ansData){              //listening for post question event from client
-            socket.emit('post_ans',ansData);                                        // emiting msg to all sockets(clients) on server
-
+            console.log("in server")
+            // socket.emit('post_ans',ansData);                                        // emiting msg to all sockets(clients) on server
+            // io.to(`${socket.id}`).emit('post_ans',ansData); 
+            //valid//io.of(ansData.quesid).to(ansData.forumsid).emit('post_ans',ansData);
+            console.log("emitted to client from server")
             obj=showques();
             app=showans();
-            forum.findOne({groupid:obj.groupId},{ questions: { $elemMatch: { _id: app.postId } } }).then(function(result)
+            forum.findOne({groupid:obj.groupId},{ questions: { $elemMatch: { _id: app.ques } } }).then(function(result)
             {
+                console.log("saving to db");
                 result.questions[0].answers.push({user_name:ansData.user,ans:ansData.ans,time:new Date(),votes:0,profile_pic:ansData.userdp});
                 socket.emit('reload', {});
                 result.save();
