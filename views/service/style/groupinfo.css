@@ -140,6 +140,16 @@ a.infonav{
     line-height: 23px;
 }
 
+.name-username{
+    display:flex; 
+    flex-direction:column
+}
+
+.user-name{
+    color:var(--username); 
+    font-style:italic;
+}
+
 .leave-modal {
     position: fixed; 
     z-index: 2; 

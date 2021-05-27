@@ -83,7 +83,7 @@ module.exports=function(app,express,io)
         });
 
         socket.on('typing', function(data){
-            socket.broadcast.to(data.roomid).emit('typing', data);
+            socket.to(data.roomid).emit('typing', data);
         });
     })
 }

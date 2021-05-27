@@ -97,7 +97,10 @@
                     <%group.users.forEach(function(users){%>
                         <div class="member-profiles">
                            <div><img src="https://avatars.dicebear.com/api/bottts/<%=users.profile_pic%>.svg"></div>
-                           <span><%=users.full_name;%></span>
+                           <p class="name-username" style="display:flex; flex-direction:column">
+                                <span><%=users.full_name;%></span>
+                                <span class="user-name" style="font-size:16px;margin-top:2px;"><%=users.user_name%></span>
+                            </p>
                         </div>
                     <% }) %>
 
