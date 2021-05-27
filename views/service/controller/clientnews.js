@@ -1,6 +1,7 @@
 var socket = io();
  
 //DOM 
+var newsid = document.getElementById('newsid').dataset.test;
 var user = document.getElementById('news-content-column').dataset.test;                  //getting values from dom elements by ID
 var news_content_column = document.getElementById("news-content-column");
 var news_title = document.getElementById("news_title");
@@ -9,6 +10,8 @@ var post_news = document.getElementById("post_news");
 
 
 //*** Emit Events ***//
+
+socket.emit("join",newsid);
 
 //on Button Click
 if(news_title){                                                          //if there is news_title, then adding event listener to emit data
@@ -19,7 +22,8 @@ post_news.addEventListener('click',function(event){
         socket.emit('post_news',{
             news_title: news_title.value,
             news_story: news_story.value,
-            user:user
+            user:user,
+            newsid: newsid
         });
     }
     news_title.value = '';                                               //clearing news_title box after data is sent

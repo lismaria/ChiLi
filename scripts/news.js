@@ -47,15 +47,20 @@ module.exports =function(app,express,io)
 
     // *** socket.io code *** //
     io.on('connection', function(socket){
-       socket.on('post_news',function(data){
-           socket.emit('post_news',data);                                        // emiting msg to all sockets(clients) on server
+        socket.on("join",function(room)
+        {
+            socket.join(room);
+        })
+        
+        socket.on('post_news',function(data){
+           socket.to(data.newsid).emit('post_news',data);                                        // emiting msg to all sockets(clients) on server
 
            obj=shownews();                                                          // storing the return obj of showMsg
 
-           news.findOne({groupid: obj.groupId}).then(function(result){          // finding the current group
+           news.findOne({groupid: data.newsid}).then(function(result){          // finding the current group
                if(result==null){                                                // if no grp found, creating first insttance   
                    var newnews=new news({                                          //storing the details
-                       groupid:obj.groupId,
+                       groupid:data.newsid,
                        newscontent:[{                    
                            user_name: data.user,
                            news_title: data.news_title,
@@ -65,13 +70,13 @@ module.exports =function(app,express,io)
                    });
                    newnews.save().then(function(newdoc)                 //if first chat, then store chat_id in groups Schema for reference
                    {                        
-                            group.findOneAndUpdate({_id:obj.groupId},{$push: {news_id:newdoc._id}}).then(function(grp){
+                            group.findOneAndUpdate({_id:data.newsid},{$push: {news_id:newdoc._id}}).then(function(grp){
                        })
                    })
 
                }
                else{                                                             //if group exists push texts into messages                  
-                   news.findOneAndUpdate({groupid:obj.groupId},{$push:{newscontent:{user_name:data.user,news_title:data.news_title,news_story:data.news_story,time:new Date()}}}).then(function(result){
+                   news.findOneAndUpdate({groupid:data.newsid},{$push:{newscontent:{user_name:data.user,news_title:data.news_title,news_story:data.news_story,time:new Date()}}}).then(function(result){
                        // :D
                        // console.log(date.toLocaleTimeString());
                    })
