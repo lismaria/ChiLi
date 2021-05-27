@@ -56,22 +56,25 @@ input.addEventListener('keypress', function (event) {
 }
 
 
-// input.addEventListener('keypress', function(){
-//     console.log("Line 48")
-//     socket.emit('typing', user);
-// })
+input.addEventListener('click', function(){
+    console.log("Line 48")
+    socket.emit('typing', {
+        user:user,
+        roomid:roomid
+    });
+})
 
 
 //*** Listen for Events ***//
 socket.on('chat',function (data){
-    feedback.innerHTML="";
+    feedback.innerHTML= ' ';
+    feedback.innerHTML = '<p> </p>';
     output.innerHTML+='<div class="userProfile" id="userProfile"><div class="userImg"><img src="https://avatars.dicebear.com/api/bottts/'+data.userdp+'.svg"></div><div style="width:100%"><span id="username" class="userName">'+data.user+'</span><div class="message"><p>'+data.input+'</p><span>'+new Date().toLocaleTimeString().replace(/:\d{2}\s/,' ')+'</span></div></div></div>'
     var element = document.getElementById('output');
     element.scrollTop = element.scrollHeight;
-    // feedback.innerHTML="";
 })
 
-// socket.on('typing', function(data){
-//     console.log("Line 63")
-//     feedback.innerHTML = '<p><em>' + data + ' is typing...</em></p>';
-// });
+socket.on('typing', function(data){
+    console.log("Line 63")
+    feedback.innerHTML = '<p><em>' + data.user + ' is typing...</em></p>';
+});
