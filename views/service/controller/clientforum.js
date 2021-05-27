@@ -6,7 +6,6 @@ socket.on('reload', function (data) {
  
 //DOM 
 var forumsid = document.getElementById('forumsid').dataset.test;
-// var quesid = document.getElementById('quesid').dataset.test;
 var user = document.getElementById('forumContent').dataset.test;                  //getting values from dom elements by ID
 var userdp = document.getElementById('forumHeader').dataset.dp; 
 var forumContent = document.getElementById("forumContent");
@@ -45,6 +44,8 @@ post_ques.addEventListener('click',function(event){
 
 if(ans){                                                          //if there is ques_title, then adding event listener to emit data
 post_ans.addEventListener('click',function(event){
+    var questionid = document.getElementById('questionid').dataset.test;
+
     console.log("client-post-ans")
     event.preventDefault();
     if(ans.value.length>0)
@@ -52,9 +53,9 @@ post_ans.addEventListener('click',function(event){
         socket.emit('post_ans',{                        //emit to server
             ans: ans.value,
             user:user,
-            userdp:userdp
-            // forumsid:forumsid,
-            // quesid:quesid
+            userdp:userdp,
+            forumsid:forumsid,
+            questionid:questionid
         });
     }
     ans.value = '';                                               //clearing ques_title box after data is sent

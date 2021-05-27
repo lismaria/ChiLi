@@ -136,12 +136,12 @@ module.exports =function(app,express,io)
         socket.on('post_ans',function(ansData){              //listening for post question event from client
             console.log("in server")
             // socket.emit('post_ans',ansData);                                        // emiting msg to all sockets(clients) on server
-            // io.to(`${socket.id}`).emit('post_ans',ansData); 
+            io.to(`${socket.id}`).emit('post_ans',ansData); 
             //valid//io.of(ansData.quesid).to(ansData.forumsid).emit('post_ans',ansData);
             console.log("emitted to client from server")
             obj=showques();
             app=showans();
-            forum.findOne({groupid:obj.groupId},{ questions: { $elemMatch: { _id: app.ques } } }).then(function(result)
+            forum.findOne({groupid:ansData.forumsid},{ questions: { $elemMatch: { _id: ansData.questionid} } }).then(function(result)
             {
                 console.log("saving to db");
                 result.questions[0].answers.push({user_name:ansData.user,ans:ansData.ans,time:new Date(),votes:0,profile_pic:ansData.userdp});
