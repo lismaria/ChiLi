@@ -41,7 +41,6 @@ a.chatnav{
     background: var(--chatbg);
     border-radius: 25px;
     padding: 10px;
-    width: max-content;
     margin-top: 3px;
     max-width: fit-content;
 }

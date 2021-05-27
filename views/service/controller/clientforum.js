@@ -25,7 +25,6 @@ socket.emit("join",forumsid);
 //on Button Click
 if(ques_title){                                                          //if there is ques_title, then adding event listener to emit data
 post_ques.addEventListener('click',function(event){
-    console.log("client-post-ques")
     event.preventDefault();
     if(ques_title.value.length>0 && ques_descr.value.length>0)
     {
@@ -45,8 +44,6 @@ post_ques.addEventListener('click',function(event){
 if(ans){                                                          //if there is ques_title, then adding event listener to emit data
 post_ans.addEventListener('click',function(event){
     var questionid = document.getElementById('questionid').dataset.test;
-
-    console.log("client-post-ans")
     event.preventDefault();
     if(ans.value.length>0)
     {
@@ -71,7 +68,6 @@ socket.on('post_ques',function (data){                   //listening from server
 })
 
 socket.on('post_ans',function (ansData){                   //listening from server
-    console.log("litening from client")
     ans_arr.innerHTML+='<div class="answerss"><div style="display:flex;padding: 10px; align-items: center;"><div class="quesimg"><img src="https://avatars.dicebear.com/api/bottts/'+ansData.userdp+'.svg"></div><div class="queshead"><p>'+ansData.user+'<span class="fdate">'+new Date().toLocaleDateString(undefined, {month:"short",year:"numeric",day:"numeric"})+'</span></p><p>'+ansData.ans+'</p></div></div><div class="ans-votes"><button id="upvote" class="triangle-up" style="cursor: pointer;" type="submit"></button><div id="votes" style="padding: 5px;">0</div><button id="downvote" class="triangle-down" style="cursor: pointer;" type="submit"></button></div></div><hr>'
     var element = document.getElementById('forumQues');
     element.scrollTop = element.scrollHeight;
@@ -82,11 +78,9 @@ function uClicks(id,quesid,ansid,uid){
     
     if(typeof(Storage)!=="undefined"){
         if(localStorage[uid+'ucount'+ansid]>=1){
-                console.log("if ucount", localStorage[uid+'ucount'+ansid]);
             }
         else{
                 localStorage[uid+'ucount'+ansid]=1;
-                console.log("else ucount", localStorage[uid+'ucount'+ansid]);
                 xhr.onreadystatechange = function(){ 
                         location.reload();
                     // if (this.readyState == 4 && this.status == 200){
@@ -106,11 +100,9 @@ function dClicks(id,quesid,ansid,uid){
     
     if(typeof(Storage)!=="undefined"){
         if(localStorage[uid+'dcount'+ansid]>=1){
-                console.log("if dcount", localStorage[uid+'dcount'+ansid]);
             }
         else{
                 localStorage[uid+'dcount'+ansid]=1;
-                console.log("else dcount", localStorage[uid+'dcount'+ansid]);
                 xhr.onreadystatechange = function(){ 
                         location.reload();
                     // if (this.readyState == 4 && this.status == 200){

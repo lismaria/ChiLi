@@ -57,7 +57,6 @@ input.addEventListener('keypress', function (event) {
 
 
 input.addEventListener('click', function(){
-    console.log("Line 48")
     socket.emit('typing', {
         user:user,
         roomid:roomid
@@ -75,6 +74,5 @@ socket.on('chat',function (data){
 })
 
 socket.on('typing', function(data){
-    console.log("Line 63")
     feedback.innerHTML = '<p><em>' + data.user + ' is typing...</em></p>';
 });

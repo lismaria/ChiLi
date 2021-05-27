@@ -83,16 +83,11 @@ module.exports =function(app,express,io)
 
         socket.on("join",function(room)
         {
-            console.log("joining forum");
-            console.log("forumsid: " + room)
             socket.join(room);
         })
 
         socket.on('post_ques',function(data){              //listening for post question event from client
-            console.log("in server posting ques")
-            //io.to(`${socket.id}`).emit('post_ques',data);
             socket.emit('post_ques',data);                                       // emiting msg to all sockets(clients) on server
-            console.log("emitted  ques to client from server")  
  
             obj=showques();                                                          // storing the return obj of showMsg
  
@@ -109,14 +104,14 @@ module.exports =function(app,express,io)
                         }]
                     });
                     newforum.save().then(function(newdoc)                 //if first chat, then store chat_id in groups Schema for reference
-                    {                        console.log("saving to db");
+                    {                       
                         group.findOneAndUpdate({_id:data.forumsid},{$push: {forum_id:newdoc._id}}).then(function(frm){
                             socket.emit('reload', {});
                         })
                     })
  
                 }
-                else{                     console.log("saving to db");                                        //if group exists push texts into messages                  
+                else{                                                           //if group exists push texts into messages                  
                     forum.findOneAndUpdate({groupid:data.forumsid},{$push:{questions:{user_name:data.user,ques_title:data.ques_title,ques_descr:data.ques_descr,time:new Date(),profile_pic: data.userdp}}}).then(function(result){
                         socket.emit('reload', {});
                     })
@@ -134,16 +129,11 @@ module.exports =function(app,express,io)
 
         //post answer
         socket.on('post_ans',function(ansData){              //listening for post question event from client
-            console.log("in server")
-            // socket.emit('post_ans',ansData);                                        // emiting msg to all sockets(clients) on server
             io.to(`${socket.id}`).emit('post_ans',ansData); 
-            //valid//io.of(ansData.quesid).to(ansData.forumsid).emit('post_ans',ansData);
-            console.log("emitted to client from server")
             obj=showques();
             app=showans();
             forum.findOne({groupid:ansData.forumsid},{ questions: { $elemMatch: { _id: ansData.questionid} } }).then(function(result)
             {
-                console.log("saving to db");
                 result.questions[0].answers.push({user_name:ansData.user,ans:ansData.ans,time:new Date(),votes:0,profile_pic:ansData.userdp});
                 socket.emit('reload', {});
                 result.save();
@@ -214,91 +204,3 @@ module.exports =function(app,express,io)
         });
     });
 }
-
-
- // app.post("/forums/:id/:quesid/:ansid/upvote",function(req,res)
-        // {
-        //     var id = mongoose.Types.ObjectId(req.params.id);
-        //     var quesid = mongoose.Types.ObjectId(req.params.quesid);
-        //     var ansid = mongoose.Types.ObjectId(req.params.ansid);
-    
-        //     forum.findOneAndUpdate(
-        //         { groupid: id },
-        //         { $inc: { "questions.$[q].answers.$[a].votes": 1 } },
-        //         { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
-                    // // console.log(rrr);
-                    // // res.redirect("/forums/"+id+"/"+quesid);
-                    // // console.log(rrr.questions.$[quesid])
-                    // console.log(rrr.questions[quesid])
-
-                    // // console.log(rrr.questions[quesid].answers[ansid])
-                    // votes=rrr.questions[quesid].answers[ansid].votes;
-                    // console.log("votes")
-                    // // res.redirect("/forums/"+id+"/"+quesid);
-                    // forum.aggregate([
-                    //     {
-                    //         $unwind: '$questions'
-                    //     },
-                    //     {
-                    //         $match: {
-                    //             'questions._id':quesid
-                    //         }
-                    //     },
-                    //     {
-                    //         $project: {
-                    //             answers:'$questions.answers'
-                    //         }
-                    //     }
-                    // ]).then(function(arr){
-                    //     for(i in arr[0].answers){
-                    //         if(arr[0].answers[i]._id==req.params.ansid){
-                    //             var votes=arr[0].answers[i].votes;
-                    //             res.status(200).send(votes.toString());
-                    //         }
-                    //     }
-                    // })
-    //         })
-    //     })
-    // })
-
-
-
-
-
-
-            // var id = mongoose.Types.ObjectId(req.params.id);
-            // var quesid = mongoose.Types.ObjectId(req.params.quesid);
-            // var ansid = mongoose.Types.ObjectId(req.params.ansid);
-    
-            // forum.findOneAndUpdate(
-            //     { groupid: id },
-            //     { $inc: { "questions.$[q].answers.$[a].votes": -1 } },
-            //     { arrayFilters: [ { 'q._id': quesid }, { 'a._id': ansid } ] }).then(function(rrr){
-                    // forum.aggregate([
-                    //     {
-                    //         $unwind: '$questions'
-                    //     },
-                    //     {
-                    //         $match: {
-                    //             'questions._id':quesid
-                    //         }
-                    //     },
-                    //     {
-                    //         $project: {
-                    //             answers:'$questions.answers'
-                    //         }
-                    //     }
-                    // ]).then(function(arr){
-                    //     for(i in arr[0].answers){
-                    //         if(arr[0].answers[i]._id==req.params.ansid){
-                    //             var votes=arr[0].answers[i].votes;
-                    //             res.status(200).send(votes.toString());
-                    //         }
-                    //     }
-                    // })
-//             })
-            
-//         })
-//     })
-// }       
-// }

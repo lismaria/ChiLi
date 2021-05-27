@@ -32,15 +32,15 @@
                     <form action="https://script.google.com/macros/s/AKfycbxKMTfUHlmCp8Wu9wKVveBqZwfma6lQYoLVRFcDQhpuERhQmm_6Fa-vLFlmH71mtfBwLg/exec" method="POST" enctype="multipart/form-data" name="contactusForm"  data-email="chiliecp@gmail.com"> 
                         <div class="nameRow" style="position: absolute;">
                             <label for="firstname">Name</label><br>
-                            <input type="text" name="firstname" id="firstname" placeholder=" Your name..">
+                            <input type="text" name="firstname" id="firstname" placeholder=" Your name.." required>
                         </div>
                         <div class="emailRow" style="position: absolute;">
                             <label for="email">Email</label><br>
-                            <input type="email" name="email" id="email" placeholder=" Your email..">
+                            <input type="email" name="email" id="email" placeholder=" Your email.." required>
                         </div>
                         <div class="msgRow" style="position: absolute;">
                             <label for="message">Send a Message</label><br>
-                            <textarea name="message" id="message" placeholder=" Your message.."></textarea>
+                            <textarea name="message" id="message" placeholder=" Your message.." required></textarea>
                         </div>
                         <button class="submitBtn" type="submit" value="Submit" onclick="success()" style="position: absolute;">Submit</button>
                     </form>
