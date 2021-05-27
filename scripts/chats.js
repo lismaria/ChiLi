@@ -57,10 +57,10 @@ module.exports=function(app,express,io)
             obj=show();                                                          // storing the return obj of showMsg
             io.to(data.roomid).emit('chat',data);                                        // emiting msg to all sockets(clients) on server
 
-            chat.findOne({groupid: obj.groupId}).then(function(result){          // findong the current group
+            chat.findOne({groupid: data.roomid}).then(function(result){          // findong the current group
                 if(result==null){                                                // if no grp found, creating first insttance   
                     var newchat=new chat({                                          //storing the details
-                        groupid:obj.groupId,
+                        groupid:data.roomid,
                         messages:[{                    
                             user_name: data.user,
                             text: data.input,
@@ -69,13 +69,13 @@ module.exports=function(app,express,io)
                         }]
                     });
                     newchat.save().then(function(newdoc){                        //if first chat, then store chat_id in groups Schema for reference
-                        group.findOneAndUpdate({_id:obj.groupId},{$push: {chat_id:newdoc._id}}).then(function(grp){
+                        group.findOneAndUpdate({_id:data.roomid},{$push: {chat_id:newdoc._id}}).then(function(grp){
                         })
                     })
                     
                 }
                 else{                                                             //if group exists push texts into messages                  
-                    chat.findOneAndUpdate({groupid:obj.groupId},{$push:{messages:{user_name:data.user,text:data.input,time:new Date(),profile_pic:data.userdp}}}).then(function(result){
+                    chat.findOneAndUpdate({groupid:data.roomid},{$push:{messages:{user_name:data.user,text:data.input,time:new Date(),profile_pic:data.userdp}}}).then(function(result){
                     })
                 }
             })          
