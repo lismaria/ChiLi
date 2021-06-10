@@ -246,7 +246,12 @@ a.forumnav{
     right: 20px;
 }
 
+.add{
+    transition: 0.4s linear;
+}
+
 .rotate{
+    transition: 0.4s linear;
     transform: rotate(135deg);
 }
 
