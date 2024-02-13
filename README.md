@@ -25,7 +25,7 @@ Some of the salient features of this website are:
 <div align="center">
   <!-- Before Login -->
   <img src="https://github.com/lismaria/ECP/assets/80913769/db966afb-2836-4216-92eb-ec09ebe3846e" width=450>  <!-- Home page -->
-  <img src="https://github.com/lismaria/ECP/assets/80913769/129f4c65-c84d-4131-874b-051ff493c14d" width=450>  <!-- Home page-2 -->
+  <img src="https://github.com/lismaria/ECP/assets/80913769/b32123b7-228e-4db7-b2ae-2c26ea574673" width=450>  <!-- Home page-2 -->
   <img src="https://github.com/lismaria/ECP/assets/80913769/681d9462-70d9-4ebe-8791-f8f1386ab9e5" width=450>  <!-- Home page-3 -->
   <img src="https://github.com/lismaria/ECP/assets/80913769/c1274218-dffb-4941-8ba6-39a7cfc6c649" width=450>  <!-- About us -->
   <img src="https://github.com/lismaria/ECP/assets/80913769/51540273-5162-49a5-861f-7a2e7e992410" width=450>  <!-- Contact us -->
